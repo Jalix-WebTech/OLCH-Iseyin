@@ -1,0 +1,277 @@
+/* ==================================================
+   VARIABLES
+   Define colors, fonts, and reusable variables
+================================================== */
+:root {
+  --primary: #0f4c75;
+  --secondary: #1b9aaa;
+  --danger: #d90429;
+  --text-dark: #1f2933;
+  --bg-light: #f9fafb;
+}
+
+/* ==================================================
+   RESET & BASE STYLES
+   Reset margins/paddings and set base fonts
+================================================== */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  background-color: #fff;
+}
+
+/* ==================================================
+   ACCESSIBILITY
+================================================== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.5rem;
+  z-index: 999;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ==================================================
+   CONTAINERS
+================================================== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ==================================================
+   HEADER & NAVIGATION
+================================================== */
+.header {
+    background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* subtle depth */
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  color: var(--primary);
+}
+
+/* Navigation (Slide-in Mobile) */
+.nav {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.nav.open {
+  right: 0;
+}
+
+.nav__list {
+  list-style: none;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.nav__list a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Overlay for slide-in menu */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hamburger toggle */
+.nav-toggle {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* Desktop navigation */
+@media (min-width: 769px) {
+  .nav {
+    position: static;
+    width: auto;
+    height: auto;
+    box-shadow: none;
+    right: 0;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .nav-toggle,
+  .nav-overlay {
+    display: none;
+  }
+}
+
+/* ==================================================
+   HERO SECTION
+================================================== */
+.hero {
+  background: linear-gradient(rgba(15,76,117,0.9), rgba(27,154,170,0.9));
+  color: #fff;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+/* ==================================================
+   BUTTONS
+================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.3rem;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn--primary {
+  background: #fff;
+  color: var(--primary);
+}
+
+.btn--emergency {
+  background: #fff;
+  color: var(--danger);
+}
+
+/* ==================================================
+   SERVICES SLIDER
+================================================== */
+.section {
+  padding: 3rem 0;
+}
+
+.services-slider {
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.service-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  text-align: center;
+}
+
+.service-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+
+.service-slide img {
+  width: 100%;
+  max-height: 650px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
+}
+
+.service-slide figcaption {
+  margin-top: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Swipe dots */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.slider-dot.active {
+  background: var(--primary);
+}
+
+/* ==================================================
+   EMERGENCY SECTION
+================================================== */
+.emergency {
+  background: var(--danger);
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+.footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
