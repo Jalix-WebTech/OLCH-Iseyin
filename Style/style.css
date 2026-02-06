@@ -210,6 +210,13 @@ body {
 }
 
 .service-slide {
+  border-radius: 5px;
+  /* width: 360px;
+  height: 470px; */
+  /* justify-items: center;
+  justify-content: center; */
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);  
+
   position: absolute;
   inset: 0;
   opacity: 0;
@@ -257,8 +264,10 @@ body {
 
 /* figcaption-more-information */
 .figcaption-more-info{
-  /* padding: 5px 2px 5px 2px; */
-  border: 1px solid rgba(0, 183, 255, 0.479);
+  text-align: left;
+  height: auto;
+  padding: 5px 2px 5px 5px;
+  /* border: 1px solid rgba(0, 183, 255, 0.479); */
   border-radius: 5px;
 }
 
