@@ -24,7 +24,7 @@ const typingSpeed = 100;
 const deletingSpeed = 60;
 
 // Pause after typing a full word
-const pauseAfterTyping = 1500;
+const pauseAfterTyping = 1300;
 
 // Main typing function
 function typeEffect() {
