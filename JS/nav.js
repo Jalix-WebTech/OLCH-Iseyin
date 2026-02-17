@@ -15,3 +15,14 @@ toggleBtn.addEventListener('click', () => {
 });
 
 overlay.addEventListener('click', closeMenu);
+
+// slider for home page
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('active2');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active2');
+  }, 5000);
+

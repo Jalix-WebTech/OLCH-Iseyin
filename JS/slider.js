@@ -62,3 +62,6 @@ sliderContainer.addEventListener('touchend', e => {
 
 // Initialize
 startAutoSlide();
+
+
+
