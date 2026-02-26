@@ -7,6 +7,7 @@
   <meta name="description" content="Our Lady Catholic Hospital Iseyin provides trusted healthcare, modern facilities, and 24/7 emergency services.">
   
   <link rel="stylesheet" href="./Style/style.css">
+  <link rel="stylesheet" href="./Style/home-intro.css">
 </head>
 
 <body>
@@ -56,104 +57,139 @@
   </div>
   </section>
 
-  <main id="main-content">
+<!-- ===============INTRODUCTION OF THE HOSPITAL=================== -->
+<div class="box-container">
+    <div class="box">
+        <img src="./Images/opd.jpg" alt="OLCH Img">
+        <h3>Who are we?</h3>
+        <p>Our Lady’s Catholic Hospital is a Private hospital owns by Catholic Diocese of Oyo, located at Isalu 7, lseyin Local Government, Oyo State in Nigeria.</p>
+        <!-- <a href="" id="dynamicButton2" class="rolling-text">learn more</a> -->
+    </div>
+    <div class="box">
+        <img src="./Images/thea.jpg" alt="OLCH Img">
+        <h3>Our Mission</h3>
+        <p>We aim at improving the quality of life of people especially the underprivileged through providing holistic and quality health care that affirms the dignity and respect of human life.</p>
+        <!-- <a href="#">Contact Us</a> -->
+    </div>
+    <div class="box">
+        <img src="./Images/ent.jpg" alt="OLCH Img">
+        <h3 >Our Vision</h3>
+        <p>We challenge ourselves to working together and to ensure that through our health care intervention the world is healed, unified and transformed by the saving wisdom of Christianity.</p>
+        <!-- <a href="#"  id="dynamicButton" class="rolling-text">Book Appointment</a> -->
+    </div>
+</div>
 
-    <!-- ================= SERVICES (PHOTO SLIDER + DOTS) ================= -->
-    <section class="section services" aria-labelledby="services-title">
-      <div class="container">
-        <h2 id="services-title">Our Medical Services</h2>
+<!-- <div class="service-container">
+    <h2>Our Services</h2>
+    <div class="servies-div">General consultation</div>
+    <div class="servies-div">Child welfare clinic</div>
+    <div class="servies-div">Ante-natal</div>
+    <div class="servies-div">Laboratory</div>
+    <div class="servies-div">Ultrasound scan</div>
+    <div class="servies-div">ARVs</div>
+    <div class="servies-div">Surgeries</div>
+    <div class="servies-div">Ambulance</div>
+    <div class="servies-div">Cervical Cancer Screening</div>
 
-        <div class="services-slider">
+    <div class="btn-wrapper"><a href="#">Learn more</a></div>
+</div> -->
 
+<!-- Services Stories Container -->
+<section class="services-stories">
+  <h2 class="section-title">Our Medical Services</h2>
 
-          <figure class="service-slide active">
-            <img src="./Images/ent2.jpg" alt="Hospital emergency care unit" loading="lazy">
-            <figcaption>General consultation</figcaption>
-            <p class="figcaption-more-info">Your first step to better health. Professional care, personal attention.</p>
-          </figure>
+  
+  <!-- Stories Area -->
+  <div class="stories-container">
 
-              <div class="CeoBox  service-slide">
-                <img 
-                src="./Images/ent2.jpg" 
-                alt="Electronic and gas" 
-                class="CeoImg2"
-                loading="lazy">
-                <h2 class="CeoImgHeading">Ultrasound scan</h2>
-                <p class="CeoImgParagraph">
-                  Seeing clearly for better decisions.
-                  Safe imaging, trusted insights.
-                </p>
-              </div>
-              
-          
+    <!-- Left Arrow -->
+    <button class="scroll-btn left" aria-label="Scroll Left">
+      &#10094;
+    </button>
 
-              
-          <div class="service-slide">
-            <img src="./Images/ent.jpg" alt="Medical laboratory diagnostics" loading="lazy">
-            <p class="figcaption-more-info">
-              Early screening saves lives.
-              Your health, your future, protected.
-            </p>
-            <figcaption>Cervical Cancer Screening</figcaption>
+    <!-- Horizontal Scroll Wrapper -->
+    <div class="stories-wrapper" id="storiesWrapper">
+
+        <!-- Single Service Card -->
+        <div class="story-card">
+          <img loading="lazy" src="./Images/opd.jpg" alt="Doctor Consultation">
+          <div class="story-overlay">
+            <span>General consultation</span>
           </div>
+        </div>
 
+        <div class="story-card">
+          <img loading="lazy" src="./Images/children.jpg" alt="Doctor Consultation">
+          <div class="story-overlay">
+            <span>Child welfare clinic</span>
+          </div>
+        </div>
 
-            <figure class="service-slide">
-            <img src="./Images/lab.jpg" alt="Hospital emergency care unit" loading="lazy">
-            <p class="figcaption-more-info">
-              Accurate results you can trust.
-              Clarity that leads to confident treatment.
-            </p>
-            <figcaption>Laboratory</figcaption>
-          </figure>
+        <div class="story-card">
+          <img loading="lazy" src="./Images/lab.jpg" alt="Laboratory Services">
+          <div class="story-overlay">
+            <span>Laboratory</span>
+          </div>
+        </div>
 
-          <figure class="service-slide">
-            <img src="./Images/physio.jpg" alt="Medical laboratory diagnostics" loading="lazy">
-            <p class="figcaption-more-info">Physiotherapy
-              Helping you move stronger every day.
-              Recovery guided by care and consistency.
-            </p>  
-            <figcaption>Physiotherapy</figcaption>
-          </figure>
+        <div class="story-card">
+          <img loading="lazy" src="./Images/maternity.jpg" alt="Emergency Care">
+          <div class="story-overlay">
+            <span>Ante-natal</span>
+          </div>
+        </div>
 
+        <div class="story-card">
+          <img loading="lazy" src="./Images/pharmacy.jpg" alt="Pharmacy">
+          <div class="story-overlay">
+            <span>Pharmacy</span>
+          </div>
+        </div>
 
-          <figure class="service-slide">
-            <img src="./Images/ARVs.jpg" alt="Hospital emergency care unit" loading="lazy">
-            <p class="figcaption-more-info">
-              Care, support, and hope in every step.
-              Together, we work toward a healthier life.
-            </p>
-            <figcaption>ART Clinic</figcaption>
-          </figure>
+        <div class="story-card">
+          <img loading="lazy" src="./Images/scan.jpg" alt="Doctor Consultation">
+          <div class="story-overlay">
+            <span>Ultrasound scan</span>
+          </div>
+        </div>
 
-          <figure class="service-slide">
-            <img src="./Images/surgery.jpg" alt="Cardiology department equipment" loading="lazy">
-            <p class="figcaption-more-info">
-              Precision, skill, and compassionate hands.
-              Restoring health, one successful procedure at a time.
-            </p>
-            <figcaption>Surgeries</figcaption>
-          </figure>
+        <div class="story-card">
+          <img loading="lazy" src="./Images/cervical.jpg" alt="Laboratory Services">
+          <div class="story-overlay">
+            <span>Cervical Cancer Screening</span>
+          </div>
+        </div>
 
-          <figure class="service-slide">
-            <img src="./Images/ambulance.jpg" alt="Pediatric medical care" loading="lazy">
-            <p class="figcaption-more-info">
-              Swift response when every second counts.
-              We bring care to you, fast and safe.
-            </p>
-            <figcaption>Ambulance</figcaption>
-          </figure>
+        <div class="story-card">
+          <img loading="lazy" src="./Images/ARVs.jpg" alt="Emergency Care">
+          <div class="story-overlay">
+            <span>ARVs</span>
+          </div>
+        </div>
 
+        <div class="story-card">
+          <img loading="lazy" src="./Images/surgery.jpg" alt="Emergency Care">
+          <div class="story-overlay">
+            <span>Surgeries</span>
+          </div>
+        </div>
 
-          <!-- Swipe indicators -->
-          <div class="slider-dots" aria-label="Slide navigation"></div>
+        <div class="story-card">
+          <img loading="lazy" src="./Images/ambulance.jpg" alt="Pharmacy">
+          <div class="story-overlay">
+            <span>Ambulance</span>
+          </div>
         </div>
       </div>
-    </section>
 
-    
-
-    <!-- ================= EMERGENCY ================= -->
+    <!-- Right Arrow -->
+    <button class="scroll-btn right" aria-label="Scroll Right">
+      &#10095;
+    </button>
+  </div>
+</section>
+        
+<!-- ================= EMERGENCY ================= -->
     <section class="emergency" role="alert">
       <h2>24/7 Emergency Support</h2>
       <p>Immediate medical response when it matters most</p>
@@ -170,5 +206,6 @@
   <script src="./JS/nav.js"></script>
   <script src="./JS/slider.js"></script>
   <script src="./JS/auto-type.js"></script>
+  <script src="./JS/home-page-service-section.js"></script>
 </body>
 </html>
