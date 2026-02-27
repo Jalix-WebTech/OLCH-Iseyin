@@ -1,90 +1,53 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   const slides = document.getElementById("slides");
-  const wrapper = document.querySelector(".slides-wrapper");
-  const dotsContainer = document.getElementById("dots");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
   const cards = document.querySelectorAll(".story-card");
-  const slider = document.querySelector(".slider");
+  const indicatorsContainer = document.getElementById("indicators");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
 
   let index = 0;
-  let cardWidth = 0;
-  let visibleCards = 1;
-  let totalSteps = 1;
-  let interval;
+  let cardWidth = cards[0].offsetWidth + 16;
+  let totalCards = cards.length;
 
-  function calculate() {
-    cardWidth = cards[0].offsetWidth + 16;
-    visibleCards = Math.floor(wrapper.offsetWidth / cardWidth);
-    totalSteps = cards.length - visibleCards + 1;
+  /* Create Dots */
+  cards.forEach((_, i) => {
+    const dot = document.createElement("span");
+    if (i === 0) dot.classList.add("active");
+    indicatorsContainer.appendChild(dot);
+  });
 
-    if (totalSteps < 1) totalSteps = 1;
-
-    createDots();
-    updateSlider();
-  }
-
-  function createDots() {
-    dotsContainer.innerHTML = "";
-    for (let i = 0; i < totalSteps; i++) {
-      const dot = document.createElement("span");
-      dot.classList.add("dot");
-      if (i === index) dot.classList.add("active");
-
-      dot.addEventListener("click", function () {
-        index = i;
-        updateSlider();
-        restartAuto();
-      });
-
-      dotsContainer.appendChild(dot);
-    }
-  }
+  const dots = document.querySelectorAll(".indicators span");
 
   function updateSlider() {
     slides.style.transform = `translateX(-${index * cardWidth}px)`;
 
-    document.querySelectorAll(".dot").forEach(d => d.classList.remove("active"));
-    if (document.querySelectorAll(".dot")[index]) {
-      document.querySelectorAll(".dot")[index].classList.add("active");
-    }
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[index].classList.add("active");
   }
 
-  function autoSlide() {
-    if (window.innerWidth >= 769) {
-      index++;
-      if (index >= totalSteps) index = 0;
-      updateSlider();
-    }
-  }
-
-  function startAuto() {
-    interval = setInterval(autoSlide, 3000);
-  }
-
-  function restartAuto() {
-    clearInterval(interval);
-    startAuto();
-  }
-
-  prevBtn.addEventListener("click", function () {
-    if (index > 0) index--;
-    else index = totalSteps - 1;
-    updateSlider();
-    restartAuto();
-  });
-
-  nextBtn.addEventListener("click", function () {
+  function nextSlide() {
     index++;
-    if (index >= totalSteps) index = 0;
+    if (index >= totalCards) index = 0;
     updateSlider();
-    restartAuto();
+  }
+
+  function prevSlide() {
+    index--;
+    if (index < 0) index = totalCards - 1;
+    updateSlider();
+  }
+
+  /* Arrow Events */
+  nextBtn.addEventListener("click", nextSlide);
+  prevBtn.addEventListener("click", prevSlide);
+
+  /* Auto Slide (All Devices) */
+  setInterval(nextSlide, 3000);
+
+  /* Recalculate width on resize */
+  window.addEventListener("resize", () => {
+    cardWidth = cards[0].offsetWidth + 16;
   });
-
-  calculate();
-  window.addEventListener("resize", calculate);
-
-  startAuto();
 
 });
