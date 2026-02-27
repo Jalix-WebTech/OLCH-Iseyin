@@ -395,3 +395,9 @@ display: flex;                 /* Enable flexbox */
   font-size: 1.1rem;
   opacity: 0.95;
 }
+
+.developer{
+  text-decoration: none;
+  color: rgb(251, 255, 0);
+  font-weight: bold;
+}

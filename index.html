@@ -8,6 +8,7 @@
   
   <link rel="stylesheet" href="./Style/style.css">
   <link rel="stylesheet" href="./Style/home-intro.css">
+  <link rel="stylesheet" href="./Style/auto-animate.css">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
   <!-- ================= HEADER ================= -->
   <header class="header">
     <div class="container header__inner">
-      <h1 class="logo">OLCH Iseyin</h1>
+     <img style="width: auto; height: 50px;" src="./Images/logo-olch.jpg" alt="">
 
       <!-- Hamburger button -->
       <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
@@ -60,13 +61,13 @@
 <!-- ===============INTRODUCTION OF THE HOSPITAL=================== -->
 <div class="box-container">
     <div class="box">
-        <img src="./Images/opd.jpg" alt="OLCH Img">
+        <img src="./Images/thea.jpg" alt="OLCH Img">
         <h3>Who are we?</h3>
         <p>Our Lady’s Catholic Hospital is a Private hospital owns by Catholic Diocese of Oyo, located at Isalu 7, lseyin Local Government, Oyo State in Nigeria.</p>
         <!-- <a href="" id="dynamicButton2" class="rolling-text">learn more</a> -->
     </div>
     <div class="box">
-        <img src="./Images/thea.jpg" alt="OLCH Img">
+        <img src="./Images/opd.jpg" alt="OLCH Img">
         <h3>Our Mission</h3>
         <p>We aim at improving the quality of life of people especially the underprivileged through providing holistic and quality health care that affirms the dignity and respect of human life.</p>
         <!-- <a href="#">Contact Us</a> -->
@@ -79,8 +80,40 @@
     </div>
 </div>
 
-<!-- <div class="service-container">
-    <h2>Our Services</h2>
+
+
+<!-- Services Stories Container -->
+<section class="services-stories">
+
+  <h2 class="section-title">Our Medical Services</h2>
+
+  <div class="slider">
+    <div class="slides" id="slides">
+
+      <!-- Repeat up to 10 services -->
+      <div class="story-card"><img src="./Images/opd.jpg"><span>Consultation</span></div>
+      <div class="story-card"><img src="./Images/lab.jpg"><span>Laboratory</span></div>
+      <div class="story-card"><img src="./Images/outpatient.jpg"><span>Emergency</span></div>
+      <div class="story-card"><img src="./Images/pharmacy.jpg"><span>Pharmacy</span></div>
+      <div class="story-card"><img src="./Images/maternity.jpg"><span>Maternity</span></div>
+      <div class="story-card"><img src="./Images/children.jpg"><span>Pediatrics</span></div>
+      <div class="story-card"><img src="./Images/cervical.jpg"><span>Cervical Cancer Screening</span></div>
+      <div class="story-card"><img src="./Images/ARVs.jpg"><span>ARVs</span></div>
+      <div class="story-card"><img src="./Images/scan.jpg"><span>Ultra Sound Scan</span></div>
+      <div class="story-card"><img src="./Images/physio.jpg"><span>Physiotherapy</span></div>
+      <div class="story-card"><img src="./Images/ambulance.jpg"><span>Ambulance</span></div>
+      <div class="story-card"><img src="./Images/surgery.jpg"><span>Surgery</span></div>
+
+    </div>
+  </div>
+
+  <!-- DOTS -->
+  <div class="dots" id="dots"></div>
+
+</section>  
+
+<div class="service-container">
+    <!-- <h2>Our Services</h2> -->
     <div class="servies-div">General consultation</div>
     <div class="servies-div">Child welfare clinic</div>
     <div class="servies-div">Ante-natal</div>
@@ -92,103 +125,9 @@
     <div class="servies-div">Cervical Cancer Screening</div>
 
     <div class="btn-wrapper"><a href="#">Learn more</a></div>
-</div> -->
+</div>
 
-<!-- Services Stories Container -->
-<section class="services-stories">
-  <h2 class="section-title">Our Medical Services</h2>
 
-  
-  <!-- Stories Area -->
-  <div class="stories-container">
-
-    <!-- Left Arrow -->
-    <button class="scroll-btn left" aria-label="Scroll Left">
-      &#10094;
-    </button>
-
-    <!-- Horizontal Scroll Wrapper -->
-    <div class="stories-wrapper" id="storiesWrapper">
-
-        <!-- Single Service Card -->
-        <div class="story-card">
-          <img loading="lazy" src="./Images/opd.jpg" alt="Doctor Consultation">
-          <div class="story-overlay">
-            <span>General consultation</span>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <img loading="lazy" src="./Images/children.jpg" alt="Doctor Consultation">
-          <div class="story-overlay">
-            <span>Child welfare clinic</span>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <img loading="lazy" src="./Images/lab.jpg" alt="Laboratory Services">
-          <div class="story-overlay">
-            <span>Laboratory</span>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <img loading="lazy" src="./Images/maternity.jpg" alt="Emergency Care">
-          <div class="story-overlay">
-            <span>Ante-natal</span>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <img loading="lazy" src="./Images/pharmacy.jpg" alt="Pharmacy">
-          <div class="story-overlay">
-            <span>Pharmacy</span>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <img loading="lazy" src="./Images/scan.jpg" alt="Doctor Consultation">
-          <div class="story-overlay">
-            <span>Ultrasound scan</span>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <img loading="lazy" src="./Images/cervical.jpg" alt="Laboratory Services">
-          <div class="story-overlay">
-            <span>Cervical Cancer Screening</span>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <img loading="lazy" src="./Images/ARVs.jpg" alt="Emergency Care">
-          <div class="story-overlay">
-            <span>ARVs</span>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <img loading="lazy" src="./Images/surgery.jpg" alt="Emergency Care">
-          <div class="story-overlay">
-            <span>Surgeries</span>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <img loading="lazy" src="./Images/ambulance.jpg" alt="Pharmacy">
-          <div class="story-overlay">
-            <span>Ambulance</span>
-          </div>
-        </div>
-      </div>
-
-    <!-- Right Arrow -->
-    <button class="scroll-btn right" aria-label="Scroll Right">
-      &#10095;
-    </button>
-  </div>
-</section>
-        
 <!-- ================= EMERGENCY ================= -->
     <section class="emergency" role="alert">
       <h2>24/7 Emergency Support</h2>
@@ -198,14 +137,21 @@
 
   </main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
-    <p>© 2026 OLCH Iseyin. All Rights Reserved.</p>
-  </footer>
+<!-- Footer -->
+<footer class="footer fade-section">
+  <div class="container">
+    <p>© <span id="current-year"></span> Our Lady Catholic Hospital. All rights reserved.</p>
+  </div>
+
+  <div class="container">
+    <p> <strong>Developed with 💚 by </strong> <a class="developer" target="_blank" href="https://jalix-webtech.github.io/Portfolio/">Jalixon</a> </p>
+  </div>
+</footer>
 
   <script src="./JS/nav.js"></script>
   <script src="./JS/slider.js"></script>
   <script src="./JS/auto-type.js"></script>
-  <script src="./JS/home-page-service-section.js"></script>
+  <script src="./JS/home-page-auto-scroll.js"></script>
+  <script src="./JS/auto-update-year.js"></script>
 </body>
 </html>
