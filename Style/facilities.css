@@ -1,0 +1,84 @@
+
+/* Centered container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ================================= */
+/*        FACILITIES SECTION         */
+/* ================================= */
+
+.facilities {
+    padding: 70px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    color: #0b5ed7;
+    margin-bottom: 40px;
+}
+
+/* ================================= */
+/*        RESPONSIVE GRID            */
+/* ================================= */
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+/* ================================= */
+/*        EQUIPMENT CARD             */
+/* ================================= */
+
+.facility-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover animation */
+.facility-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Equipment image */
+.facility-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+/* Equipment name */
+.facility-card h3 {
+    padding: 15px;
+    font-size: 15px;
+    color: #0b5ed7;
+    font-weight: 600;
+}
+
+/* ================================= */
+/*        MOBILE OPTIMIZATION        */
+/* ================================= */
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 24px;
+    }
+
+    .facility-card img {
+        height: 150px;
+    }
+
+    .facility-card h3 {
+        font-size: 14px;
+    }
+}
