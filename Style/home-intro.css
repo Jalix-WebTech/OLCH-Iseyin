@@ -87,8 +87,8 @@
 }
 .service-container a{
   display: inline-block;
-  padding: 0.7rem 1.3rem;
-  border-radius: 4px;
+  padding: 10px 60px;
+  border-radius: 10px;
   font-weight: bold;
   text-decoration: none;
   background-color: blue;

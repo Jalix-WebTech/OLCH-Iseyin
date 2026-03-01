@@ -19,7 +19,7 @@
   <!-- ================= HEADER ================= -->
   <header class="header">
     <div class="container header__inner">
-     <img style="width: auto; height: 50px;" src="./Images/logo-olch.jpg" alt="">
+    <a href="#"> <img style="width: auto; height: 50px;" src="./Images/logo-olch.png" alt=""></a>
 
       <!-- Hamburger button -->
       <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
@@ -33,12 +33,12 @@
       <nav class="nav" aria-label="Main navigation">
         <ul class="nav__list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="departments.html">Departments</a></li>
-          <li><a href="news.html">News</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Departments</a></li>
+          <li><a href="#">News</a></li>
           <!-- <li><a href="appointment.html">Appointment</a></li> -->
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -79,6 +79,8 @@
         <p>We challenge ourselves to working together and to ensure that through our health care intervention the world is healed, unified and transformed by the saving wisdom of Christianity.</p>
         <!-- <a href="#"  id="dynamicButton" class="rolling-text">Book Appointment</a> -->
     </div>
+
+    <div class="btn-wrapper"><a class="more-equip-btn" href="#">Read more about us</a></div>
 </div>
 
 
@@ -156,54 +158,121 @@
 <!--     HOSPITAL EQUIPMENT SECTION    -->
 <!-- ================================= -->
 
-<section class="facilities">
-    <div class="container">
-
-        <!-- Section Title -->
-        <h2 class="section-title">Our Medical Equipment</h2>
-
-        <!-- Equipment Grid -->
-        <div class="facilities-grid">
 
 
 
-            <!-- 1 -->
+<!-- Certificates Starts here -->
 
-            <div class="facility-card">
-                <img src="./Images/raw/Generic_patient's_trolley.jpg" alt="Table Top Autoclave Steriliser">
-                <h3>Generic Patient's Trolley</h3>
-                <p>For safely transporting patients within hospital, especially in emergencies.</p>
-            </div>
+<section class="certificates" id="certificates">
+  <h2>Our Medical Equipment</h2>
 
+  <div class="certificate-grid">
 
-            <div class="facility-card">
-                <img src="./Images/raw/OLCH_suction_machine.jpg" alt="Electric Suction Machine">
-                <h3>Electric Suction Machine</h3>
-                <p>Removes fluids during medical procedures.</p>
-            </div>
+    <!-- Certificate Card -->
+    <article class="certificate-card">
+      <img 
+        src="./Images/raw/Generic_patient's_trolley.jpg"
+        alt="Generic_patient's_trolley"
+        loading="lazy"
+      />
 
-            <!-- 2 -->
-            <div class="facility-card">
-                <img src="./Images/raw/OLCH_medical_table.jpg" alt="Multifunctional Medical Examination Table">
-                <h3>Multifunctional Medical Examination Table</h3>
-                <p>Adjustable table for patient examination.</p>
-            </div>
+      <div class="certificate-content">
+        <h3>Generic Patient's Trolley</h3>
+        <p>
+          For safely transporting patients within hospital, especially in emergencies.
+        </p>
+        <button class="view-btn" data-image="./Images/raw/Generic_patient's_trolley.jpg">
+        view equipment
+        </button>
+      </div>
 
-            <!-- 3 -->
-            <div class="facility-card">
-                <img src="./Images/raw/OLCH_theater_lamp.jpg" alt="Mobile Surgical Lamp">
-                <h3>Mobile Surgical Lamp</h3>
-                <p>Provides bright lighting during procedures.</p>
-            </div>
+      
+    </article>  <!-- Certificate Card -->
+    <article class="certificate-card">
+      <img 
+        src="./Images/raw/OLCH_suction_machine.jpg"
+        alt="OLCH_suction_machine"
+        loading="lazy"
+      />
 
-            <!-- 4 -->
-            <div class="facility-card">
-                <img src="./Images/raw/OLCH_Oxy_concentrator.jpg" alt="Dual Flow Oxygen Concentrator">
-                <h3>Nareena Dual Flow Oxygen Concentrator</h3>
-                <p>Supplies medical-grade oxygen to patients.</p>
-            </div>
+      <div class="certificate-content">
+        <h3>Electric Suction Machine</h3>
+        <p>
+          Removes fluids during medical procedures.
+        </p>
+        <button class="view-btn" data-image="./Images/raw/OLCH_suction_machine.jpg">
+        view equipment
+        </button>
+      </div>
 
-            <!-- 5 -->
+      
+    </article>
+
+    <!-- Certificate Card -->
+    <article class="certificate-card">
+      <img 
+        src="./Images/raw/OLCH_medical_table.jpg"
+        alt="OLCH_medical_table"
+        loading="lazy"
+      />
+
+      <div class="certificate-content">
+        <h3>Multifunctional Medical Examination Table</h3>
+        <p>
+          Adjustable table for patient examination.
+        </p>
+        <button class="view-btn" data-image="./Images/raw/OLCH_medical_table.jpg">
+        view equipment
+        </button>
+      </div>
+
+      
+    </article>  <!-- Certificate Card -->
+    <!-- Certificate Card -->
+    <article class="certificate-card">
+      <img 
+        src="./Images/raw/OLCH_theater_lamp.jpg"
+        alt="OLCH_theater_lamp"
+        loading="lazy"
+      />
+
+      <div class="certificate-content">
+        <h3>Mobile Surgical Lamp</h3>
+        <p>
+          Provides bright lighting during procedures.
+        </p>
+        <button class="view-btn" data-image="./Images/raw/OLCH_theater_lamp.jpg">
+        view equipment
+        </button>
+      </div>
+
+      
+    </article>  <!-- Certificate Card -->
+
+<!-- Certificate Card -->
+    <article class="certificate-card">
+      <img 
+        src="./Images/raw/OLCH_Oxy_concentrator.jpg"
+        alt="OLCH_Oxy_concentrator"
+        loading="lazy"
+      />
+
+      <div class="certificate-content">
+        <h3>Nareena Dual Flow Oxygen Concentrator</h3>
+        <p>
+          Supplies medical-grade oxygen to patients.
+        </p>
+        <button class="view-btn" data-image="./Images/raw/OLCH_Oxy_concentrator.jpg">
+        view equipment
+        </button>
+      </div>
+
+      
+    </article>  <!-- Certificate Card -->
+
+    <div class="btn-wrapper"><a class="more-equip-btn" href="#">See more</a></div>
+    <!-- Others follows the same method -->
+    <!-- 5 -->
 
 
             <!-- <div class="facility-card">
@@ -295,10 +364,19 @@
                 <h3>Zybio Z3 3-Part Hematology Analyzer</h3>
                 <p>Automated complete blood count testing.</p>
             </div> -->
+    <!-- Add more certificates here -->
+    <!-- Copy & change image + text -->
 
-        </div>
-    </div>
+  </div>
 </section>
+
+<!-- Fullscreen Modal -->
+<div class="modal" id="imageModal">
+  <span class="close">&times;</span>
+  <img class="modal-image" id="modalImage" alt="Certificate Full View"  />
+</div>
+<!-- certificate ends here -->
+
 
 </main>
 
@@ -319,5 +397,6 @@
   <script src="./JS/auto-type.js"></script>
   <script src="./JS/home-page-auto-scroll.js"></script>
   <script src="./JS/auto-update-year.js"></script>
+  <script src="./JS/equipment.js"></script>
 </body>
 </html>

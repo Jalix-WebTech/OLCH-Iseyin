@@ -1,84 +1,124 @@
 
-/* Centered container */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+
+/* Certificate starts here */
+
+.certificates {
+  padding: 4rem 1rem;
+  /* max-width: 1200px; */
+  margin: auto;
+  background-color: #ffffff;
+
 }
 
-/* ================================= */
-/*        FACILITIES SECTION         */
-/* ================================= */
-
-.facilities {
-    padding: 70px 0;
+.certificates h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  color: hsl(241, 100%, 50%);
 }
 
-.section-title {
-    text-align: center;
-    font-size: 32px;
-    color: #0b5ed7;
-    margin-bottom: 40px;
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
-/* ================================= */
-/*        RESPONSIVE GRID            */
-/* ================================= */
-
-.facilities-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
+/* Card */
+.certificate-card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(65, 67, 68, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* ================================= */
-/*        EQUIPMENT CARD             */
-/* ================================= */
-
-.facility-card {
-    background: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.certificate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(65, 67, 68, 0.08);
 }
 
-/* Hover animation */
-.facility-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+.certificate-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-/* Equipment image */
-.facility-card img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
+.certificate-content {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: #43454617;
 }
 
-/* Equipment name */
-.facility-card h3 {
-    padding: 15px;
-    font-size: 15px;
-    color: #0b5ed7;
-    font-weight: 600;
+.certificate-content h3 {
+  margin: 0 0 0.5rem;
+  color: #0025fa;
+  font-size: 1.1rem;
 }
 
-/* ================================= */
-/*        MOBILE OPTIMIZATION        */
-/* ================================= */
+.certificate-content p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex-grow: 1;
+  color: #000000;
+}
 
+.view-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  color: #000000;
+  background-color: #0494f51f;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.view-btn:hover {
+  opacity: 0.9;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.modal .close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 2.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Mobile tweaks */
 @media (max-width: 480px) {
-    .section-title {
-        font-size: 24px;
-    }
-
-    .facility-card img {
-        height: 150px;
-    }
-
-    .facility-card h3 {
-        font-size: 14px;
-    }
+  .certificate-card img {
+    height: 160px;
+  }
 }
+
+.more-equip-btn{
+  text-decoration: none;
+  background-color: #0025fa;
+  color: #ffffff;
+  padding: 10px 60px;
+  border-radius: 10px;
+}
+/* Certificate ends here */
