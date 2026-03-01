@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./Style/auto-animate.css">
   <link rel="stylesheet" href="./Style/facilities.css">
   <link rel="stylesheet" href="./Style/FAQs.css">
+  <link rel="stylesheet" href="./Style/news.css">
 </head>
 
 <body>
@@ -392,6 +393,105 @@
 </section>
 
 <!-- ================================= -->
+<!--         HOSPITAL NEWS SECTION     -->
+<!-- ================================= -->
+
+<section class="news">
+    <div class="container">
+
+        <!-- Section Header -->
+        <div class="news-header">
+            <h2>Latest News & Updates</h2>
+            <p>Stay informed with our hospital updates and trusted health news.</p>
+        </div>
+
+        <!-- Category Filter Buttons -->
+        <div class="news-filters">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="hospital">Our Hospital</button>
+            <button class="filter-btn" data-category="health">Health</button>
+        </div>
+
+        <!-- News Grid -->
+        <div class="news-grid">
+
+            <!-- ==================== -->
+            <!-- News Item Example 1 -->
+            <!-- ==================== -->
+
+            <div class="news-card" data-category="hospital">
+
+                <img src="./Images/OLCH_outreach.jpg" alt="Hospital Outreach Program">
+
+                <div class="news-content">
+                    <h3>Free Medical Outreach Program</h3>
+
+                    <p class="news-excerpt">
+                        Our hospital recently organized a free medical outreach providing 
+                        checkups and medications to over 300 community members...
+                    </p>
+
+                    <!-- Full Article -->
+                    <div class="news-full">
+                        <p>
+                            Our hospital recently organized a free medical outreach providing 
+                            checkups, laboratory screening, blood pressure monitoring, 
+                            and medications to over 300 community members. The event 
+                            was conducted by our qualified medical team and aimed at 
+                            improving preventive healthcare awareness.
+                        </p>
+
+                        <button class="close-btn">Close</button>
+                    </div>
+
+                    <button class="read-btn">Read Full Article</button>
+                </div>
+
+            </div>
+
+
+            <!-- ==================== -->
+            <!-- News Item Example 2 -->
+            <!-- ==================== -->
+
+            <div class="news-card" data-category="health">
+
+                <img src="./Images/hypertension.jpg" alt="Hypertension Awareness">
+
+                <div class="news-content">
+                    <h3>Understanding Hypertension Risks</h3>
+
+                    <p class="news-excerpt">
+                        Hypertension remains one of the leading causes of heart disease worldwide...
+                    </p>
+
+                    <div class="news-full">
+                        <p>
+                            Hypertension remains one of the leading causes of heart disease 
+                            worldwide. Regular monitoring, healthy eating habits, reduced salt 
+                            intake, and routine medical checkups are essential preventive steps. 
+                            Early detection significantly reduces complications.
+                        </p>
+
+                        <button class="close-btn">Close</button>
+                    </div>
+
+                    <button class="read-btn">Read Full Article</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- View More Button -->
+        <div class="view-more">
+            <a href="news.html" class="view-btn">View More News</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================================= -->
 <!--           FAQ SECTION             -->
 <!-- ================================= -->
 
@@ -407,17 +507,7 @@
         <!-- FAQ Accordion -->
         <div class="faq-container">
 
-            <!-- 1 -->
-            <!-- <div class="faq-item">
-                <input type="checkbox" id="faq1">
-                <label for="faq1" class="faq-question">
-                    Do I need an appointment before visiting?
-                    <span class="icon">+</span>
-                </label>
-                <div class="faq-answer">
-                    <p>Appointments are recommended to reduce waiting time, but emergency cases are attended to immediately.</p>
-                </div>
-            </div> -->
+
 
             <!-- 2 -->
             <div class="faq-item">
@@ -529,5 +619,6 @@
   <script src="./JS/home-page-auto-scroll.js"></script>
   <script src="./JS/auto-update-year.js"></script>
   <script src="./JS/equipment.js"></script>
+  <script src="./JS/news.js"></script>
 </body>
 </html>
