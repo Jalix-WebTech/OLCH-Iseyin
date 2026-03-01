@@ -20,7 +20,7 @@
 .certificate-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 /* Card */
@@ -114,11 +114,20 @@
   }
 }
 
+.more-equip-btn-wrapper{
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
 .more-equip-btn{
-  text-decoration: none;
-  background-color: #0025fa;
-  color: #ffffff;
+  display: inline-block;
   padding: 10px 60px;
   border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: blue;
+  color: white;
 }
 /* Certificate ends here */
