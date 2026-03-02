@@ -14,7 +14,7 @@
   text-align: center;
   font-size: 1.5rem;
   margin-bottom: 2.5rem;
-  color: hsl(241, 100%, 50%);
+  color:#0b5ed7;
 }
 
 .certificate-grid {
@@ -55,7 +55,7 @@
 
 .certificate-content h3 {
   margin: 0 0 0.5rem;
-  color: #0025fa;
+  color: #0b5ed7;
   font-size: 1.1rem;
 }
 
@@ -66,13 +66,13 @@
   color: #000000;
 }
 
-.view-btn {
+.view-btn{
   margin-top: 1rem;
   padding: 0.6rem 1rem;
   border: none;
   border-radius: 8px;
   color: #000000;
-  background-color: #0494f51f;
+  background-color: #0495f527;
   font-size: 1.1rem;
   cursor: pointer;
   font-weight: bold;
@@ -127,7 +127,7 @@
   border-radius: 10px;
   font-weight: bold;
   text-decoration: none;
-  background-color: blue;
+  background-color: #30aa18;
   color: white;
 }
 /* Certificate ends here */

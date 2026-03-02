@@ -15,7 +15,7 @@
 
 .faq-header h2 {
     font-size: 34px;
-    color: #0004ff;
+    color: #0b5ed7;
     margin-bottom: 15px;
     font-weight: 600;
 }
@@ -59,7 +59,7 @@
 }
 
 .faq-question:hover {
-    color: #1100ff;
+    color: #0b5ed7;
 }
 
 /* Plus Icon */
@@ -108,7 +108,7 @@
 
 .FAQs-contact-us-btn {
 
-  color: #001aff;
+  color: #0b5ed7;
   border-radius: 4px;
   text-decoration: none;
   
