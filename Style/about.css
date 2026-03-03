@@ -133,183 +133,176 @@ body {
 
 }
 
-/* ================================
+/* =====================================================
    BOARD SECTION CONTAINER
-================================= */
-
+===================================================== */
 .board-section {
     max-width: 1200px;
-    margin: 60px auto;
+    margin: 80px auto;
     padding: 20px;
 }
 
-/* Section heading */
+/* Section Title */
 .board-section h2 {
     text-align: center;
     font-size: 32px;
-    color: #0a4f70; /* Hospital blue */
-    margin-bottom: 40px;
-    position: relative;
+    color: #0a4f70;
+    margin-bottom: 50px;
 }
 
-/* Decorative line under heading */
-.board-section h2::after {
-    content: '';
-    width: 80px;
-    height: 4px;
-    background: #2bb673; /* Medical green */
-    display: block;
-    margin: 10px auto 0;
-    border-radius: 5px;
-}
-
-/* ================================
-   DIRECTOR GRID
-================================= */
-
+/* =====================================================
+   DIRECTOR GRID LAYOUT
+   Responsive using CSS Grid
+===================================================== */
 .directors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    margin-bottom: 40px;
 }
 
-/* Individual director card */
+/* =====================================================
+   DIRECTOR CARD DESIGN
+===================================================== */
 .director-card {
     background: #ffffff;
-    border-radius: 15px;
-    padding: 20px;
+    padding: 25px;
+    border-radius: 18px;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect for professional UI */
+/* Hover effect */
 .director-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-/* Director Image */
-.director-card img {
+/* Director image (small circular in card) */
+.director-image {
     width: 120px;
     height: 120px;
-    border-radius: 50%; /* Circular image */
+    border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 15px;
     border: 4px solid #2bb673;
+    margin-bottom: 15px;
 }
 
-/* Director Name */
+/* Director name */
 .director-card h3 {
-    font-size: 18px;
     color: #0a4f70;
     margin-bottom: 5px;
 }
 
-/* Director Position */
+/* Director position */
 .director-card p {
-    font-size: 14px;
     color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
 }
 
-/* ================================
-   BOARD DESCRIPTION SECTION
-================================= */
-
-.board-description {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    margin-bottom: 40px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    line-height: 1.7;
-    font-size: 16px;
-    text-align: center;
-}
-
-/* ================================
-   RESPONSIVE DESIGN
-================================= */
-
-@media (max-width: 600px) {
-    .board-section h2 {
-        font-size: 24px;
-    }
-
-    .board-description {
-        font-size: 14px;
-    }
-}
-
-/* ================================
-   PREVIEW BUTTON STYLING
-================================= */
-
+/* Preview button */
 .preview-btn {
-    margin-top: 12px;
-    padding: 8px 16px;
+    padding: 8px 18px;
     border: none;
     border-radius: 25px;
     background-color: #0a4f70;
     color: white;
-    font-size: 13px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: 0.3s ease;
 }
 
 .preview-btn:hover {
     background-color: #2bb673;
-    transform: scale(1.05);
 }
 
-/* ================================
-   MODAL STYLING
-================================= */
-
+/* =====================================================
+   MODAL OVERLAY (FULL SCREEN)
+===================================================== */
 .modal {
-    display: none; /* Hidden by default */
+    display: none; /* Hidden initially */
     position: fixed;
-    z-index: 1000;
-    padding-top: 80px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.85);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999; /* Ensure above navbar */
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
 }
 
-/* Full Image */
-.modal-content {
-    display: block;
-    margin: auto;
-    max-width: 80%;
+/* =====================================================
+   MODAL CARD
+===================================================== */
+.modal-card {
+    background: #ffffff;
+    width: 95%;
+    max-width: 1100px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 20px;
+    padding: 60px 40px 40px 40px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Large Full Photo */
+.modal-profile-image {
+    width: 100%;
+    height: auto;
     max-height: 80vh;
+    object-fit: contain;
     border-radius: 15px;
-    animation: zoomIn 0.4s ease;
+    margin-bottom: 25px;
+}
+
+/* Director details inside modal */
+.modal-card h3 {
+    color: #0a4f70;
+    margin-bottom: 5px;
+}
+
+.modal-position {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.modal-bio {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444;
 }
 
 /* Close Button */
-.close-modal {
+.close-modal-btn {
     position: absolute;
-    top: 30px;
-    right: 40px;
+    top: 20px;
+    right: 25px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #0a4f70;
     color: white;
-    font-size: 40px;
-    font-weight: bold;
     cursor: pointer;
+    transition: 0.3s ease;
 }
 
-/* Animation */
-@keyframes zoomIn {
-    from { transform: scale(0.7); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+.close-modal-btn:hover {
+    background-color: #2bb673;
 }
 
-/* Responsive */
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
 @media (max-width: 600px) {
-    .modal-content {
-        max-width: 95%;
+    .modal-card {
+        padding: 50px 20px 30px 20px;
     }
 }

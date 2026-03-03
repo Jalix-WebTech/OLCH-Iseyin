@@ -125,96 +125,89 @@
 
 </section>
 
-  <section class="board-section">
+<!-- =====================================================
+     BOARD OF DIRECTORS SECTION
+===================================================== -->
+<section class="board-section">
 
-    <!-- SECTION HEADING -->
     <h2>Our Board of Directors</h2>
 
-    <!-- FIRST THREE DIRECTORS -->
     <div class="directors-grid">
 
         <div class="director-card">
-            <img src="../Images/BOARD/Proprietor.jpg" alt="Proprietor"  class="director-image">
-            <h3>Most Rev. Emmanuel Adetoyese Badeyo</h3>
-            <p>The catholic Bishop fo Oyo Diocese</p>
-            <p>(Chairman)</p>
+            <img src="../Images/BOARD/Proprietor.jpg"
+                alt="Most Rev. Emmanuel Adetoyese Badejo"
+                class="director-image"
+                data-bio="Most Rev. Emmanuel Adetoyese Badejo serves as the Proprietor and Chairman of Our Lady Catholic Hospital Iseyin by virtue of his office as the Catholic Bishop of the Oyo Diocese. As the ecclesiastical authority of the Diocese, he provides spiritual guidance, institutional oversight, and strategic direction to ensure that the hospital operates in alignment with Catholic values, ethical standards, and its mission of compassionate healthcare service to the community.">
 
-                <!-- NEW PREVIEW BUTTON -->
-            <button class="preview-btn">Preview</button>
+            <h3>Most Rev. Emmanuel A. Badejo</h3>
+            <p>Chairman & Proprietor<br>Catholic Bishop of Oyo Diocese</p>
+
+            <button class="preview-btn">View Profile</button>
         </div>
 
-        <div class="director-card">
-            <img src="../Images/BOARD/Dean.jpg" alt="Dean"  class="director-image">
-            <h3>Rev. Fr. Martin Badeyo</h3>
-            <p>(Dean)</p>
+        <!-- Director 2 -->
 
-                  <!-- NEW PREVIEW BUTTON -->
-            <button class="preview-btn">Preview</button>
-        </div>
+     <div class="director-card">
+            <img src="../Images/BOARD/Dean.jpg"
+                alt="Rev. Fr. Martin Badejo"
+                class="director-image"
+                data-bio="Rev. Fr. Martin Badejo serves as the Dean and Senior Oversight Authority of the hospital. He provides high-level administrative supervision, reviews institutional performance, and oversees the authorization of major financial expenditures. Visiting regularly to ensure accountability and compliance, he plays a key role in maintaining institutional stability and governance integrity.">
 
-        <div class="director-card">
-            <img src="../Images/BOARD/Matron.jpg" alt="Matron" class="director-image">
-            <h3>Sr. Theresa Peter (SSL)</h3>
-            <p>(Matron)</p>
+            <h3>Rev. Fr. Martin Badejo</h3>
+            <p>Dean & Senior Oversight Officer</p>
 
-                <!-- NEW PREVIEW BUTTON -->
-            <button class="preview-btn">Preview</button>
-        </div>
-
+            <button class="preview-btn">View Profile</button>
     </div>
 
-    <!-- BOARD DESCRIPTION -->
-    <div class="board-description">
-        <p>
-            Our Board of Directors provides strategic leadership, governance,
-            and oversight to ensure the hospital delivers exceptional healthcare services.
-            With diverse professional expertise in medicine, finance, administration,
-            and public health, the board is committed to ethical standards,
-            innovation, and sustainable growth for the wellbeing of our community.
-        </p>
+    <!-- Director 3 -->
+    <div class="director-card">
+        <img src="../Images/BOARD/Matron.jpg"
+            alt="Sr. Theresa Peter"
+            class="director-image"
+            data-bio="Sr. Theresa Peter serves as the Head of Hospital Operations. She oversees the daily administration of the hospital, coordinates clinical and non-clinical staff, and ensures that all departments function efficiently. Her leadership guarantees smooth day-to-day service delivery and the maintenance of high standards in patient care and operational discipline.">
+
+        <h3>Sr. Theresa Peter (SSl)</h3>
+        <p>Head of Hospital Operations (Matron)</p>
+
+        <button class="preview-btn">View Profile</button>
     </div>
+        
+  
 
-    <!-- REMAINING DIRECTORS -->
-    <div class="directors-grid">
+        <!-- Director 2 -->
+        <!-- <div class="director-card">
+            <img src="../Images/BOARD/Matron.jpg"
+                 alt="Dr. Sarah Thompson"
+                 class="director-image"
+                 data-bio="Dr. Sarah Thompson oversees policy implementation and ensures ethical governance across all hospital operations.">
 
-        <div class="director-card">
-            <img src="director4.jpg" alt="OLCH_Board_Member" class="director-image">
-            <h3>Sr. Cecilia (SSL) </h3>
-            <p>(Member)</p>
+            <h3>Dr. Sarah Thompson</h3>
+            <p>Vice Chairman</p>
 
-                <!-- NEW PREVIEW BUTTON -->
-           <button class="preview-btn">Preview</button>
-        </div>
-
-        <div class="director-card">
-            <img src="director5.jpg" alt="OLCH_Board_Member" class="director-image">
-            <h3>Chief Sir OKE (KSJ)</h3>
-            <p>(Member)</p>
-
-                <!-- NEW PREVIEW BUTTON -->
-            <button class="preview-btn">Preview</button>
-        </div>
-
-        <div class="director-card">
-            <img src="director6.jpg" alt="OLCH_Board_Member" class="director-image">
-            <h3>Dr. Jack </h3>
-            <p>(Medical Director)</p>
-
-                <!-- NEW PREVIEW BUTTON -->
-            <button class="preview-btn">Preview</button>
-        </div>
+            <button class="preview-btn">View Profile</button>
+        </div> -->
 
     </div>
 
 </section>
-<!-- ================================
-     IMAGE PREVIEW MODAL
-================================= -->
+
+<!-- =====================================================
+     DIRECTOR PROFILE MODAL
+===================================================== -->
 <div id="imageModal" class="modal">
 
-    <span class="close-modal">&times;</span>
+    <div class="modal-card">
 
-    <img class="modal-content" id="modalImage">
+        <button class="close-modal-btn">Close</button>
+
+        <img id="modalImage" class="modal-profile-image">
+
+        <h3 id="modalName"></h3>
+        <p id="modalPosition" class="modal-position"></p>
+        <p id="modalBio" class="modal-bio"></p>
+
+    </div>
 
 </div>
 

@@ -33,56 +33,60 @@ cards.forEach(card => {
 });
 
 
-/*
-====================================================
-DIRECTOR IMAGE PREVIEW FUNCTIONALITY
-====================================================
+/* =====================================================
+   DIRECTOR MODAL FUNCTIONALITY
+===================================================== */
 
-What this script does:
-
-1. Select all preview buttons.
-2. When a button is clicked:
-   - It finds the image inside that same director card.
-   - It gets the image source (src).
-   - It displays the modal.
-   - It inserts the image inside the modal.
-3. Clicking the close icon or outside the image closes it.
-*/
-
-// Select modal elements
+// Get modal elements
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("modalImage");
-const closeBtn = document.querySelector(".close-modal");
+const modalName = document.getElementById("modalName");
+const modalPosition = document.getElementById("modalPosition");
+const modalBio = document.getElementById("modalBio");
+const closeBtn = document.querySelector(".close-modal-btn");
 
 // Select all preview buttons
 const previewButtons = document.querySelectorAll(".preview-btn");
 
-// Loop through all preview buttons
+// Loop through each preview button
 previewButtons.forEach(button => {
 
     button.addEventListener("click", function() {
 
-        // Get the image inside the same director card
+        // Find the parent director card
         const card = this.closest(".director-card");
-        const img = card.querySelector(".director-image");
 
-        // Set modal image source
+        // Get director information
+        const img = card.querySelector(".director-image");
+        const name = card.querySelector("h3").innerText;
+        const position = card.querySelector("p").innerText;
+        const bio = img.getAttribute("data-bio");
+
+        // Insert into modal
         modalImg.src = img.src;
+        modalName.innerText = name;
+        modalPosition.innerText = position;
+        modalBio.innerText = bio;
 
         // Show modal
-        modal.style.display = "block";
+        modal.style.display = "flex";
+
+        // Prevent background scrolling
+        document.body.style.overflow = "hidden";
     });
 
 });
 
-// Close modal when clicking X
+// Close modal button
 closeBtn.addEventListener("click", function() {
     modal.style.display = "none";
+    document.body.style.overflow = "auto";
 });
 
-// Close modal when clicking outside image
+// Close modal when clicking outside card
 modal.addEventListener("click", function(e) {
     if (e.target === modal) {
         modal.style.display = "none";
+        document.body.style.overflow = "auto";
     }
 });
