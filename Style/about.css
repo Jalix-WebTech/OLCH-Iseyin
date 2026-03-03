@@ -279,13 +279,13 @@ body {
 ========================================= */
 
 .close-modal-btn {
-    position: absolute;
-    bottom: 25px;      /* Move to bottom */
+    position: fixed;
+    bottom: 15px;      /* Move to bottom */
     right: 30px;       /* Keep on right side */
     padding: 10px 22px;
     border: none;
     border-radius: 30px;
-    background-color: #0a4f70;
+    background-color: #ee0000;
     color: white;
     font-size: 15px;
     cursor: pointer;
