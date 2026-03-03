@@ -274,22 +274,27 @@ body {
     color: #444;
 }
 
-/* Close Button */
+/* =========================================
+   CLOSE BUTTON (Bottom Right Position)
+========================================= */
+
 .close-modal-btn {
     position: absolute;
-    top: 20px;
-    right: 25px;
-    padding: 8px 20px;
+    bottom: 25px;      /* Move to bottom */
+    right: 30px;       /* Keep on right side */
+    padding: 10px 22px;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     background-color: #0a4f70;
     color: white;
+    font-size: 15px;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .close-modal-btn:hover {
     background-color: #2bb673;
+    transform: scale(1.05);
 }
 
 /* Fade animation */
