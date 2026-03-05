@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OLCH Iseyin | About Us</title>
+  <meta name="description" content="Our Lady Catholic Hospital Iseyin provides trusted healthcare, modern facilities, and 24/7 emergency services.">
+  
+  <link rel="stylesheet" href="../Style/service.css">
+  <link rel="stylesheet" href="../Style/about.css">
+  <link rel="stylesheet" href="../Style/style.css">
+  <link rel="stylesheet" href="../Style/home-intro.css">
+  <link rel="stylesheet" href="../Style/auto-animate.css">
+  <link rel="stylesheet" href="../Style/facilities.css">
+  <link rel="stylesheet" href="../Style/FAQs.css">
+  <link rel="stylesheet" href="../Style/news.css">
+</head>
+
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="container header__inner">
+    <a target="_blank" href="../index.html"> <img style="width: auto; height: 50px;" src="../Images/logo-olch.png" alt=""></a>
+
+      <!-- Hamburger button -->
+      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <!-- Overlay -->
+      <div class="nav-overlay"></div>
+
+      <!-- Slide-in Navigation -->
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a target="_blank" href="../index.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Departments</a></li>
+          <li><a href="#">News</a></li>
+          <!-- <li><a href="appointment.html">Appointment</a></li> -->
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<body>
+
+<!-- =========================
+HEADER
+========================= -->
+
+<section class="services-header">
+
+<h1>Our Medical Services</h1>
+<p>Comprehensive healthcare services delivered by experienced professionals</p>
+
+</section>
+
+
+<!-- =========================
+FILTER BUTTONS
+========================= -->
+
+<div class="filter-container">
+
+<button class="filter-btn active" onclick="filterServices('all')">All</button>
+
+<button class="filter-btn" onclick="filterServices('consultation')">Consultation</button>
+
+<button class="filter-btn" onclick="filterServices('diagnostic')">Diagnostic</button>
+
+<button class="filter-btn" onclick="filterServices('treatment')">Treatment</button>
+
+<button class="filter-btn" onclick="filterServices('emergency')">Emergency</button>
+
+<button class="filter-btn" onclick="filterServices('support')">Support</button>
+
+</div>
+
+
+
+<!-- =========================
+SERVICES GRID
+========================= -->
+
+<section class="services-grid">
+
+
+<!-- GENERAL CONSULTATION -->
+
+<div class="service-card consultation">
+
+<img src="../Images/outpatient.jpg">
+
+<div class="service-info">
+
+<h3>General Consultation</h3>
+
+<p class="short-text">
+Professional medical consultation and diagnosis for patients.
+</p>
+
+<p class="more-text">
+Our doctors provide detailed evaluation, diagnosis and medical advice to ensure proper treatment and patient wellbeing.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+
+<!-- HAART -->
+
+<div class="service-card treatment">
+
+<img src="../Images/ARVs.jpg">
+
+<div class="service-info">
+
+<h3>HAART to Heart</h3>
+
+<p class="short-text">
+Specialized HIV treatment and counseling program.
+</p>
+
+<p class="more-text">
+Our HAART program provides testing, treatment, monitoring and counseling services to support individuals living with HIV.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+
+<!-- CERVICAL SCREENING -->
+
+<div class="service-card diagnostic">
+
+<img src="../Images/cervical.jpg">
+
+<div class="service-info">
+
+<h3>Cervical Cancer Screening</h3>
+
+<p class="short-text">
+Early detection screening for cervical cancer.
+</p>
+
+<p class="more-text">
+This screening service helps detect early cervical abnormalities to promote early treatment and prevent complications.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+
+<!-- LABORATORY -->
+
+<div class="service-card diagnostic">
+
+<img src="../Images/lab.jpg">
+
+<div class="service-info">
+
+<h3>Laboratory</h3>
+
+<p class="short-text">
+Reliable medical laboratory testing services.
+</p>
+
+<p class="more-text">
+Our laboratory provides accurate diagnostic testing using modern equipment and professional laboratory scientists.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+
+<!-- PHARMACY -->
+
+<div class="service-card treatment">
+
+<img src="../Images/pharmacy.jpg">
+
+<div class="service-info">
+
+<h3>Pharmacy</h3>
+
+<p class="short-text">
+Safe and reliable medication services.
+</p>
+
+<p class="more-text">
+Our pharmacy dispenses quality medications prescribed by doctors with guidance from qualified pharmacists.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+
+<!-- SURGERY -->
+
+<div class="service-card treatment">
+
+<img src="../Images/surgery.jpg">
+
+<div class="service-info">
+
+<h3>Surgeries</h3>
+
+<p class="short-text">
+Professional surgical procedures.
+</p>
+
+<p class="more-text">
+Our surgical unit provides both minor and major operations performed by trained surgeons using safe medical procedures.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+
+<!-- AMBULANCE -->
+
+<div class="service-card emergency">
+
+<img src="../Images/ambulance.jpg">
+
+<div class="service-info">
+
+<h3>Ambulance</h3>
+
+<p class="short-text">
+Emergency patient transport service.
+</p>
+
+<p class="more-text">
+Our ambulance service ensures rapid patient transportation with basic emergency life support equipment.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+
+<!-- PEDIATRICS -->
+
+<div class="service-card consultation">
+
+<img src="../Images/children.jpg">
+
+<div class="service-info">
+
+<h3>Pediatrics</h3>
+
+<p class="short-text">
+Healthcare services for infants and children.
+</p>
+
+<p class="more-text">
+Our pediatric department provides diagnosis, treatment and preventive healthcare for infants and children.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+
+<!-- ANTENATAL -->
+
+<div class="service-card consultation">
+
+<img src="../Images/pregnancy.jpg">
+
+<div class="service-info">
+
+<h3>Ante-Natal Care</h3>
+
+<p class="short-text">
+Comprehensive pregnancy monitoring services.
+</p>
+
+<p class="more-text">
+Our antenatal care program supports mothers with routine checkups, counseling and pregnancy monitoring.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+
+<!-- ULTRASOUND -->
+
+<div class="service-card diagnostic">
+
+<img src="../Images/scan.jpg">
+
+<div class="service-info">
+
+<h3>Ultrasound Scan</h3>
+
+<p class="short-text">
+Advanced imaging for internal body diagnosis.
+</p>
+
+<p class="more-text">
+Our ultrasound imaging technology helps doctors detect and monitor medical conditions safely and accurately.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+
+<!-- EMERGENCY -->
+
+<div class="service-card emergency">
+
+<img src="../Images/opd.jpg">
+
+<div class="service-info">
+
+<h3>Emergency</h3>
+
+<p class="short-text">
+24/7 emergency medical care services.
+</p>
+
+<p class="more-text">
+Our emergency unit operates around the clock to handle urgent medical conditions and accidents.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+
+<!-- PHYSIOTHERAPY -->
+
+<div class="service-card treatment">
+
+<img src="../Images/physio.jpg">
+
+<div class="service-info">
+
+<h3>Physiotherapy</h3>
+
+<p class="short-text">
+Rehabilitation and physical therapy treatments.
+</p>
+
+<p class="more-text">
+Our physiotherapy services assist patients recovering from injury, surgery, or illness through therapeutic exercises.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+
+<!-- MORTUARY -->
+
+<div class="service-card support">
+
+<img src="../Images/mortuary.png">
+
+<div class="service-info">
+
+<h3>Mortuary</h3>
+
+<p class="short-text">
+Respectful preservation of the deceased.
+</p>
+
+<p class="more-text">
+Our mortuary services ensure professional and respectful handling and preservation of deceased individuals.
+</p>
+
+<button class="read-btn" onclick="toggleText(this)">Read All</button>
+
+</div>
+</div>
+
+
+</section>
+
+  <script src="../JS/service.js"></script>
+  <script src="../JS/about.js"></script>
+  <script src="../JS/nav.js"></script>
+  <script src="../JS/slider.js"></script>
+  <script src="../JS/auto-type.js"></script>
+  <script src="../JS/home-page-auto-scroll.js"></script>
+  <script src="../JS/auto-update-year.js"></script>
+  <script src="../JS/equipment.js"></script>
+  <script src="./JS/news.js"></script>
+
+</body>
+</html>
