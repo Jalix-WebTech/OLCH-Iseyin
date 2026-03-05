@@ -312,3 +312,49 @@ body {
         padding: 50px 20px 30px 20px;
     }
 }
+
+/* Other board members */
+
+.other-members{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.others-boxes {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.others-boxes:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.others-boxes{
+    width: 400px;
+    /* border: #2bb673 solid 2px; */
+    border-radius: 5px;
+}
+
+.others-boxes h3, .others-boxes p{
+    text-align: center;
+}
+
+.others-boxes h3{
+    color: #0a4f70;
+}
+
+.others-boxes p{
+    color: #666;
+    font-size: 14px;
+}
