@@ -65,20 +65,23 @@ HEADER
 <!-- =========================
 FILTER BUTTONS
 ========================= -->
-
 <div class="filter-container">
 
-<button class="filter-btn active" onclick="filterServices('all')">All</button>
+<button class="filter-btn active" onclick="filterServices('all', this)">
+All
+</button>
 
-<button class="filter-btn" onclick="filterServices('consultation')">Consultation</button>
+<button class="filter-btn" onclick="filterServices('clinical', this)">
+Clinical Care
+</button>
 
-<button class="filter-btn" onclick="filterServices('diagnostic')">Diagnostic</button>
+<button class="filter-btn" onclick="filterServices('diagnostic', this)">
+Diagnostics
+</button>
 
-<button class="filter-btn" onclick="filterServices('treatment')">Treatment</button>
-
-<button class="filter-btn" onclick="filterServices('emergency')">Emergency</button>
-
-<button class="filter-btn" onclick="filterServices('support')">Support</button>
+<button class="filter-btn" onclick="filterServices('support', this)">
+Support Services
+</button>
 
 </div>
 
@@ -93,7 +96,7 @@ SERVICES GRID
 
 <!-- GENERAL CONSULTATION -->
 
-<div class="service-card consultation">
+<div class="service-card clinical">
 
 <img src="../Images/outpatient.jpg">
 
@@ -118,7 +121,7 @@ Our doctors provide detailed evaluation, diagnosis and medical advice to ensure 
 
 <!-- HAART -->
 
-<div class="service-card treatment">
+<div class="service-card clinical">
 
 <img src="../Images/ARVs.jpg">
 
@@ -193,7 +196,7 @@ Our laboratory provides accurate diagnostic testing using modern equipment and p
 
 <!-- PHARMACY -->
 
-<div class="service-card treatment">
+<div class="service-card support">
 
 <img src="../Images/pharmacy.jpg">
 
@@ -218,7 +221,7 @@ Our pharmacy dispenses quality medications prescribed by doctors with guidance f
 
 <!-- SURGERY -->
 
-<div class="service-card treatment">
+<div class="service-card clinical">
 
 <img src="../Images/surgery.jpg">
 
@@ -243,7 +246,7 @@ Our surgical unit provides both minor and major operations performed by trained 
 
 <!-- AMBULANCE -->
 
-<div class="service-card emergency">
+<div class="service-card support">
 
 <img src="../Images/ambulance.jpg">
 
@@ -268,7 +271,7 @@ Our ambulance service ensures rapid patient transportation with basic emergency 
 
 <!-- PEDIATRICS -->
 
-<div class="service-card consultation">
+<div class="service-card clinical">
 
 <img src="../Images/children.jpg">
 
@@ -293,7 +296,7 @@ Our pediatric department provides diagnosis, treatment and preventive healthcare
 
 <!-- ANTENATAL -->
 
-<div class="service-card consultation">
+<div class="service-card clinical">
 
 <img src="../Images/pregnancy.jpg">
 
@@ -343,7 +346,7 @@ Our ultrasound imaging technology helps doctors detect and monitor medical condi
 
 <!-- EMERGENCY -->
 
-<div class="service-card emergency">
+<div class="service-card clinical">
 
 <img src="../Images/opd.jpg">
 
@@ -368,7 +371,7 @@ Our emergency unit operates around the clock to handle urgent medical conditions
 
 <!-- PHYSIOTHERAPY -->
 
-<div class="service-card treatment">
+<div class="service-card clinical">
 
 <img src="../Images/physio.jpg">
 
