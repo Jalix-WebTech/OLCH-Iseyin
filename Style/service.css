@@ -122,17 +122,19 @@ SERVICES GRID
 
 .services-grid{
 
-max-width:1200px;
+/* max-width:1200px; */
 
 margin:auto;
 
 padding:20px;
 
-display:grid;
+display:flex;
+flex-wrap: wrap;
 
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+/* grid-template-columns:repeat(auto-fit,minmax(310px,2fr)); */
 
 gap:30px;
+justify-content: center;
 
 }
 
@@ -145,6 +147,8 @@ SERVICE CARD
 .service-card{
 
 background:white;
+/* width: 300px;
+height: 500px; */
 
 border-radius:12px;
 
@@ -171,7 +175,7 @@ transform:translateY(-6px);
 IMAGE CONTAINER
 ========================= */
 
-.service-image{
+/* .service-image{
 
 width:100%;
 
@@ -181,13 +185,13 @@ overflow:hidden;
 
 background:#f5f7fb;
 
-}
+} */
 
 
 
 /* DEFAULT IMAGE STYLE */
 
-.service-image img{
+/* .service-image img{
 
 width:100%;
 height:100%;
@@ -196,15 +200,15 @@ object-fit:cover;
 
 transition:0.4s ease;
 
-}
+} */
 
 
 
 /* WHEN CARD EXPANDS */
 
-.service-card.expanded img{
+.service-card img{
 
-object-fit:contain;
+object-fit:cover;
 
 background:#f5f7fb;
 
