@@ -358,3 +358,40 @@ body {
     color: #666;
     font-size: 14px;
 }
+
+
+/* Button */
+.history-btn{
+    display:inline-block;
+    padding:12px 28px;
+    background:#0d6efd;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:5px;
+    transition:0.3s ease;
+}
+
+/* Hover Effect */
+.history-btn:hover{
+    background:#084dbf;
+    transform:translateY(-2px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width:768px){
+
+    .history-container h2{
+        font-size:1.6rem;
+    }
+
+    .history-container p{
+        font-size:0.95rem;
+    }
+
+    .history-btn{
+        padding:10px 22px;
+        font-size:0.9rem;
+    }
+
+}
