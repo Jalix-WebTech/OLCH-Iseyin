@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OLCH Iseyin | Our Departments</title>
+
+<style>
+
+/* ==========================
+   GLOBAL STYLING
+   ========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body{
+background:#f6f9fc;
+color:#333;
+line-height:1.6;
+}
+
+
+/* ==========================
+   HEADER SECTION
+   ========================== */
+
+.header{
+background:#0a6ebd;
+color:white;
+padding:60px 20px;
+text-align:center;
+}
+
+.header h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.header p{
+font-size:18px;
+opacity:0.9;
+}
+
+
+/* ==========================
+   DEPARTMENTS CONTAINER
+   ========================== */
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+padding:60px 0;
+}
+
+
+/* ==========================
+   GRID LAYOUT
+   Creates responsive cards
+   ========================== */
+
+.departments-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+
+/* ==========================
+   DEPARTMENT CARD
+   ========================== */
+
+.department-card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+transition:transform 0.4s ease, box-shadow 0.4s ease;
+opacity:0;               /* Hidden before animation */
+transform:translateY(40px); /* Move down before animation */
+}
+
+
+/* Hover animation */
+
+.department-card:hover{
+transform:translateY(-8px);
+box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+
+/* ==========================
+   IMAGE STYLING
+   ========================== */
+
+.department-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+
+/* ==========================
+   CARD CONTENT
+   ========================== */
+
+.department-content{
+padding:20px;
+}
+
+.department-content h3{
+color:#0a6ebd;
+margin-bottom:10px;
+}
+
+.department-content p{
+font-size:14px;
+color:#555;
+}
+
+
+/* ==========================
+   ANIMATION CLASS
+   When JS adds this class,
+   the card fades in smoothly
+   ========================== */
+
+.show{
+opacity:1;
+transform:translateY(0);
+transition:all 0.7s ease;
+}
+
+
+/* ==========================
+   FOOTER
+   ========================== */
+
+footer{
+background:#0a6ebd;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:50px;
+}
+
+
+/* ==========================
+   RESPONSIVE DESIGN
+   ========================== */
+
+/* Tablet */
+
+@media (max-width:768px){
+
+.header h1{
+font-size:32px;
+}
+
+.header p{
+font-size:16px;
+}
+
+}
+
+
+/* Mobile */
+
+@media (max-width:500px){
+
+.header{
+padding:40px 15px;
+}
+
+.container{
+padding:40px 0;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ==========================
+     PAGE HEADER
+     ========================== -->
+
+<section class="header">
+
+<h1>Our Departments</h1>
+
+<p>
+Our hospital provides specialized healthcare services through
+well-structured departments equipped with modern facilities
+and experienced professionals.
+</p>
+
+</section>
+
+
+
+<!-- ==========================
+     DEPARTMENTS SECTION
+     ========================== -->
+
+<section class="container">
+
+<div class="departments-grid">
+
+<!-- OPD -->
+
+<div class="department-card">
+<img src="../Images/opd.jpg" alt="OPD Department">
+
+<div class="department-content">
+<h3>Outpatient Department (OPD)</h3>
+<p>
+The OPD provides consultation, diagnosis, and treatment for patients
+who do not require hospital admission. Our doctors ensure efficient
+and quality medical care for all outpatient visits.
+</p>
+</div>
+</div>
+
+
+
+<!-- ACCOUNTING -->
+
+<div class="department-card">
+<img src="../Images/Olch's Anniversry.jpg" alt="Accounting Department">
+
+<div class="department-content">
+<h3>Accounting Department</h3>
+<p>
+Our accounting department manages financial transactions,
+billing services, and insurance processes to ensure transparency
+and efficient financial management within the hospital.
+</p>
+</div>
+</div>
+
+
+
+<!-- PHARMACY -->
+
+<div class="department-card">
+<img src="../Images/pharmacy-2.jpg" alt="Pharmacy">
+
+<div class="department-content">
+<h3>Pharmacy</h3>
+<p>
+The pharmacy department provides safe and effective medication
+services while ensuring proper drug dispensing, storage,
+and patient counseling.
+</p>
+</div>
+</div>
+
+
+
+<!-- MATERNITY -->
+
+<div class="department-card">
+<img src="../Images/maternity.jpg" alt="Maternity">
+
+<div class="department-content">
+<h3>Maternity Department</h3>
+<p>
+Our maternity department offers comprehensive care for mothers
+before, during, and after childbirth with experienced
+midwives and obstetricians.
+</p>
+</div>
+</div>
+
+
+
+<!-- LABORATORY -->
+
+<div class="department-card">
+<img src="../Images/lab.jpg" alt="Laboratory">
+
+<div class="department-content">
+<h3>Laboratory</h3>
+<p>
+The laboratory department provides accurate diagnostic testing
+using modern equipment to support effective treatment
+and patient care.
+</p>
+</div>
+</div>
+
+
+
+<!-- HEALTH INFORMATION -->
+
+<div class="department-card">
+<img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b" alt="Health Information">
+
+<div class="department-content">
+<h3>Health Information Management</h3>
+<p>
+This department manages patient records, data privacy,
+medical documentation, and information systems
+to ensure accurate healthcare data management.
+</p>
+</div>
+</div>
+
+
+</div>
+</section>
+
+
+
+<!-- ==========================
+     FOOTER
+     ========================== -->
+
+<footer>
+<p>© 2026 Hospital Name | Quality Healthcare Services</p>
+</footer>
+
+
+
+<script>
+
+/*
+=============================================
+SCROLL ANIMATION FOR DEPARTMENT CARDS
+=============================================
+
+This JavaScript makes the department cards
+appear with animation when the user scrolls.
+
+Steps of the logic:
+
+1. Select all department cards
+2. Detect when they appear in the screen
+3. Add the class "show"
+4. CSS animation makes them fade in
+*/
+
+
+// Select all cards
+const cards = document.querySelectorAll(".department-card");
+
+
+// Create an IntersectionObserver
+// This detects when elements enter the screen
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+// Add the animation class
+entry.target.classList.add("show");
+
+}
+
+});
+
+});
+
+
+// Observe each card
+
+cards.forEach(card => {
+observer.observe(card);
+});
+
+</script>
+
+</body>
+</html>
