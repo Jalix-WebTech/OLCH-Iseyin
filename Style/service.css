@@ -260,6 +260,7 @@ line-height:1.5;
 .more-text{
 
 display:none;
+max-width: 350px;
 
 margin-top:10px;
 
