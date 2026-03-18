@@ -17,15 +17,9 @@ body.modal-open {
   overflow: hidden;
 }
 
-header {
-  background: #0b6efd;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
 
 /* GRID */
-.container {
+.container-2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
@@ -33,7 +27,7 @@ header {
 }
 
 /* WHY: disable background */
-.container.disabled {
+.container-2.disabled {
   pointer-events: none;
   filter: blur(2px);
 }

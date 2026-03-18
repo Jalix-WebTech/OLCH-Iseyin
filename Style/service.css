@@ -22,7 +22,7 @@ HEADER
 
 .services-header{
 
-background:#0a6fb7;
+background: linear-gradient(rgba(15,76,117,0.9), rgba(27,154,170,0.9));
 color:white;
 
 text-align:center;
@@ -355,6 +355,10 @@ padding:8px;
 
 padding-bottom:90px;
 
+}
+
+.gap{
+  height: 100px;
 }
 
 }

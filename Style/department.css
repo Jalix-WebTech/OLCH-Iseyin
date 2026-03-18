@@ -1,0 +1,176 @@
+/* ==========================
+   GLOBAL STYLING
+   ========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body{
+background:#f6f9fc;
+color:#333;
+line-height:1.6;
+}
+
+
+/* ==========================
+   HEADER SECTION
+   ========================== */
+/* 
+.header{
+background:#0a6ebd;
+color:white;
+padding:60px 20px;
+text-align:center;
+}
+
+.header h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.header p{
+font-size:18px;
+opacity:0.9;
+} */
+
+
+/* ==========================
+   DEPARTMENTS CONTAINER
+   ========================== */
+
+.container-2{
+width:90%;
+max-width:1200px;
+margin:auto;
+padding:60px 0;
+}
+
+
+/* ==========================
+   GRID LAYOUT
+   Creates responsive cards
+   ========================== */
+
+.departments-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+
+/* ==========================
+   DEPARTMENT CARD
+   ========================== */
+
+.department-card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+transition:transform 0.4s ease, box-shadow 0.4s ease;
+opacity:0;               /* Hidden before animation */
+transform:translateY(40px); /* Move down before animation */
+}
+
+
+/* Hover animation */
+
+.department-card:hover{
+transform:translateY(-8px);
+box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+
+/* ==========================
+   IMAGE STYLING
+   ========================== */
+
+.department-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+
+/* ==========================
+   CARD CONTENT
+   ========================== */
+
+.department-content{
+padding:20px;
+}
+
+.department-content h3{
+color:#0a6ebd;
+margin-bottom:10px;
+}
+
+.department-content p{
+font-size:14px;
+color:#555;
+}
+
+
+/* ==========================
+   ANIMATION CLASS
+   When JS adds this class,
+   the card fades in smoothly
+   ========================== */
+
+.show{
+opacity:1;
+transform:translateY(0);
+transition:all 0.7s ease;
+}
+
+
+/* ==========================
+   FOOTER
+   ========================== */
+
+/* footer{
+background:#0a6ebd;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:50px;
+} */
+
+
+/* ==========================
+   RESPONSIVE DESIGN
+   ========================== */
+
+/* Tablet */
+
+/* @media (max-width:768px){
+
+.header-2 h1{
+font-size:32px;
+}
+
+.header-2 p{
+font-size:16px;
+}
+
+} */
+
+
+/* Mobile */
+
+@media (max-width:500px){
+
+/* .header-2{
+padding:40px 15px;
+} */
+
+.container-2{
+padding:40px 0;
+}
+
+}
+
