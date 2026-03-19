@@ -71,6 +71,81 @@ const newsData = [
       <p>his ruling ensures that current vaccination programs will continue without disruption, safeguarding millions of individuals, particularly children, from infectious diseases.</p>
     `,
     date: "2026-03-15"
+  },
+  {
+    title: "Measles Outbreak Raises Concern",
+    category: "health",
+    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+    intro: "Rising measles cases highlight gaps in vaccination coverage...",
+    full: `
+      <p>Health authorities have reported a significant increase in measles cases globally, with over a thousand confirmed infections in early 2026.</p>
+      <p>This surge has been linked to declining vaccination rates in several regions.</p>
+      <p>Measles is a highly contagious viral disease that can lead to severe complications, especially in children.</p>
+
+      <p>Experts warn that even small drops in vaccination coverage can lead to large outbreaks.</p>
+      <p>Efforts are underway to strengthen immunization campaigns and educate communities about the importance of vaccines.</p>
+      <p>Early detection and isolation of cases are also critical in controlling the spread.
+      </p>
+    `,
+    date: "2026-03-15"
+  },
+  {
+    title: "Africa CDC and Europe Strengthen Health Partnership",
+    category: "health",
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309",
+    intro: "A new agreement aims to boost global disease response systems...",
+    full: `
+      <p>The Africa Centres for Disease Control and Prevention (Africa CDC) and the European Centre for Disease Prevention and Control (ECDC) have signed a landmark agreement to enhance collaboration.</p>
+      <p>This partnership focuses on improving disease surveillance, laboratory systems, and workforce training across both continents.</p>
+      <p>It also aims to strengthen preparedness for future pandemics and public health emergencies.</p>
+
+      <p>Experts believe that such international collaborations are vital in an interconnected world where diseases can spread rapidly across borders.</p>
+    `,
+    date: "2026-03-15"
+  },
+  {
+    title: "Polio Risk Remains High in Multiple Countries",
+    category: "health",
+    image: "https://images.unsplash.com/photo-1579154204601-01588f351e67",
+    intro: "Continued vigilance is required to prevent polio spread...",
+    full: `
+      <p>Global health organizations have warned that poliovirus transmission remains a risk in several countries.</p>
+      <p>Despite significant progress toward eradication, challenges persist due to conflict, poor healthcare access, and vaccine hesitancy.</p>
+      <p>Polio primarily affects children and can lead to permanent paralysis.</p>
+
+      <p>Vaccination remains the most effective tool for prevention.</p>
+      <p>Health authorities are intensifying immunization campaigns and surveillance efforts to ensure that new cases are quickly detected and contained.</p>
+    `,
+    date: "2026-03-15"
+  },
+  {
+    title: "Ethiopia Declares End of Marburg Outbreak",
+    category: "health",
+    image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b",
+    intro: "A deadly viral outbreak has been successfully contained...",
+    full: `
+      <p>Ethiopia has officially declared the end of its Marburg virus outbreak after 42 consecutive days without new cases.</p>
+      <p>The Marburg virus is highly infectious and can cause severe hemorrhagic fever.</p>
+      <p>The successful containment was achieved through rapid response measures, including isolation of cases, contact tracing, and community engagement.</p>
+
+      <p>This achievement highlights the importance of strong public health systems and coordinated response strategies in managing infectious disease outbreaks.</p>
+    `,
+    date: "2026-03-15"
+  },
+  {
+    title: "Lassa Fever Cases Rise in Nigeria",
+    category: "health",
+    image: "https://www.google.com/imgres?q=Lassa%20Fever%20Cases%20Rise%20in%20Nigeria&imgurl=https%3A%2F%2Fcdn.guardian.ng%2Fwp-content%2Fuploads%2F2026%2F01%2Flassa-fever.webp&imgrefurl=https%3A%2F%2Fguardian.ng%2Fnews%2Fncdc-raises-alarm-as-15-health-workers-contract-lassa-fever-two-die%2F&docid=3EsHO_GXhIKvZM&tbnid=FcvCj7cxS2EqFM&vet=12ahUKEwitssCyz6yTAxVeTUEAHWJPIbcQnPAOegQIUBAB..i&w=1890&h=1063&hcb=2&ved=2ahUKEwitssCyz6yTAxVeTUEAHWJPIbcQnPAOegQIUBAB",
+    intro: "Seasonal increase prompts nationwide health alert...",
+    full: `
+      <p>Nigeria is experiencing a seasonal increase in Lassa fever cases, particularly during the dry season.</p>
+      <p>The disease is transmitted through contact with food or household items contaminated by infected rodents.</p>
+      <p>Symptoms can range from mild to severe, including fever, weakness, and bleeding in serious cases.</p>
+
+      <p>Early diagnosis and treatment significantly improve survival rates.</p>
+      <p>Health authorities are urging the public to maintain proper hygiene, store food safely, and avoid contact with rodents to reduce the risk of infection.</p>
+    `,
+    date: "2026-03-15"
   }
 ];
 
