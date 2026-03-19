@@ -12,7 +12,7 @@ line-height:1.6;
 /* PAGE HEADER */
 
 .page-header{
-background:#0d6efd;
+  background: linear-gradient(rgba(15,76,117,0.9), rgba(27,154,170,0.9));
 color:white;
 text-align:center;
 padding:60px 20px;

@@ -37,6 +37,90 @@ const newsData = [
       <p>Healthcare access is our mission.</p>
     `,
     date: "2026-03-18"
+  },
+  {
+    title: "Tips for Healthy Living",
+    category: "health",
+    image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
+    intro: "Learn simple daily habits to improve your health...",
+    full: `
+      <p>Balanced nutrition is key to a healthy life.</p>
+      <p>Exercise improves both physical and mental wellbeing.</p>
+      <p>Routine checkups help detect issues early.</p>
+    `,
+    date: "2026-03-15"
+  },
+  {
+    title: "Free Medical Outreach",
+    category: "event",
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309",
+    intro: "Join our free community outreach...",
+    full: `
+      <p>We are offering free consultations and screenings.</p>
+      <p>This program targets underserved communities.</p>
+      <p>Healthcare access is our mission.</p>
+    `,
+    date: "2026-03-18"
+  },
+    {
+    title: "New Cardiology Unit Opened",
+    category: "event",
+    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3",
+    intro: "Our hospital launches a new advanced cardiology unit...",
+    full: `
+      <p>Our hospital proudly opened a state-of-the-art cardiology unit.</p>
+      <p>This unit includes modern diagnostic tools and expert specialists.</p>
+      <p>Patients will now receive faster and more accurate care.</p>
+    `,
+    date: "2026-03-10"
+  },
+  {
+    title: "Tips for Healthy Living",
+    category: "health",
+    image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
+    intro: "Learn simple daily habits to improve your health...",
+    full: `
+      <p>Balanced nutrition is key to a healthy life.</p>
+      <p>Exercise improves both physical and mental wellbeing.</p>
+      <p>Routine checkups help detect issues early.</p>
+    `,
+    date: "2026-03-15"
+  },
+  {
+    title: "Free Medical Outreach",
+    category: "event",
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309",
+    intro: "Join our free community outreach...",
+    full: `
+      <p>We are offering free consultations and screenings.</p>
+      <p>This program targets underserved communities.</p>
+      <p>Healthcare access is our mission.</p>
+    `,
+    date: "2026-03-18"
+  },
+  {
+    title: "Tips for Healthy Living",
+    category: "health",
+    image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
+    intro: "Learn simple daily habits to improve your health...",
+    full: `
+      <p>Balanced nutrition is key to a healthy life.</p>
+      <p>Exercise improves both physical and mental wellbeing.</p>
+      <p>Routine checkups help detect issues early.</p>
+    `,
+    date: "2026-03-15"
+  },
+  {
+    title: "Free Medical Outreach",
+    category: "event",
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309",
+    intro: "Join our free community outreach...",
+    full: `
+      <p>We are offering free consultations and screenings.</p>
+      <p>This program targets underserved communities.</p>
+      <p>Healthcare access is our mission.</p>
+    `,
+    date: "2026-03-18"
   }
 ];
 
