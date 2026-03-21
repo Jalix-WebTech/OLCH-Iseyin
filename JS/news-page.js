@@ -146,6 +146,62 @@ const newsData = [
       <p>Health authorities are urging the public to maintain proper hygiene, store food safely, and avoid contact with rodents to reduce the risk of infection.</p>
     `,
     date: "2026-03-15"
+  },
+
+
+  {
+    title: "U.S.–Congo Health Partnership Announced",
+    category: "health",
+    image: "https://images.unsplash.com/photo-1581595219315-a187dd40c322",
+    intro: "Major investment targets key health challenges...",
+    full: `
+      <p>A new multi-billion-dollar health partnership between the United States and the Democratic Republic of Congo aims to strengthen healthcare systems and address major health challenges.</p>
+      <p>The initiative focuses on combating diseases such as HIV, malaria, and tuberculosis, while also improving maternal and child health services.</p>
+      <p>Infrastructure development, workforce training, and access to essential medicines are key components of the program.</p>
+    `,
+    date: "2026-03-15"
+  },
+  {
+    title: "Global Health Cooperation Faces Challenges",
+    category: "health",
+    image: " https://images.unsplash.com/photo-1581594693702-4d3c9eae6b5c",
+    intro: " International collaboration remains critical for disease control...",
+    full: `
+      <p>Recent developments have raised concerns about the future of global health cooperation.</p>
+      <p>Experts warn that reduced collaboration between countries could weaken the ability to respond to pandemics.</p>
+      <p>International organizations play a crucial role in coordinating responses, sharing data, and providing support to countries in need.</p>
+
+      <p>Strengthening partnerships and maintaining open communication channels are essential for addressing global health threats effectively.</p>
+      <p>(Remaining 20 — Same detailed structure, slightly more concise but still paragraph-based)</p>
+    `,
+    date: "2026-03-15"
+  },
+  {
+    title: "Vaccine Hesitancy Increasing Globally",
+    category: "health",
+    image: " https://images.unsplash.com/photo-1612277795421-9bc7706a4a34",
+    intro: "Declining trust in vaccines is affecting public health...",
+    full: `
+      <p>Vaccine hesitancy continues to rise in several parts of the world, leading to reduced immunization coverage.</p>
+      <p>This trend is contributing to the resurgence of preventable diseases such as measles. </p>
+      <p>Health experts emphasize the need for public education and transparent communication.</p>
+
+      <p>Building trust through community engagement remains a key strategy in addressing this issue.</p>
+    `,
+    date: "2026-03-15"
+  },
+  {
+    title: " Health Data Sharing Concerns Raised",
+    category: "health",
+    image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f",
+    intro: "New agreements spark debate over data security...",
+    full: `
+      <p>Concerns have been raised about international agreements involving health data sharing.</p>
+      <p>Experts warn that while data sharing is essential for disease tracking, it must be balanced with privacy and national security considerations.</p>
+
+      <p>Clear policies and safeguards are necessary to protect sensitive information.</p>
+    `,
+    date: "2026-03-15"
   }
 ];
 
