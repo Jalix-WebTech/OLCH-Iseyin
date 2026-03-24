@@ -152,6 +152,7 @@ body {
     height: auto;
     box-shadow: none;
     right: 0;
+    padding-right: 20px;
   }
 
   .nav__list {
