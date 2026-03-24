@@ -26,3 +26,28 @@ overlay.addEventListener('click', closeMenu);
     slides[current].classList.add('active2');
   }, 5000);
 
+
+  // Splash screen starts here
+
+  window.addEventListener("load", () => {
+    // Hide navbar at first
+    const navbar = document.getElementById("navbar"); // Change if your nav uses class
+    if(navbar) navbar.style.display = "none";
+
+    // Splash fade out after 2.5s
+    setTimeout(() => {
+        const splash = document.getElementById("splash-screen");
+
+        splash.style.transition = "opacity 0.6s ease";
+        splash.style.opacity = "0";
+
+        setTimeout(() => {
+            splash.style.display = "none";
+
+            // Show navbar after splash
+            if(navbar) navbar.style.display = "block";
+
+        }, 600);
+    }, 2500);
+});
+
