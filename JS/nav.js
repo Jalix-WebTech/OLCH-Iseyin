@@ -48,6 +48,6 @@ overlay.addEventListener('click', closeMenu);
             if(navbar) navbar.style.display = "block";
 
         }, 600);
-    }, 2500);
+    }, 3000);
 });
 
