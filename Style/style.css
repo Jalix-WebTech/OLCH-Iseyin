@@ -464,7 +464,7 @@ display: flex;                 /* Enable flexbox */
 
 /* Bottom Credit */
 .credit {
-    margin-top: 70px;
+    /* margin-top: 70px; */
     /* position: absolute; */
     /* bottom: 75px; */
     font-size: 12px;
