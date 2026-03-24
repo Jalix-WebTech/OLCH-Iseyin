@@ -422,9 +422,9 @@ display: flex;                 /* Enable flexbox */
     height: 80px;
     object-fit: contain;
 
-    opacity: 0;
+    opacity: 1;
     transform: translateY(-10px);
-    animation: fadeSlide 0.8s ease forwards;
+    /* animation: fadeSlide 0.8s ease forwards; */
 }
 
 /* Welcome Text */
