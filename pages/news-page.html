@@ -1,0 +1,1876 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital News</title>
+    <style>
+      /* Reset and base styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background-color: #f8f9fa;
+        padding-bottom: 120px;
+      }
+
+      /* Container for news */
+      .news-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* News card styling */
+      .news-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .news-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: all 0.3s ease;
+      }
+
+      .news-card.expanded img {
+        height: auto; /* Expand image to full width */
+        max-height: 80vh; /* Fit large screens but not overflow */
+      }
+
+      .news-card-content {
+        padding: 15px;
+      }
+
+      .news-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: #1f3a93;
+      }
+
+      .news-card p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.5;
+      }
+
+      .read-all-btn,
+      .close-btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 15px;
+        background-color: #1f3a93;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      .read-all-btn:hover,
+      .close-btn:hover {
+        background-color: #162c6f;
+      }
+
+      /* Search bar fixed above nav */
+      .search-bar {
+        position: fixed;
+        bottom: 60px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 10px 20px;
+        border-top: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        z-index: 100;
+      }
+      .search-bar input {
+        flex: 1;
+        padding: 10px 15px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+      }
+
+      /* Bottom navigation bar */
+      .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #1f3a93;
+        display: flex;
+        justify-content: space-around;
+        padding: 15px 0;
+        z-index: 100;
+      }
+      .bottom-nav button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .bottom-nav button.active {
+        border-bottom: 3px solid #ffcc00;
+        padding-bottom: 5px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .news-card img {
+          height: 150px;
+        }
+        .news-card h2 {
+          font-size: 1.1rem;
+        }
+        .news-card p {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="news-container" id="newsContainer"></div>
+
+    <!-- Fixed search bar -->
+    <div class="search-bar">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search news here..."
+        onkeyup="searchNews()"
+      />
+    </div>
+
+    <!-- Bottom navigation -->
+    <div class="bottom-nav">
+      <button class="active" onclick="filterNews('all', event)">All</button>
+      <button onclick="filterNews('health-event', event)">Health News</button>
+      <button onclick="filterNews('hospital-event', event)">
+        Hospital Event
+      </button>
+    </div>
+
+    <script>
+      const newsData = [
+        {
+          id: 1,
+          category: "hospital-event", // hospital-specific outreach
+          title: "Free Rural Medical Outreach",
+          image: "../Images/OLCH_outreach.jpg",
+          content:
+            "Our hospital provides free medical checkups and consultations in rural communities. This outreach program aims to improve access to healthcare, educate residents on disease prevention, and identify health issues early. Our team of doctors and nurses travels to remote areas to offer essential services and health education.",
+        },
+        {
+          id: 2,
+          category: "health-event",
+          title: "Malaria Prevention Tips",
+          image: "https://via.placeholder.com/800x400?text=Malaria",
+          content:
+            "Malaria is transmitted by mosquitoes and remains a leading cause of illness in rural areas. Using treated nets, eliminating stagnant water, and prompt treatment reduce risks. Our hospital provides prevention education for families.",
+        },
+        {
+          id: 3,
+          category: "health-event",
+          title: "Measles Vaccination Drive",
+          image: "https://via.placeholder.com/800x400?text=Measles",
+          content:
+            "Measles is a contagious viral illness that can be prevented with immunization. Our hospital organizes vaccination drives to protect children under five and educate parents on schedule and importance.",
+        },
+        {
+          id: 4,
+          category: "health-event",
+          title: "Anemia in Women: Iron Deficiency",
+          image: "https://via.placeholder.com/800x400?text=Anemia",
+          content:
+            "Anemia caused by iron deficiency leads to fatigue and dizziness in many women. Iron-rich foods, supplements, and medical check-ups help prevent and treat anemia. Our hospital offers screening and treatment.",
+        },
+        {
+          id: 5,
+          category: "health-event",
+          title: "Tuberculosis Screening Effort",
+          image: "https://via.placeholder.com/800x400?text=TB",
+          content:
+            "TB spreads through the air and can become severe without treatment. Persistent cough and weight loss may be signs. Our hospital conducts community screening to diagnose and treat tuberculosis early.",
+        },
+        {
+          id: 6,
+          category: "health-event",
+          title: "Safe Abortion Information Services",
+          image: "https://via.placeholder.com/800x400?text=Safe+Abortion",
+          content:
+            "Unsafe abortion is a major cause of maternal death. Our hospital provides information on safe, legal services and aftercare to protect women’s health and reduce risk.",
+        },
+        {
+          id: 7,
+          category: "health-event",
+          title: "Hepatitis Vaccination and Awareness",
+          image: "https://via.placeholder.com/800x400?text=Hepatitis",
+          content:
+            "Hepatitis A and B can cause liver damage. Vaccination and clean water practices reduce infection. Our hospital offers vaccination and community education on prevention.",
+        },
+        {
+          id: 8,
+          category: "health-event",
+          title: "Dehydration Prevention in Children",
+          image: "https://via.placeholder.com/800x400?text=Dehydration",
+          content:
+            "Dehydration happens when fluid loss exceeds intake. It is common during diarrhoea and fever. Encourage water, ORS, and seek medical care if symptoms are severe. Our hospital educates caregivers.",
+        },
+        {
+          id: 9,
+          category: "health-event",
+          title: "Respiratory Infection Prevention",
+          image:
+            "https://via.placeholder.com/800x400?text=Respiratory+Infections",
+          content:
+            "Respiratory illnesses like pneumonia and flu affect many children and adults. Vaccination, hand hygiene, and early care reduce severity. Our hospital supports prevention and early treatment.",
+        },
+        {
+          id: 10,
+          category: "health-event",
+          title: "Asthma Management at Home",
+          image: "https://via.placeholder.com/800x400?text=Asthma",
+          content:
+            "Asthma causes wheezing and breathing difficulty. Identifying triggers, using inhalers correctly, and regular checkups improve quality of life. Our hospital supports patients with asthma education.",
+        },
+        {
+          id: 11,
+          category: "health-event",
+          title: "Dengue Fever Awareness",
+          image: "https://via.placeholder.com/800x400?text=Dengue",
+          content:
+            "Dengue fever, spread by Aedes mosquitoes, causes fever and joint pain. Mosquito control, nets, and protective clothing reduce risk. Our hospital educates communities and supports outbreak response.",
+        },
+        {
+          id: 12,
+          category: "health-event",
+          title: "Yellow Fever Immunization",
+          image: "https://via.placeholder.com/800x400?text=Yellow+Fever",
+          content:
+            "Yellow fever can be fatal if not prevented. Vaccination offers strong protection. Our hospital conducts immunization campaigns in rural areas and shares information on safety.",
+        },
+        {
+          id: 13,
+          category: "health-event",
+          title: "Dental Hygiene Awareness",
+          image: "https://via.placeholder.com/800x400?text=Dental+Care",
+          content:
+            "Good oral hygiene prevents cavities and gum disease. Regular brushing, flossing, and check-ups maintain dental health. Our hospital provides dental education and basic services.",
+        },
+        {
+          id: 14,
+          category: "health-event",
+          title: "Ear Infection Prevention",
+          image: "https://via.placeholder.com/800x400?text=Ear+Health",
+          content:
+            "Ear infections are common, especially in children, and can affect hearing if untreated. Clean ears gently and seek care if pain or discharge occurs. Our hospital offers ear screenings.",
+        },
+        {
+          id: 15,
+          category: "health-event",
+          title: "Eye Care for Children",
+          image: "https://via.placeholder.com/800x400?text=Eye+Health",
+          content:
+            "Children may develop eye infections or vision problems. Early detection and treatment protect sight. Our hospital conducts eye screenings and educates families on eye hygiene.",
+        },
+        {
+          id: 16,
+          category: "health-event",
+          title: "Hearing Screening Services",
+          image: "https://via.placeholder.com/800x400?text=Hearing+Screening",
+          content:
+            "Hearing problems affect learning and social development. Routine screenings can detect issues early. Our hospital offers hearing tests and follow-up care for all ages.",
+        },
+        {
+          id: 17,
+          category: "health-event",
+          title: "Wound and Ulcer Care",
+          image: "https://via.placeholder.com/800x400?text=Wound+Care",
+          content:
+            "Open sores and ulcers can become infected without proper care. Clean wounds promptly, use antiseptics, and see a health worker if healing is delayed. Our hospital provides wound care services.",
+        },
+        {
+          id: 18,
+          category: "health-event",
+          title: "Burn Treatment at Home",
+          image: "https://via.placeholder.com/800x400?text=Burn+Care",
+          content:
+            "Burns from hot liquids or fire can be painful and risk infection. Cool the area with clean water, cover lightly, and seek hospital care if severe. Our hospital treats burns with infection prevention.",
+        },
+        {
+          id: 19,
+          category: "health-event",
+          title: "Sun Safety and Heat Stroke",
+          image: "https://via.placeholder.com/800x400?text=Sun+Safety",
+          content:
+            "Heat stroke happens when the body overheats. Drink water frequently, avoid direct sun at peak hours, and rest in shade. Seek care if symptoms occur. Our hospital educates communities on heat safety.",
+        },
+        {
+          id: 20,
+          category: "health-event",
+          title: "Flood Hygiene and Safety",
+          image: "https://via.placeholder.com/800x400?text=Flood+Safety",
+          content:
+            "Flood waters carry contaminated material and increase infection risk. Drink boiled or filtered water, avoid contact with polluted water, and seek treatment if illness occurs. Our hospital guides families during floods.",
+        },
+        {
+          id: 21,
+          category: "health-event",
+          title: "Snakebite First Response",
+          image: "https://via.placeholder.com/800x400?text=Snakebite",
+          content:
+            "Snakebites can be serious. Do not cut or suck the wound. Keep the person calm and still, and go to the hospital quickly for antivenom if needed. Our hospital trains communities on safe responses.",
+        },
+        {
+          id: 22,
+          category: "health-event",
+          title: "Insect Bite Care",
+          image: "https://via.placeholder.com/800x400?text=Insect+Bite",
+          content:
+            "Bug bites may itch and swell, and in some cases cause allergic reactions. Clean the area, apply a cold compress, and see a health worker if symptoms worsen. Our hospital provides guidance on bite care.",
+        },
+        {
+          id: 23,
+          category: "health-event",
+          title: "Worm Infestation Prevention",
+          image: "https://via.placeholder.com/800x400?text=Worm+Prevention",
+          content:
+            "Intestinal parasites affect children’s growth and energy. Teach handwashing, safe food practices, and regular deworming. Our hospital educates families on prevention and treatment.",
+        },
+        {
+          id: 24,
+          category: "health-event",
+          title: "Handwashing Awareness",
+          image: "https://via.placeholder.com/800x400?text=Handwashing",
+          content:
+            "Handwashing with soap prevents diarrhoea and respiratory infections. Wash hands before eating and after toilet use. Our hospital promotes handwashing in schools and communities.",
+        },
+        {
+          id: 25,
+          category: "health-event",
+          title: "Safe Drinking Water Tips",
+          image: "https://via.placeholder.com/800x400?text=Safe+Water",
+          content:
+            "Contaminated water causes many illnesses. Boil, filter, or treat water before drinking. Keep containers covered and clean. Our hospital educates communities on safe water practices.",
+        },
+        {
+          id: 26,
+          category: "health-event",
+          title: "Toilet Hygiene Importance",
+          image: "https://via.placeholder.com/800x400?text=Sanitation",
+          content:
+            "Open defecation and dirty toilets spread infections. Use and maintain clean toilets, wash hands after use, and dispose waste properly. Our hospital promotes sanitation for better health.",
+        },
+        {
+          id: 27,
+          category: "health-event",
+          title: "Food Safety and Storage",
+          image: "https://via.placeholder.com/800x400?text=Food+Safety",
+          content:
+            "Improperly stored or cooked food leads to food poisoning. Wash food thoroughly, cook well, and store safely. Our hospital educates households on food hygiene principles.",
+        },
+        {
+          id: 28,
+          category: "health-event",
+          title: "Mosquito Net Distribution",
+          image: "https://via.placeholder.com/800x400?text=Mosquito+Nets",
+          content:
+            "Treated mosquito nets protect families from malaria. Use them nightly, especially for children and pregnant women. Our hospital distributes nets and teaches proper use.",
+        },
+        {
+          id: 29,
+          category: "health-event",
+          title: "Exclusive Breastfeeding Support",
+          image: "https://via.placeholder.com/800x400?text=Breastfeeding",
+          content:
+            "Exclusive breastfeeding for six months boosts immunity and growth. Our hospital supports mothers with education and hands‑on guidance.",
+        },
+        {
+          id: 30,
+          category: "health-event",
+          title: "Routine Child Immunization",
+          image: "https://via.placeholder.com/800x400?text=Child+Immunization",
+          content:
+            "Routine immunization prevents measles, polio, and other diseases. Parents should follow the schedule without delay. Our hospital provides vaccines and reminders.",
+        },
+        {
+          id: 31,
+          category: "health-event",
+          title: "Teen Health Education",
+          image: "https://via.placeholder.com/800x400?text=Teen+Health",
+          content:
+            "Adolescents face physical and emotional changes. Proper health education promotes healthy habits, safe practices, and emotional wellbeing. Our hospital runs teen health awareness sessions.",
+        },
+        {
+          id: 32,
+          category: "health-event",
+          title: "Family Planning Choices",
+          image: "https://via.placeholder.com/800x400?text=Family+Planning",
+          content:
+            "Spaced pregnancies improve health for women and babies. Our hospital provides counseling on safe, evidence‑based family planning options.",
+        },
+        {
+          id: 33,
+          category: "health-event",
+          title: "Maternal Nutrition Advice",
+          image: "https://via.placeholder.com/800x400?text=Maternal+Nutrition",
+          content:
+            "Good nutrition during pregnancy supports mother and baby. Eat balanced local foods, take iron and nutrient supplements. Our hospital offers nutrition counseling.",
+        },
+        {
+          id: 34,
+          category: "health-event",
+          title: "Pregnancy Check-up Importance",
+          image: "https://via.placeholder.com/800x400?text=Pregnancy+Checkup",
+          content:
+            "Regular antenatal check-ups detect complications early and support maternal and fetal health. Our hospital provides accessible prenatal care for expectant mothers in rural areas.",
+        },
+        {
+          id: 35,
+          category: "health-event",
+          title: "Safe Delivery Practices",
+          image: "https://via.placeholder.com/800x400?text=Safe+Delivery",
+          content:
+            "Delivering in a hospital or with trained birth attendants reduces maternal and infant mortality. Our hospital ensures skilled delivery and postnatal support.",
+        },
+        {
+          id: 36,
+          category: "health-event",
+          title: "Postnatal Care Guidance",
+          image: "https://via.placeholder.com/800x400?text=Postnatal+Care",
+          content:
+            "New mothers need monitoring for recovery and infant care. Our hospital offers postnatal visits, breastfeeding support, and maternal health education.",
+        },
+        {
+          id: 37,
+          category: "health-event",
+          title: "Nutrition for Toddlers",
+          image: "https://via.placeholder.com/800x400?text=Toddler+Nutrition",
+          content:
+            "Balanced diet ensures growth and immunity in toddlers. Include fruits, vegetables, grains, and proteins. Our hospital provides guidance on locally available nutritious foods.",
+        },
+        {
+          id: 38,
+          category: "health-event",
+          title: "Child Growth Monitoring",
+          image: "https://via.placeholder.com/800x400?text=Growth+Monitoring",
+          content:
+            "Regular weight and height checks identify malnutrition or growth delays early. Our hospital conducts growth monitoring sessions and offers counseling for caregivers.",
+        },
+        {
+          id: 39,
+          category: "health-event",
+          title: "Childhood Obesity Prevention",
+          image: "https://via.placeholder.com/800x400?text=Child+Obesity",
+          content:
+            "Excess weight in children can cause long-term health issues. Encourage physical activity, balanced diet, and limit sugary foods. Our hospital runs awareness programs.",
+        },
+        {
+          id: 40,
+          category: "health-event",
+          title: "Common Childhood Illnesses",
+          image: "https://via.placeholder.com/800x400?text=Childhood+Illnesses",
+          content:
+            "Fever, cough, diarrhoea, and skin rashes are common in children. Early medical consultation prevents complications. Our hospital provides pediatric care and health education for families.",
+        },
+        {
+          id: 41,
+          category: "health-event",
+          title: "Adolescent Mental Health",
+          image: "https://via.placeholder.com/800x400?text=Mental+Health",
+          content:
+            "Stress, anxiety, and depression can affect teens. Early counseling, support from family, and mental health services improve wellbeing. Our hospital offers counseling sessions for adolescents.",
+        },
+        {
+          id: 42,
+          category: "health-event",
+          title: "Substance Abuse Awareness",
+          image: "https://via.placeholder.com/800x400?text=Substance+Abuse",
+          content:
+            "Alcohol and drug misuse affects health and safety. Education, counseling, and community programs prevent addiction. Our hospital provides support for affected youth and families.",
+        },
+        {
+          id: 43,
+          category: "health-event",
+          title: "Sexually Transmitted Infection Prevention",
+          image: "https://via.placeholder.com/800x400?text=STI+Prevention",
+          content:
+            "STIs spread through unprotected sex. Condoms, testing, and early treatment reduce risk. Our hospital educates the community on safe sexual practices.",
+        },
+        {
+          id: 44,
+          category: "health-event",
+          title: "Cervical Cancer Screening",
+          image: "https://via.placeholder.com/800x400?text=Cervical+Screening",
+          content:
+            "Early detection of cervical cancer through screening improves survival. Our hospital provides Pap smears, HPV vaccination, and awareness programs.",
+        },
+        {
+          id: 45,
+          category: "health-event",
+          title: "Breast Cancer Awareness",
+          image: "https://via.placeholder.com/800x400?text=Breast+Cancer",
+          content:
+            "Self-examination and early clinical screening help detect breast cancer early. Our hospital educates women and provides screening services.",
+        },
+        {
+          id: 46,
+          category: "health-event",
+          title: "Prostate Health for Men",
+          image: "https://via.placeholder.com/800x400?text=Prostate+Health",
+          content:
+            "Regular screening and awareness of urinary changes help detect prostate issues early. Our hospital conducts men’s health programs in rural communities.",
+        },
+        {
+          id: 47,
+          category: "health-event",
+          title: "Hypertension Control",
+          image: "https://via.placeholder.com/800x400?text=Hypertension",
+          content:
+            "High blood pressure increases risk of heart disease and stroke. Lifestyle changes and medications help control it. Our hospital offers monitoring and education programs.",
+        },
+        {
+          id: 48,
+          category: "health-event",
+          title: "Diabetes Management",
+          image: "https://via.placeholder.com/800x400?text=Diabetes",
+          content:
+            "Proper diet, exercise, and regular check-ups prevent complications from diabetes. Our hospital provides patient education, glucose monitoring, and treatment support.",
+        },
+        {
+          id: 49,
+          category: "health-event",
+          title: "Heart Disease Awareness",
+          image: "https://via.placeholder.com/800x400?text=Heart+Health",
+          content:
+            "Cardiovascular diseases are leading causes of death. Healthy lifestyle, monitoring cholesterol, and early treatment reduce risks. Our hospital provides community education and screenings.",
+        },
+        {
+          id: 50,
+          category: "health-event",
+          title: "Stroke Prevention Tips",
+          image: "https://via.placeholder.com/800x400?text=Stroke",
+          content:
+            "High blood pressure, diabetes, and smoking increase stroke risk. Early medical intervention and lifestyle management prevent strokes. Our hospital educates communities on stroke awareness.",
+        },
+        {
+          id: 51,
+          category: "health-event",
+          title: "Chronic Kidney Disease Awareness",
+          image: "https://via.placeholder.com/800x400?text=Kidney+Health",
+          content:
+            "CKD can progress silently. Healthy diet, blood pressure control, and early screening help prevent progression. Our hospital offers kidney health check-ups.",
+        },
+        {
+          id: 52,
+          category: "health-event",
+          title: "Liver Health Education",
+          image: "https://via.placeholder.com/800x400?text=Liver+Health",
+          content:
+            "Avoid excessive alcohol, maintain vaccination, and manage infections for liver health. Our hospital provides guidance on liver protection and monitoring.",
+        },
+        {
+          id: 53,
+          category: "health-event",
+          title: "Nutrition for Seniors",
+          image: "https://via.placeholder.com/800x400?text=Senior+Nutrition",
+          content:
+            "Balanced diet and hydration help prevent malnutrition and disease in older adults. Our hospital offers nutrition counseling for seniors.",
+        },
+        {
+          id: 54,
+          category: "health-event",
+          title: "Physical Activity Promotion",
+          image: "https://via.placeholder.com/800x400?text=Physical+Activity",
+          content:
+            "Regular exercise maintains heart, muscle, and bone health. Our hospital encourages walking clubs and community exercise programs.",
+        },
+        {
+          id: 55,
+          category: "health-event",
+          title: "Obesity Awareness Campaign",
+          image: "https://via.placeholder.com/800x400?text=Obesity",
+          content:
+            "Overweight individuals are at risk of diabetes, heart disease, and joint issues. Healthy eating and physical activity reduce risks. Our hospital educates families on weight management.",
+        },
+        {
+          id: 56,
+          category: "health-event",
+          title: "Cholesterol Monitoring",
+          image: "https://via.placeholder.com/800x400?text=Cholesterol",
+          content:
+            "High cholesterol contributes to heart disease. Healthy diet, exercise, and periodic screening help control it. Our hospital provides cholesterol checks and counseling.",
+        },
+        {
+          id: 57,
+          category: "health-event",
+          title: "Smoking Cessation Programs",
+          image: "https://via.placeholder.com/800x400?text=Quit+Smoking",
+          content:
+            "Tobacco increases risk of multiple diseases. Our hospital runs programs to help patients quit smoking with counseling and support.",
+        },
+        {
+          id: 58,
+          category: "health-event",
+          title: "Alcohol Awareness",
+          image: "https://via.placeholder.com/800x400?text=Alcohol+Awareness",
+          content:
+            "Excessive drinking harms the liver, heart, and mental health. Our hospital educates communities on moderation and treatment for alcohol-related conditions.",
+        },
+        {
+          id: 59,
+          category: "health-event",
+          title: "Mental Health Support Services",
+          image: "https://via.placeholder.com/800x400?text=Mental+Health",
+          content:
+            "Stress, anxiety, and depression affect wellbeing. Counseling, therapy, and community support improve mental health. Our hospital offers accessible mental health services.",
+        },
+        {
+          id: 60,
+          category: "health-event",
+          title: "Depression Screening",
+          image: "https://via.placeholder.com/800x400?text=Depression",
+          content:
+            "Early detection of depression allows timely treatment. Our hospital provides screening, counseling, and therapy for affected individuals.",
+        },
+        {
+          id: 61,
+          category: "health-event",
+          title: "Anxiety Management Tips",
+          image: "https://via.placeholder.com/800x400?text=Anxiety",
+          content:
+            "Anxiety affects daily life and mental wellbeing. Breathing exercises, counseling, and support groups help manage symptoms. Our hospital offers programs for stress reduction and coping skills.",
+        },
+        {
+          id: 62,
+          category: "health-event",
+          title: "Suicide Prevention Awareness",
+          image: "https://via.placeholder.com/800x400?text=Suicide+Prevention",
+          content:
+            "Recognizing warning signs and seeking help saves lives. Our hospital provides mental health counseling and community awareness to prevent self-harm.",
+        },
+        {
+          id: 63,
+          category: "health-event",
+          title: "Post-Traumatic Stress Support",
+          image: "https://via.placeholder.com/800x400?text=PTSD",
+          content:
+            "Traumatic events can cause lasting emotional effects. Early therapy and support groups reduce long-term impact. Our hospital provides PTSD counseling services.",
+        },
+        {
+          id: 64,
+          category: "health-event",
+          title: "Community Health Worker Training",
+          image: "https://via.placeholder.com/800x400?text=Health+Workers",
+          content:
+            "Trained health workers improve rural healthcare delivery. Our hospital runs training sessions to equip local volunteers with essential skills for community health.",
+        },
+        {
+          id: 65,
+          category: "health-event",
+          title: "Vaccination Myths Debunked",
+          image: "https://via.placeholder.com/800x400?text=Vaccination+Myths",
+          content:
+            "Misinformation reduces vaccine coverage. Our hospital educates communities about vaccine safety, schedules, and benefits to improve immunization rates.",
+        },
+        {
+          id: 66,
+          category: "health-event",
+          title: "Nutrition During Illness",
+          image: "https://via.placeholder.com/800x400?text=Nutrition+Illness",
+          content:
+            "Illness increases nutrient needs. Balanced diet, hydration, and vitamins support recovery. Our hospital guides families on proper nutrition during sickness.",
+        },
+        {
+          id: 67,
+          category: "health-event",
+          title: "Chronic Pain Management",
+          image: "https://via.placeholder.com/800x400?text=Chronic+Pain",
+          content:
+            "Long-term pain can affect quality of life. Our hospital provides pain management plans, physiotherapy, and counseling for patients with chronic pain.",
+        },
+        {
+          id: 68,
+          category: "health-event",
+          title: "Arthritis Care Tips",
+          image: "https://via.placeholder.com/800x400?text=Arthritis",
+          content:
+            "Joint pain and stiffness affect mobility. Regular movement, medication, and diet reduce symptoms. Our hospital educates patients on arthritis management.",
+        },
+        {
+          id: 69,
+          category: "health-event",
+          title: "Osteoporosis Awareness",
+          image: "https://via.placeholder.com/800x400?text=Osteoporosis",
+          content:
+            "Weak bones increase fracture risk. Calcium, vitamin D, and exercise improve bone health. Our hospital provides screenings and preventive advice.",
+        },
+        {
+          id: 70,
+          category: "health-event",
+          title: "Falls Prevention in Elderly",
+          image: "https://via.placeholder.com/800x400?text=Fall+Prevention",
+          content:
+            "Falls are a leading cause of injury among seniors. Remove hazards, use assistive devices, and monitor health. Our hospital educates caregivers and conducts home safety assessments.",
+        },
+        {
+          id: 71,
+          category: "health-event",
+          title: "Pneumonia Vaccination for Seniors",
+          image: "https://via.placeholder.com/800x400?text=Pneumonia+Vaccine",
+          content:
+            "Pneumonia causes severe illness in older adults. Vaccination prevents infections and complications. Our hospital runs immunization programs for seniors.",
+        },
+        {
+          id: 72,
+          category: "health-event",
+          title: "Chronic Obstructive Pulmonary Disease",
+          image: "https://via.placeholder.com/800x400?text=COPD",
+          content:
+            "COPD causes breathing difficulties. Avoid smoke, follow prescribed treatments, and exercise appropriately. Our hospital offers COPD management and education.",
+        },
+        {
+          id: 73,
+          category: "health-event",
+          title: "Tuberculosis Treatment Completion",
+          image: "https://via.placeholder.com/800x400?text=TB+Treatment",
+          content:
+            "Incomplete TB treatment leads to resistance and relapse. Our hospital ensures patients complete the full course and monitors progress.",
+        },
+        {
+          id: 74,
+          category: "health-event",
+          title: "Malaria Rapid Testing",
+          image: "https://via.placeholder.com/800x400?text=Malaria+Testing",
+          content:
+            "Rapid diagnostic tests detect malaria early. Early treatment reduces complications. Our hospital provides testing and educates families on symptoms and prevention.",
+        },
+        {
+          id: 75,
+          category: "health-event",
+          title: "Vector Control Programs",
+          image: "https://via.placeholder.com/800x400?text=Vector+Control",
+          content:
+            "Controlling mosquitoes and other disease vectors reduces infections. Our hospital organizes community clean-ups and insecticide programs.",
+        },
+        {
+          id: 76,
+          category: "health-event",
+          title: "Community First Aid Training",
+          image: "https://via.placeholder.com/800x400?text=First+Aid",
+          content:
+            "Basic first aid saves lives. Our hospital trains local residents to respond to injuries, burns, and emergencies safely until professional help arrives.",
+        },
+        {
+          id: 77,
+          category: "health-event",
+          title: "Emergency Preparedness Education",
+          image:
+            "https://via.placeholder.com/800x400?text=Emergency+Preparedness",
+          content:
+            "Natural disasters and accidents require planning. Our hospital educates communities on emergency kits, evacuation plans, and first-response measures.",
+        },
+        {
+          id: 78,
+          category: "health-event",
+          title: "Waterborne Disease Prevention",
+          image: "https://via.placeholder.com/800x400?text=Waterborne+Disease",
+          content:
+            "Cholera, typhoid, and diarrhea spread through contaminated water. Boil water, wash hands, and seek early treatment. Our hospital provides education and clean water solutions.",
+        },
+        {
+          id: 79,
+          category: "health-event",
+          title: "Zoonotic Disease Awareness",
+          image: "https://via.placeholder.com/800x400?text=Zoonotic+Disease",
+          content:
+            "Diseases transmitted from animals can affect humans. Safe handling, vaccination, and hygiene reduce risks. Our hospital educates farmers and pet owners.",
+        },
+        {
+          id: 80,
+          category: "health-event",
+          title: "Rabies Prevention",
+          image: "https://via.placeholder.com/800x400?text=Rabies",
+          content:
+            "Rabies is fatal if untreated. Vaccinate pets and seek immediate post-exposure treatment. Our hospital provides rabies vaccinations and awareness campaigns.",
+        },
+        {
+          id: 81,
+          category: "health-event",
+          title: "Typhoid Fever Awareness",
+          image: "https://via.placeholder.com/800x400?text=Typhoid",
+          content:
+            "Typhoid spreads through contaminated food and water. Boil water, cook food well, and practice hand hygiene. Our hospital educates communities and provides treatment.",
+        },
+        {
+          id: 82,
+          category: "health-event",
+          title: "Cholera Prevention Measures",
+          image: "https://via.placeholder.com/800x400?text=Cholera",
+          content:
+            "Cholera outbreaks can be deadly. Drink treated water, practice sanitation, and seek early treatment. Our hospital supports cholera awareness and care.",
+        },
+        {
+          id: 83,
+          category: "health-event",
+          title: "Diarrhea Management in Children",
+          image: "https://via.placeholder.com/800x400?text=Diarrhea",
+          content:
+            "Diarrhea can cause dehydration in children. Oral rehydration solutions, zinc supplementation, and early care prevent complications. Our hospital educates parents on home management.",
+        },
+        {
+          id: 84,
+          category: "health-event",
+          title: "Foodborne Illness Awareness",
+          image: "https://via.placeholder.com/800x400?text=Foodborne+Illness",
+          content:
+            "Improper food handling leads to foodborne illness. Wash hands, cook thoroughly, and store food properly. Our hospital provides education and treatment advice.",
+        },
+        {
+          id: 85,
+          category: "health-event",
+          title: "Hygiene in Schools",
+          image: "https://via.placeholder.com/800x400?text=School+Hygiene",
+          content:
+            "Good hygiene prevents infections in children. Handwashing, clean toilets, and safe food practices reduce illness. Our hospital runs school hygiene programs.",
+        },
+        {
+          id: 86,
+          category: "health-event",
+          title: "Community Sanitation Projects",
+          image: "https://via.placeholder.com/800x400?text=Sanitation",
+          content:
+            "Proper waste management reduces disease. Our hospital leads projects to improve sanitation facilities and clean water access in rural areas.",
+        },
+        {
+          id: 87,
+          category: "health-event",
+          title: "Vector-Borne Disease Education",
+          image: "https://via.placeholder.com/800x400?text=Vector+Disease",
+          content:
+            "Mosquitoes, ticks, and flies spread diseases. Bed nets, insect repellents, and safe practices prevent infection. Our hospital educates communities on vector control.",
+        },
+        {
+          id: 88,
+          category: "health-event",
+          title: "Climate and Health Awareness",
+          image: "https://via.placeholder.com/800x400?text=Climate+Health",
+          content:
+            "Extreme heat, floods, and droughts affect health. Our hospital educates communities on preparing for climate-related health risks.",
+        },
+        {
+          id: 89,
+          category: "health-event",
+          title: "Snakebite First Aid",
+          image: "https://via.placeholder.com/800x400?text=Snakebite+First+Aid",
+          content:
+            "Keep victim calm, immobilize affected limb, and seek hospital care. Avoid cutting or sucking the wound. Our hospital provides snakebite response education.",
+        },
+        {
+          id: 90,
+          category: "health-event",
+          title: "Emergency Obstetric Care",
+          image: "https://via.placeholder.com/800x400?text=Obstetric+Care",
+          content:
+            "Complications during pregnancy can be fatal. Skilled birth attendants and hospital support save lives. Our hospital offers emergency obstetric care for mothers.",
+        },
+        {
+          id: 91,
+          category: "health-event",
+          title: "Neonatal Health Services",
+          image: "https://via.placeholder.com/800x400?text=Neonatal+Health",
+          content:
+            "Healthy newborns require monitoring and vaccinations. Our hospital provides neonatal care, early screenings, and parent education.",
+        },
+        {
+          id: 92,
+          category: "health-event",
+          title: "Vaccination Schedules for Infants",
+          image: "https://via.placeholder.com/800x400?text=Infant+Vaccination",
+          content:
+            "Following the recommended immunization schedule prevents common childhood illnesses. Our hospital ensures families are aware of timing and availability.",
+        },
+        {
+          id: 93,
+          category: "health-event",
+          title: "Malnutrition Screening",
+          image: "https://via.placeholder.com/800x400?text=Malnutrition",
+          content:
+            "Children and adults may suffer from malnutrition. Screening and counseling improve dietary intake. Our hospital runs community nutrition assessments.",
+        },
+        {
+          id: 94,
+          category: "health-event",
+          title: "Vitamin and Mineral Deficiency",
+          image: "https://via.placeholder.com/800x400?text=Vitamin+Deficiency",
+          content:
+            "Deficiencies in iron, vitamin A, and iodine affect health. Our hospital educates on proper diet and provides supplements when necessary.",
+        },
+        {
+          id: 95,
+          category: "health-event",
+          title: "Food Security Awareness",
+          image: "https://via.placeholder.com/800x400?text=Food+Security",
+          content:
+            "Lack of adequate food leads to chronic illness. Our hospital collaborates with programs to improve access to nutritious foods.",
+        },
+        {
+          id: 96,
+          category: "health-event",
+          title: "Water Safety Practices",
+          image: "https://via.placeholder.com/800x400?text=Water+Safety",
+          content:
+            "Boiling, filtering, and clean storage of water prevent waterborne diseases. Our hospital teaches safe water practices to households.",
+        },
+        {
+          id: 97,
+          category: "health-event",
+          title: "Sanitation and Hygiene Campaigns",
+          image: "https://via.placeholder.com/800x400?text=Hygiene+Campaign",
+          content:
+            "Maintaining toilets, handwashing, and waste disposal prevents infections. Our hospital organizes community hygiene campaigns.",
+        },
+        {
+          id: 98,
+          category: "health-event",
+          title: "Mosquito Breeding Site Elimination",
+          image: "https://via.placeholder.com/800x400?text=Mosquito+Control",
+          content:
+            "Remove standing water and clean surroundings to prevent malaria and dengue. Our hospital educates residents on mosquito control.",
+        },
+        {
+          id: 99,
+          category: "health-event",
+          title: "Community Immunization Drives",
+          image: "https://via.placeholder.com/800x400?text=Immunization",
+          content:
+            "Vaccinating children and adults protects against preventable diseases. Our hospital organizes immunization campaigns in rural areas.",
+        },
+        {
+          id: 100,
+          category: "health-event",
+          title: "Hygiene Kits Distribution",
+          image: "https://via.placeholder.com/800x400?text=Hygiene+Kits",
+          content:
+            "Distributing soap, water purifiers, and sanitation supplies reduces infection risk. Our hospital supports vulnerable households with hygiene kits.",
+        },
+        {
+          id: 101,
+          category: "health-event",
+          title: "Early Childhood Development",
+          image:
+            "https://via.placeholder.com/800x400?text=Early+Childhood+Development",
+          content:
+            "Supporting physical, cognitive, and emotional development in young children ensures lifelong health. Our hospital provides guidance to caregivers on early stimulation and learning activities.",
+        },
+        {
+          id: 102,
+          category: "health-event",
+          title: "Nutrition During Pregnancy",
+          image: "https://via.placeholder.com/800x400?text=Pregnancy+Nutrition",
+          content:
+            "Adequate vitamins, minerals, and calories support maternal and fetal health. Our hospital offers counseling and locally sourced dietary recommendations for expectant mothers.",
+        },
+        {
+          id: 103,
+          category: "health-event",
+          title: "Safe Water for Rural Homes",
+          image: "https://via.placeholder.com/800x400?text=Safe+Water",
+          content:
+            "Contaminated water spreads diseases like cholera and typhoid. Boiling, filtering, and proper storage prevent illness. Our hospital educates communities on water safety practices.",
+        },
+        {
+          id: 104,
+          category: "health-event",
+          title: "Maternal Mental Health",
+          image:
+            "https://via.placeholder.com/800x400?text=Maternal+Mental+Health",
+          content:
+            "Postpartum depression affects mothers’ wellbeing and infant care. Counseling, peer support, and early intervention improve outcomes. Our hospital provides maternal mental health services.",
+        },
+        {
+          id: 105,
+          category: "health-event",
+          title: "Childhood Vaccination Importance",
+          image: "https://via.placeholder.com/800x400?text=Child+Vaccination",
+          content:
+            "Vaccinations prevent diseases such as measles, polio, and hepatitis. Our hospital ensures timely immunization and educates caregivers about schedules and safety.",
+        },
+        {
+          id: 106,
+          category: "health-event",
+          title: "Adolescent Nutrition Awareness",
+          image:
+            "https://via.placeholder.com/800x400?text=Adolescent+Nutrition",
+          content:
+            "Proper nutrition during adolescence supports growth and school performance. Our hospital provides education on balanced diets and healthy eating habits.",
+        },
+        {
+          id: 107,
+          category: "health-event",
+          title: "Healthy Aging Tips",
+          image: "https://via.placeholder.com/800x400?text=Healthy+Aging",
+          content:
+            "Physical activity, balanced diet, and regular checkups improve quality of life in older adults. Our hospital provides guidance and screenings for seniors.",
+        },
+        {
+          id: 108,
+          category: "health-event",
+          title: "Diabetes Prevention Programs",
+          image: "https://via.placeholder.com/800x400?text=Diabetes+Prevention",
+          content:
+            "Lifestyle choices prevent type 2 diabetes. Healthy diet, exercise, and routine monitoring reduce risk. Our hospital educates communities and provides screenings.",
+        },
+        {
+          id: 109,
+          category: "health-event",
+          title: "Hypertension Awareness",
+          image: "https://via.placeholder.com/800x400?text=Hypertension",
+          content:
+            "High blood pressure increases risk of stroke and heart disease. Regular monitoring, reduced salt intake, and exercise help control hypertension. Our hospital conducts awareness campaigns.",
+        },
+        {
+          id: 110,
+          category: "health-event",
+          title: "Mental Health in Teens",
+          image: "https://via.placeholder.com/800x400?text=Mental+Health+Teens",
+          content:
+            "Stress, anxiety, and depression are common among adolescents. Early support, counseling, and healthy lifestyle habits improve mental wellbeing. Our hospital provides teen-focused mental health programs.",
+        },
+        {
+          id: 111,
+          category: "health-event",
+          title: "Respiratory Illness Prevention",
+          image: "https://via.placeholder.com/800x400?text=Respiratory+Illness",
+          content:
+            "Respiratory infections like pneumonia and flu affect all age groups. Vaccination, hygiene, and early medical care reduce complications. Our hospital educates communities and provides treatment.",
+        },
+        {
+          id: 112,
+          category: "health-event",
+          title: "Tuberculosis Awareness",
+          image: "https://via.placeholder.com/800x400?text=TB+Awareness",
+          content:
+            "TB spreads via airborne droplets. Early detection, treatment adherence, and community education prevent spread. Our hospital conducts TB screening programs in rural areas.",
+        },
+        {
+          id: 113,
+          category: "health-event",
+          title: "HIV Testing and Counseling",
+          image: "https://via.placeholder.com/800x400?text=HIV+Testing",
+          content:
+            "Early HIV detection improves outcomes and prevents transmission. Our hospital offers confidential testing, counseling, and treatment services.",
+        },
+        {
+          id: 114,
+          category: "health-event",
+          title: "Safe Sex Education",
+          image: "https://via.placeholder.com/800x400?text=Safe+Sex",
+          content:
+            "Condom use, STI testing, and awareness reduce infection risk. Our hospital educates teens and adults on responsible sexual health practices.",
+        },
+        {
+          id: 115,
+          category: "health-event",
+          title: "Malaria Prevention Strategies",
+          image: "https://via.placeholder.com/800x400?text=Malaria+Prevention",
+          content:
+            "Using treated mosquito nets, eliminating stagnant water, and prompt treatment prevent malaria. Our hospital leads community awareness campaigns.",
+        },
+        {
+          id: 116,
+          category: "health-event",
+          title: "Dengue Fever Protection",
+          image: "https://via.placeholder.com/800x400?text=Dengue+Protection",
+          content:
+            "Dengue is spread by Aedes mosquitoes. Avoid stagnant water, use repellents, and wear protective clothing. Our hospital educates communities about dengue prevention.",
+        },
+        {
+          id: 117,
+          category: "health-event",
+          title: "Nutrition for School Children",
+          image: "https://via.placeholder.com/800x400?text=School+Nutrition",
+          content:
+            "Balanced meals enhance concentration, growth, and immunity in children. Our hospital provides nutrition education and promotes healthy school feeding programs.",
+        },
+        {
+          id: 118,
+          category: "health-event",
+          title: "Childhood Obesity Prevention",
+          image:
+            "https://via.placeholder.com/800x400?text=Child+Obesity+Prevention",
+          content:
+            "Limit sugary foods, encourage activity, and promote balanced diets. Our hospital educates families on preventing childhood obesity.",
+        },
+        {
+          id: 119,
+          category: "health-event",
+          title: "Food Hygiene Education",
+          image: "https://via.placeholder.com/800x400?text=Food+Hygiene",
+          content:
+            "Washing hands, cooking food thoroughly, and storing safely prevent foodborne illnesses. Our hospital trains families and communities on food hygiene.",
+        },
+        {
+          id: 120,
+          category: "health-event",
+          title: "Handwashing Campaigns",
+          image: "https://via.placeholder.com/800x400?text=Handwashing",
+          content:
+            "Proper handwashing reduces diarrhoea and respiratory infections. Our hospital runs awareness campaigns in schools and villages.",
+        },
+        {
+          id: 121,
+          category: "health-event",
+          title: "Sanitation and Waste Management",
+          image: "https://via.placeholder.com/800x400?text=Sanitation",
+          content:
+            "Proper waste disposal prevents infections. Clean toilets and proper sewage reduce disease spread. Our hospital supports community sanitation projects.",
+        },
+        {
+          id: 122,
+          category: "health-event",
+          title: "Mosquito Net Usage Education",
+          image: "https://via.placeholder.com/800x400?text=Mosquito+Net+Usage",
+          content:
+            "Sleeping under treated nets prevents malaria. Our hospital distributes nets and educates families on proper use.",
+        },
+        {
+          id: 123,
+          category: "health-event",
+          title: "Waterborne Disease Prevention",
+          image: "https://via.placeholder.com/800x400?text=Waterborne+Disease",
+          content:
+            "Boil or filter drinking water, maintain clean storage, and practice hygiene to prevent infections. Our hospital educates communities on safe water.",
+        },
+        {
+          id: 124,
+          category: "health-event",
+          title: "Zoonotic Disease Awareness",
+          image: "https://via.placeholder.com/800x400?text=Zoonotic+Disease",
+          content:
+            "Handling animals safely and vaccinating pets prevent disease transmission. Our hospital educates farmers and pet owners on zoonotic risks.",
+        },
+        {
+          id: 125,
+          category: "health-event",
+          title: "Rabies Post-Exposure Treatment",
+          image: "https://via.placeholder.com/800x400?text=Rabies+Treatment",
+          content:
+            "Immediate medical care after animal bites prevents rabies. Our hospital provides vaccinations and treatment guidance.",
+        },
+        {
+          id: 126,
+          category: "health-event",
+          title: "Typhoid Fever Education",
+          image: "https://via.placeholder.com/800x400?text=Typhoid+Education",
+          content:
+            "Boil water, wash hands, and cook food thoroughly to prevent typhoid. Our hospital educates rural communities and provides treatment.",
+        },
+        {
+          id: 127,
+          category: "health-event",
+          title: "Cholera Outbreak Response",
+          image: "https://via.placeholder.com/800x400?text=Cholera+Response",
+          content:
+            "Rapid treatment, clean water, and hygiene reduce cholera deaths. Our hospital leads outbreak response and education in affected areas.",
+        },
+        {
+          id: 128,
+          category: "health-event",
+          title: "Diarrhea Management Education",
+          image: "https://via.placeholder.com/800x400?text=Diarrhea+Management",
+          content:
+            "Use oral rehydration solutions, zinc supplements, and proper diet to treat diarrhea in children. Our hospital educates parents on early management.",
+        },
+        {
+          id: 129,
+          category: "health-event",
+          title: "Community First Aid Training",
+          image: "https://via.placeholder.com/800x400?text=First+Aid+Training",
+          content:
+            "Training residents in basic first aid saves lives during emergencies. Our hospital organizes hands-on sessions for communities.",
+        },
+        {
+          id: 130,
+          category: "health-event",
+          title: "Emergency Preparedness Awareness",
+          image:
+            "https://via.placeholder.com/800x400?text=Emergency+Preparedness",
+          content:
+            "Planning for disasters improves safety. Our hospital educates communities on evacuation, emergency kits, and first-response actions.",
+        },
+        {
+          id: 131,
+          category: "health-event",
+          title: "Pregnancy Danger Signs",
+          image:
+            "https://via.placeholder.com/800x400?text=Pregnancy+Danger+Signs",
+          content:
+            "Recognizing danger signs like severe bleeding, fever, or reduced fetal movement ensures timely medical care. Our hospital educates expectant mothers on warning signs and emergency care.",
+        },
+        {
+          id: 132,
+          category: "health-event",
+          title: "Safe Childbirth Practices",
+          image: "https://via.placeholder.com/800x400?text=Safe+Childbirth",
+          content:
+            "Delivering with trained health professionals reduces maternal and infant mortality. Our hospital provides skilled birth attendance and postnatal support in rural areas.",
+        },
+        {
+          id: 133,
+          category: "health-event",
+          title: "Postnatal Care Guidance",
+          image: "https://via.placeholder.com/800x400?text=Postnatal+Care",
+          content:
+            "Monitoring mothers and newborns after delivery ensures healthy recovery. Our hospital provides check-ups, breastfeeding support, and maternal health education.",
+        },
+        {
+          id: 134,
+          category: "health-event",
+          title: "Infant Growth Monitoring",
+          image: "https://via.placeholder.com/800x400?text=Infant+Growth",
+          content:
+            "Regular weight and height checks identify malnutrition or growth delays early. Our hospital conducts growth monitoring and provides dietary counseling for caregivers.",
+        },
+        {
+          id: 135,
+          category: "health-event",
+          title: "Childhood Disease Prevention",
+          image: "https://via.placeholder.com/800x400?text=Childhood+Diseases",
+          content:
+            "Vaccination, hygiene, and early treatment prevent common childhood illnesses. Our hospital educates families and provides pediatric care in rural communities.",
+        },
+        {
+          id: 136,
+          category: "health-event",
+          title: "Adolescent Mental Health Awareness",
+          image:
+            "https://via.placeholder.com/800x400?text=Adolescent+Mental+Health",
+          content:
+            "Anxiety, stress, and depression are common in teens. Early counseling, family support, and mental health programs improve wellbeing. Our hospital provides teen-focused services.",
+        },
+        {
+          id: 137,
+          category: "health-event",
+          title: "Substance Abuse Prevention",
+          image: "https://via.placeholder.com/800x400?text=Substance+Abuse",
+          content:
+            "Alcohol and drug misuse affects health and safety. Education, counseling, and community programs prevent addiction. Our hospital offers support for affected youth.",
+        },
+        {
+          id: 138,
+          category: "health-event",
+          title: "STI Prevention Education",
+          image: "https://via.placeholder.com/800x400?text=STI+Prevention",
+          content:
+            "Safe sexual practices, condoms, and early testing reduce STI transmission. Our hospital educates communities and provides confidential testing services.",
+        },
+        {
+          id: 139,
+          category: "health-event",
+          title: "Cervical Cancer Screening",
+          image: "https://via.placeholder.com/800x400?text=Cervical+Screening",
+          content:
+            "Early detection through Pap smears and HPV vaccination improves survival. Our hospital provides screening and community awareness programs.",
+        },
+        {
+          id: 140,
+          category: "health-event",
+          title: "Breast Cancer Awareness",
+          image: "https://via.placeholder.com/800x400?text=Breast+Cancer",
+          content:
+            "Self-examination and early clinical screening help detect breast cancer early. Our hospital educates women and offers screening services.",
+        },
+        {
+          id: 141,
+          category: "health-event",
+          title: "Prostate Health Awareness",
+          image: "https://via.placeholder.com/800x400?text=Prostate+Health",
+          content:
+            "Regular screening and awareness of urinary changes help detect prostate issues early. Our hospital provides men’s health education programs.",
+        },
+        {
+          id: 142,
+          category: "health-event",
+          title: "Hypertension Management",
+          image: "https://via.placeholder.com/800x400?text=Hypertension",
+          content:
+            "High blood pressure increases risk of heart disease and stroke. Lifestyle changes, medication, and monitoring reduce complications. Our hospital educates communities and patients.",
+        },
+        {
+          id: 143,
+          category: "health-event",
+          title: "Diabetes Awareness",
+          image: "https://via.placeholder.com/800x400?text=Diabetes",
+          content:
+            "Proper diet, exercise, and regular checkups prevent complications. Our hospital provides education, glucose monitoring, and treatment support.",
+        },
+        {
+          id: 144,
+          category: "health-event",
+          title: "Heart Disease Prevention",
+          image: "https://via.placeholder.com/800x400?text=Heart+Disease",
+          content:
+            "Healthy lifestyle, monitoring cholesterol, and early treatment reduce cardiovascular risk. Our hospital provides screenings and community education.",
+        },
+        {
+          id: 145,
+          category: "health-event",
+          title: "Stroke Prevention Tips",
+          image: "https://via.placeholder.com/800x400?text=Stroke+Prevention",
+          content:
+            "Managing blood pressure, diabetes, and avoiding smoking reduces stroke risk. Our hospital educates rural communities on early recognition and prevention.",
+        },
+        {
+          id: 146,
+          category: "health-event",
+          title: "Kidney Health Awareness",
+          image: "https://via.placeholder.com/800x400?text=Kidney+Health",
+          content:
+            "Chronic kidney disease can progress silently. Diet, hydration, and early screening improve outcomes. Our hospital provides checkups and education programs.",
+        },
+        {
+          id: 147,
+          category: "health-event",
+          title: "Liver Health Education",
+          image: "https://via.placeholder.com/800x400?text=Liver+Health",
+          content:
+            "Avoid excessive alcohol, manage infections, and maintain vaccination. Our hospital provides guidance and liver health screenings.",
+        },
+        {
+          id: 148,
+          category: "health-event",
+          title: "Nutrition for Seniors",
+          image: "https://via.placeholder.com/800x400?text=Senior+Nutrition",
+          content:
+            "Balanced diet and hydration prevent malnutrition and chronic disease. Our hospital provides nutrition counseling for older adults.",
+        },
+        {
+          id: 149,
+          category: "health-event",
+          title: "Physical Activity for Health",
+          image: "https://via.placeholder.com/800x400?text=Physical+Activity",
+          content:
+            "Exercise strengthens heart, muscles, and bones. Our hospital promotes walking clubs and community activity programs.",
+        },
+        {
+          id: 150,
+          category: "health-event",
+          title: "Obesity Awareness",
+          image: "https://via.placeholder.com/800x400?text=Obesity",
+          content:
+            "Maintaining healthy weight reduces risks of diabetes, heart disease, and joint problems. Our hospital educates communities on healthy living.",
+        },
+        {
+          id: 151,
+          category: "health-event",
+          title: "Cholesterol Monitoring",
+          image: "https://via.placeholder.com/800x400?text=Cholesterol",
+          content:
+            "High cholesterol contributes to heart disease. Diet, exercise, and screening help control it. Our hospital provides testing and counseling.",
+        },
+        {
+          id: 152,
+          category: "health-event",
+          title: "Quit Smoking Support",
+          image: "https://via.placeholder.com/800x400?text=Quit+Smoking",
+          content:
+            "Tobacco increases risk of multiple diseases. Our hospital provides counseling and support to help patients quit smoking.",
+        },
+        {
+          id: 153,
+          category: "health-event",
+          title: "Alcohol Reduction Programs",
+          image: "https://via.placeholder.com/800x400?text=Alcohol+Reduction",
+          content:
+            "Excessive drinking harms health. Our hospital educates communities and provides support for moderation and treatment.",
+        },
+        {
+          id: 154,
+          category: "health-event",
+          title: "Mental Health Services",
+          image:
+            "https://via.placeholder.com/800x400?text=Mental+Health+Services",
+          content:
+            "Stress, anxiety, and depression affect wellbeing. Counseling and therapy improve mental health. Our hospital provides accessible services.",
+        },
+        {
+          id: 155,
+          category: "health-event",
+          title: "Depression Screening",
+          image:
+            "https://via.placeholder.com/800x400?text=Depression+Screening",
+          content:
+            "Early detection allows timely treatment. Our hospital provides screening, counseling, and therapy.",
+        },
+        {
+          id: 156,
+          category: "health-event",
+          title: "Anxiety Management",
+          image: "https://via.placeholder.com/800x400?text=Anxiety+Management",
+          content:
+            "Breathing exercises, counseling, and support groups help manage anxiety. Our hospital provides community programs for stress relief.",
+        },
+        {
+          id: 157,
+          category: "health-event",
+          title: "PTSD Awareness",
+          image: "https://via.placeholder.com/800x400?text=PTSD+Awareness",
+          content:
+            "Traumatic events can cause lasting emotional effects. Early therapy reduces impact. Our hospital provides PTSD counseling and support.",
+        },
+        {
+          id: 158,
+          category: "health-event",
+          title: "Community Health Worker Training",
+          image:
+            "https://via.placeholder.com/800x400?text=Health+Worker+Training",
+          content:
+            "Trained workers improve rural healthcare delivery. Our hospital runs sessions to equip volunteers with essential skills.",
+        },
+        {
+          id: 159,
+          category: "health-event",
+          title: "Vaccination Awareness",
+          image:
+            "https://via.placeholder.com/800x400?text=Vaccination+Awareness",
+          content:
+            "Education on vaccine safety and schedule improves coverage. Our hospital conducts awareness campaigns in rural communities.",
+        },
+        {
+          id: 160,
+          category: "health-event",
+          title: "Nutrition During Illness",
+          image:
+            "https://via.placeholder.com/800x400?text=Nutrition+During+Illness",
+          content:
+            "Illness increases nutrient needs. Balanced diet and hydration aid recovery. Our hospital provides dietary counseling during sickness.",
+        },
+        {
+          id: 161,
+          category: "health-event",
+          title: "Chronic Pain Management",
+          image: "https://via.placeholder.com/800x400?text=Chronic+Pain",
+          content:
+            "Long-term pain affects quality of life. Our hospital offers physiotherapy, medication, and counseling for patients.",
+        },
+        {
+          id: 162,
+          category: "health-event",
+          title: "Arthritis Care",
+          image: "https://via.placeholder.com/800x400?text=Arthritis",
+          content:
+            "Joint pain and stiffness affect mobility. Regular exercise, medications, and diet improve symptoms. Our hospital educates patients on arthritis management.",
+        },
+        {
+          id: 163,
+          category: "health-event",
+          title: "Osteoporosis Prevention",
+          image: "https://via.placeholder.com/800x400?text=Osteoporosis",
+          content:
+            "Calcium, vitamin D, and exercise strengthen bones. Our hospital provides screenings and educational programs.",
+        },
+        {
+          id: 164,
+          category: "health-event",
+          title: "Fall Prevention in Elderly",
+          image: "https://via.placeholder.com/800x400?text=Fall+Prevention",
+          content:
+            "Removing hazards and monitoring health reduces falls. Our hospital educates caregivers and conducts home safety assessments.",
+        },
+        {
+          id: 165,
+          category: "health-event",
+          title: "Pneumonia Vaccination",
+          image:
+            "https://via.placeholder.com/800x400?text=Pneumonia+Vaccination",
+          content:
+            "Vaccination prevents severe pneumonia in seniors. Our hospital provides immunization programs and education.",
+        },
+        {
+          id: 166,
+          category: "health-event",
+          title: "COPD Management",
+          image: "https://via.placeholder.com/800x400?text=COPD+Management",
+          content:
+            "Breathing difficulties are common in COPD. Avoid smoke, exercise appropriately, and follow treatment plans. Our hospital provides education and care.",
+        },
+        {
+          id: 167,
+          category: "health-event",
+          title: "Tuberculosis Treatment",
+          image: "https://via.placeholder.com/800x400?text=TB+Treatment",
+          content:
+            "Complete TB treatment prevents relapse and resistance. Our hospital ensures adherence and monitors progress.",
+        },
+        {
+          id: 168,
+          category: "health-event",
+          title: "Malaria Rapid Testing",
+          image: "https://via.placeholder.com/800x400?text=Malaria+Testing",
+          content:
+            "Rapid tests detect malaria early. Prompt treatment reduces complications. Our hospital provides testing and community education.",
+        },
+        {
+          id: 169,
+          category: "health-event",
+          title: "Vector Control Education",
+          image: "https://via.placeholder.com/800x400?text=Vector+Control",
+          content:
+            "Controlling mosquitoes reduces malaria and dengue. Our hospital leads clean-up and insecticide programs.",
+        },
+        {
+          id: 170,
+          category: "health-event",
+          title: "First Aid Training",
+          image: "https://via.placeholder.com/800x400?text=First+Aid",
+          content:
+            "Basic first aid saves lives. Our hospital trains local residents to respond to injuries and emergencies.",
+        },
+        {
+          id: 171,
+          category: "health-event",
+          title: "Emergency Preparedness",
+          image:
+            "https://via.placeholder.com/800x400?text=Emergency+Preparedness",
+          content:
+            "Planning for disasters improves safety. Our hospital educates communities on kits, evacuation, and first-response measures.",
+        },
+        {
+          id: 172,
+          category: "health-event",
+          title: "Waterborne Disease Prevention",
+          image: "https://via.placeholder.com/800x400?text=Waterborne+Disease",
+          content:
+            "Boil or filter water and maintain hygiene to prevent infections. Our hospital educates on safe water practices.",
+        },
+        {
+          id: 173,
+          category: "health-event",
+          title: "Zoonotic Disease Awareness",
+          image: "https://via.placeholder.com/800x400?text=Zoonotic+Disease",
+          content:
+            "Safe handling and vaccination prevent animal-to-human disease transmission. Our hospital educates farmers and pet owners.",
+        },
+        {
+          id: 174,
+          category: "health-event",
+          title: "Rabies Post-Exposure Care",
+          image: "https://via.placeholder.com/800x400?text=Rabies+Care",
+          content:
+            "Immediate medical attention after animal bites prevents rabies. Our hospital provides vaccination and treatment guidance.",
+        },
+        {
+          id: 175,
+          category: "health-event",
+          title: "Typhoid Prevention",
+          image: "https://via.placeholder.com/800x400?text=Typhoid+Prevention",
+          content:
+            "Boil water, wash hands, and cook food thoroughly. Our hospital provides treatment and education to prevent typhoid.",
+        },
+        {
+          id: 176,
+          category: "health-event",
+          title: "Cholera Response",
+          image: "https://via.placeholder.com/800x400?text=Cholera+Response",
+          content:
+            "Rapid treatment and hygiene prevent cholera deaths. Our hospital leads community response and education.",
+        },
+        {
+          id: 177,
+          category: "health-event",
+          title: "Diarrhea Management",
+          image: "https://via.placeholder.com/800x400?text=Diarrhea+Management",
+          content:
+            "Oral rehydration and zinc prevent dehydration. Our hospital educates parents on proper home management.",
+        },
+        {
+          id: 178,
+          category: "health-event",
+          title: "Community First Aid",
+          image: "https://via.placeholder.com/800x400?text=Community+First+Aid",
+          content:
+            "Training residents in first aid saves lives. Our hospital provides hands-on workshops for rural communities.",
+        },
+        {
+          id: 179,
+          category: "health-event",
+          title: "Emergency Planning",
+          image: "https://via.placeholder.com/800x400?text=Emergency+Planning",
+          content:
+            "Preparedness reduces disaster impact. Our hospital educates communities on evacuation plans and emergency kits.",
+        },
+        {
+          id: 180,
+          category: "health-event",
+          title: "Child Development Monitoring",
+          image: "https://via.placeholder.com/800x400?text=Child+Development",
+          content:
+            "Tracking milestones ensures early intervention. Our hospital monitors growth, speech, and motor skills in children.",
+        },
+        {
+          id: 181,
+          category: "health-event",
+          title: "Maternal Nutrition",
+          image: "https://via.placeholder.com/800x400?text=Maternal+Nutrition",
+          content:
+            "Vitamins, minerals, and proper diet support pregnancy. Our hospital provides guidance and counseling for expectant mothers.",
+        },
+        {
+          id: 182,
+          category: "health-event",
+          title: "Safe Water Access",
+          image: "https://via.placeholder.com/800x400?text=Safe+Water+Access",
+          content:
+            "Contaminated water spreads disease. Our hospital teaches boiling, filtering, and storage techniques for rural communities.",
+        },
+        {
+          id: 183,
+          category: "health-event",
+          title: "Maternal Mental Health",
+          image:
+            "https://via.placeholder.com/800x400?text=Maternal+Mental+Health",
+          content:
+            "Postpartum depression affects mothers and babies. Counseling and support programs improve outcomes. Our hospital provides maternal mental health services.",
+        },
+        {
+          id: 184,
+          category: "health-event",
+          title: "Infant Vaccination Schedule",
+          image: "https://via.placeholder.com/800x400?text=Infant+Vaccination",
+          content:
+            "Following the vaccination schedule prevents serious childhood illnesses. Our hospital educates caregivers and provides vaccines.",
+        },
+        {
+          id: 185,
+          category: "health-event",
+          title: "Malnutrition Screening",
+          image:
+            "https://via.placeholder.com/800x400?text=Malnutrition+Screening",
+          content:
+            "Screening identifies children and adults at risk. Our hospital provides counseling and nutritional support programs.",
+        },
+        {
+          id: 186,
+          category: "health-event",
+          title: "Vitamin Deficiency Awareness",
+          image: "https://via.placeholder.com/800x400?text=Vitamin+Deficiency",
+          content:
+            "Deficiencies in iron, vitamin A, and iodine affect health. Our hospital provides education and supplements where needed.",
+        },
+        {
+          id: 187,
+          category: "health-event",
+          title: "Food Security Programs",
+          image: "https://via.placeholder.com/800x400?text=Food+Security",
+          content:
+            "Adequate food access prevents chronic illness. Our hospital collaborates with programs to improve nutrition in rural areas.",
+        },
+        {
+          id: 188,
+          category: "health-event",
+          title: "Sanitation Awareness",
+          image:
+            "https://via.placeholder.com/800x400?text=Sanitation+Awareness",
+          content:
+            "Maintaining clean toilets and proper waste disposal prevents infections. Our hospital organizes community sanitation campaigns.",
+        },
+        {
+          id: 189,
+          category: "health-event",
+          title: "Mosquito Breeding Control",
+          image: "https://via.placeholder.com/800x400?text=Mosquito+Control",
+          content:
+            "Remove stagnant water to prevent malaria and dengue. Our hospital educates communities on vector control.",
+        },
+        {
+          id: 190,
+          category: "health-event",
+          title: "Community Immunization Drives",
+          image: "https://via.placeholder.com/800x400?text=Immunization+Drives",
+          content:
+            "Vaccinating children and adults protects against preventable diseases. Our hospital organizes rural immunization campaigns.",
+        },
+        {
+          id: 191,
+          category: "health-event",
+          title: "Hygiene Kit Distribution",
+          image: "https://via.placeholder.com/800x400?text=Hygiene+Kits",
+          content:
+            "Distributing soap, water purifiers, and sanitation supplies helps prevent disease spread in rural areas. Our hospital organizes regular hygiene kit drives for vulnerable communities.",
+        },
+        {
+          id: 192,
+          category: "health-event",
+          title: "Community Health Education",
+          image: "https://via.placeholder.com/800x400?text=Health+Education",
+          content:
+            "Educating communities on nutrition, hygiene, and preventive care improves overall health outcomes. Our hospital runs workshops and awareness programs.",
+        },
+        {
+          id: 193,
+          category: "health-event",
+          title: "Rural Vaccination Outreach",
+          image:
+            "https://via.placeholder.com/800x400?text=Vaccination+Outreach",
+          content:
+            "Our hospital conducts mobile vaccination clinics to reach remote villages, ensuring children and adults are protected from preventable diseases.",
+        },
+        {
+          id: 194,
+          category: "health-event",
+          title: "Clean Cooking Practices",
+          image: "https://via.placeholder.com/800x400?text=Clean+Cooking",
+          content:
+            "Using improved stoves and proper ventilation reduces respiratory illness. Our hospital educates families on safe cooking methods.",
+        },
+        {
+          id: 195,
+          category: "health-event",
+          title: "Village Health Committees",
+          image: "https://via.placeholder.com/800x400?text=Health+Committees",
+          content:
+            "Forming local committees helps monitor health issues and coordinate responses. Our hospital trains and supports these community groups.",
+        },
+        {
+          id: 196,
+          category: "health-event",
+          title: "Maternal and Child Health Clinics",
+          image:
+            "https://via.placeholder.com/800x400?text=Maternal+Child+Clinics",
+          content:
+            "Dedicated clinics provide prenatal, postnatal, and pediatric care. Our hospital runs regular outreach clinics in rural communities.",
+        },
+        {
+          id: 197,
+          category: "health-event",
+          title: "Nutrition Supplement Programs",
+          image:
+            "https://via.placeholder.com/800x400?text=Nutrition+Supplements",
+          content:
+            "Providing vitamins and fortified foods prevents deficiencies in children and adults. Our hospital organizes supplement distribution programs.",
+        },
+        {
+          id: 198,
+          category: "health-event",
+          title: "Emergency Medical Training",
+          image: "https://via.placeholder.com/800x400?text=Emergency+Training",
+          content:
+            "Training local volunteers in emergency response saves lives during accidents or outbreaks. Our hospital provides practical hands-on sessions.",
+        },
+        {
+          id: 199,
+          category: "health-event",
+          title: "Rural Eye Care Programs",
+          image: "https://via.placeholder.com/800x400?text=Eye+Care",
+          content:
+            "Screening for vision problems and providing glasses improves quality of life. Our hospital organizes eye health camps in rural areas.",
+        },
+        {
+          id: 200,
+          category: "health-event",
+          title: "Hearing and Speech Screening",
+          image: "https://via.placeholder.com/800x400?text=Hearing+Speech",
+          content:
+            "Early detection of hearing or speech issues in children improves learning and development. Our hospital provides screening and therapy support.",
+        },
+        {
+          id: 201,
+          category: "health-event",
+          title: "HIV/AIDS Awareness Campaign",
+          image: "../Images/lab.jpg",
+          content:
+            "HIV/AIDS continues to affect rural communities. Early testing and adherence to treatment prevent complications. Our hospital conducts awareness campaigns to educate residents on safe practices and testing. Counseling supports patients and families.",
+        },
+      ];
+
+      const newsContainer = document.getElementById("newsContainer");
+
+      // Display news function
+      function displayNews(newsArray) {
+        newsContainer.innerHTML = "";
+        newsArray.forEach((news) => {
+          const card = document.createElement("div");
+          card.className = "news-card";
+          card.innerHTML = `
+      <img src="${news.image}" alt="${news.title}">
+      <div class="news-card-content">
+        <h2>${news.title}</h2>
+        <p class="preview">${news.content.substring(0, 150)}...</p>
+        <p class="full" style="display:none;">${news.content}</p>
+        <button class="read-all-btn">Read All</button>
+        <button class="close-btn" style="display:none;">Close</button>
+      </div>
+    `;
+          // Add event listeners
+          const readBtn = card.querySelector(".read-all-btn");
+          const closeBtn = card.querySelector(".close-btn");
+          const preview = card.querySelector(".preview");
+          const full = card.querySelector(".full");
+
+          readBtn.addEventListener("click", () => {
+            preview.style.display = "none";
+            full.style.display = "block";
+            card.classList.add("expanded"); // Make image expand
+            readBtn.style.display = "none";
+            closeBtn.style.display = "inline-block";
+          });
+
+          closeBtn.addEventListener("click", () => {
+            preview.style.display = "block";
+            full.style.display = "none";
+            card.classList.remove("expanded");
+            readBtn.style.display = "inline-block";
+            closeBtn.style.display = "none";
+          });
+
+          newsContainer.appendChild(card);
+        });
+      }
+
+      // Search news
+      function searchNews() {
+        const query = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const filtered = newsData.filter(
+          (n) =>
+            n.title.toLowerCase().includes(query) ||
+            n.content.toLowerCase().includes(query),
+        );
+        displayNews(filtered);
+      }
+
+      // Filter news function
+      function filterNews(category, eventObj) {
+        // Remove active from all buttons
+        const buttons = document.querySelectorAll(".bottom-nav button");
+        buttons.forEach((btn) => btn.classList.remove("active"));
+
+        // Set active button
+        eventObj.target.classList.add("active");
+
+        // Filter news
+        let filtered;
+        if (category === "all") filtered = newsData;
+        else filtered = newsData.filter((n) => n.category === category);
+
+        displayNews(filtered);
+      }
+
+      // Initial display
+      displayNews(newsData);
+    </script>
+  </body>
+</html>
