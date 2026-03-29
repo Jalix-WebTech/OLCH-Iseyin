@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital News | Community Health Updates</title>
+  <meta name="description" content="Stay updated with the latest hospital news, disease awareness, outreach events, and community health information." />
+  <style>
+    :root {
+      --primary: #1E88E5;
+      --primary-dark: #1565C0;
+      --accent: #2E7D32;
+      --danger: #D32F2F;
+      --warning: #F9A825;
+      --bg: #f6f9fc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #64748b;
+      --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(0,0,0,0.06);
+      --radius: 20px;
+      --radius-sm: 14px;
+      --transition: all 0.25s ease;
+      --max-width: 1280px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: auto;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+    .hero {
+      background: linear-gradient(135deg, #0f4c81, #1E88E5);
+      color: white;
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      z-index: 0;
+    }
+
+    .hero::before {
+      width: 260px;
+      height: 260px;
+      top: -60px;
+      right: -50px;
+    }
+
+    .hero::after {
+      width: 180px;
+      height: 180px;
+      bottom: -50px;
+      left: -40px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.92);
+      max-width: 650px;
+      margin-bottom: 24px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-badge {
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 28px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+
+    .hero-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 16px;
+      font-size: 0.98rem;
+    }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .hero-stat {
+      background: rgba(255,255,255,0.12);
+      padding: 16px;
+      border-radius: 18px;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .hero-stat span {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* =========================
+       TOOLBAR
+    ========================= */
+    .toolbar {
+      margin-top: -28px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .toolbar-box {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 18px;
+    }
+
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .search-input-wrap {
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 15px 18px 15px 48px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      outline: none;
+      background: #fbfdff;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(30,136,229,0.12);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .result-count {
+      color: var(--muted);
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .filter-btn {
+      border: none;
+      background: #eef5fb;
+      color: #35506b;
+      padding: 11px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .filter-btn:hover {
+      background: #dceeff;
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 8px 18px rgba(30,136,229,0.24);
+    }
+
+    /* =========================
+       NEWS SECTION
+    ========================= */
+    .section {
+      padding: 50px 0 80px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 26px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 6px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .news-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .news-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.09);
+    }
+
+    .news-card-top {
+      padding: 22px 22px 16px;
+      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .news-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+
+    .news-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e9f4ff;
+      color: var(--primary-dark);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .news-date {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .news-icon-wrap {
+      width: 82px;
+      height: 82px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+      margin-bottom: 16px;
+    }
+
+    .news-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .news-card-body {
+      padding: 20px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .news-summary {
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 0.98rem;
+    }
+
+    .news-summary.expanded {
+      color: #465569;
+    }
+
+    .news-footer {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 8px;
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      border-radius: 14px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 12px 16px;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: #eef5fb;
+      color: #35506b;
+      padding: 12px 16px;
+    }
+
+    .btn-secondary:hover {
+      background: #dceeff;
+    }
+
+    .load-more-wrap {
+      text-align: center;
+      margin-top: 36px;
+    }
+
+    .load-more-btn {
+      padding: 14px 24px;
+      font-size: 1rem;
+      background: #0f4c81;
+      color: white;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(15,76,129,0.18);
+      transition: var(--transition);
+    }
+
+    .load-more-btn:hover {
+      transform: translateY(-2px);
+      background: #0b3f6a;
+    }
+
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 50px 20px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      margin-top: 24px;
+    }
+
+    .empty-state h3 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+
+    .empty-state p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+    .footer {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 40px 0;
+      margin-top: 20px;
+    }
+
+    .footer p {
+      color: #cbd5e1;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+    @media (max-width: 1100px) {
+      .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .search-row {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 64px 0 54px;
+      }
+
+      .toolbar-box {
+        padding: 18px;
+      }
+
+      .hero-stat-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-badges,
+      .filters {
+        gap: 10px;
+      }
+
+      .filter-btn,
+      .hero-badge {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero-stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-card-top,
+      .news-card-body {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================
+       HERO
+  ========================= -->
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Hospital News & Community Health Updates</h1>
+        <p>
+          Stay informed with the latest disease awareness updates, medical outreach events,
+          public health announcements, prevention tips, and healthcare education from our hospital.
+        </p>
+
+        <div class="hero-badges">
+          <div class="hero-badge">Disease Awareness</div>
+          <div class="hero-badge">Health Outreach</div>
+          <div class="hero-badge">Community Education</div>
+          <div class="hero-badge">Hospital Updates</div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Health News Highlights</h3>
+        <p>
+          Access important updates on malaria, cholera, maternal health, child immunization,
+          diabetes, hypertension, and more.
+        </p>
+
+        <div class="hero-stat-grid">
+          <div class="hero-stat">
+            <strong id="heroNewsCount">0</strong>
+            <span>Published News</span>
+          </div>
+          <div class="hero-stat">
+            <strong>20+</strong>
+            <span>Health Topics</span>
+          </div>
+          <div class="hero-stat">
+            <strong>100%</strong>
+            <span>Frontend Fast</span>
+          </div>
+          <div class="hero-stat">
+            <strong>24/7</strong>
+            <span>Always Accessible</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       TOOLBAR
+  ========================= -->
+  <section class="toolbar">
+    <div class="container">
+      <div class="toolbar-box">
+        <div class="search-row">
+          <div class="search-input-wrap">
+            <span class="search-icon">🔎</span>
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input"
+              placeholder="Search health news, diseases, outreach, pregnancy, malaria..."
+            />
+          </div>
+          <div class="result-count" id="resultCount">0 news found</div>
+        </div>
+
+        <div class="filters" id="filterButtons">
+          <!-- Generated by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       NEWS
+  ========================= -->
+  <main class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Latest Health News</h2>
+          <p>
+            Browse our hospital’s health education articles, disease awareness posts,
+            medical events, and community outreach updates.
+          </p>
+        </div>
+      </div>
+
+      <div class="news-grid" id="newsGrid"></div>
+
+      <div class="empty-state" id="emptyState">
+        <h3>No news found</h3>
+        <p>Try searching with another keyword or choose a different category.</p>
+      </div>
+
+      <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreBtn">Load More News</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Your Hospital Name. Health information for community awareness and education.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* =========================================================
+       SVG ICONS
+       ========================================================= */
+    const icons = {
+      malaria: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="Malaria icon">
+          <circle cx="32" cy="32" r="30" fill="#F3F8FF"/>
+          <rect x="27" y="10" width="10" height="22" rx="2" fill="#1E88E5"/>
+          <rect x="21" y="16" width="22" height="10" rx="2" fill="#1E88E5"/>
+          <ellipse cx="32" cy="39" rx="4" ry="8" fill="#2F3A4A"/>
+          <circle cx="32" cy="29" r="3" fill="#2F3A4A"/>
+          <line x1="32" y1="26" x2="32" y2="20" stroke="#2F3A4A" stroke-width="2"/>
+          <ellipse cx="24" cy="33" rx="8" ry="4" transform="rotate(-25 24 33)" fill="#90CAF9"/>
+          <ellipse cx="40" cy="33" rx="8" ry="4" transform="rotate(25 40 33)" fill="#90CAF9"/>
+        </svg>
+      `,
+      typhoid: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="Typhoid icon">
+          <circle cx="32" cy="32" r="30" fill="#F3F8FF"/>
+          <path d="M24 20C24 16 27 14 32 14C37 14 40 16 40 20C40 24 38 26 38 29C38 31 39 33 40 35C41 37 42 39 42 43C42 49 37 52 32 52C27 52 22 49 22 43C22 39 23 37 24 35C25 33 26 31 26 29C26 26 24 24 24 20Z" stroke="#1E88E5" stroke-width="2.5"/>
+          <path d="M28 26C29 24 31 23 33 23C35 23 37 24 38 26" stroke="#D32F2F" stroke-width="2.5"/>
+          <path d="M28 36C30 38 34 38 36 36" stroke="#2F3A4A" stroke-width="2.5"/>
+        </svg>
+      `,
+      cholera: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="Cholera icon">
+          <circle cx="32" cy="32" r="30" fill="#F3F8FF"/>
+          <path d="M32 14C32 14 20 28 20 37C20 44 25.8 50 32 50C38.2 50 44 44 44 37C44 28 32 14 32 14Z" fill="#90CAF9"/>
+          <path d="M29 32H35" stroke="#1E88E5" stroke-width="2.5"/>
+          <path d="M32 29V35" stroke="#1E88E5" stroke-width="2.5"/>
+        </svg>
+      `,
+      lungs: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="Lungs icon">
+          <circle cx="32" cy="32" r="30" fill="#F3F8FF"/>
+          <path d="M32 16V28" stroke="#2F3A4A" stroke-width="2.5"/>
+          <path d="M32 28C29 24 22 23 19 29C16 35 19 46 28 48C31 49 32 46 32 43V28Z" fill="#90CAF9"/>
+          <path d="M32 28C35 24 42 23 45 29C48 35 45 46 36 48C33 49 32 46 32 43V28Z" fill="#90CAF9"/>
+        </svg>
+      `,
+      hiv: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="HIV icon">
+          <circle cx="32" cy="32" r="30" fill="#FFF5F5"/>
+          <path d="M25 18C25 14 28 12 32 12C36 12 39 14 39 18C39 24 34 27 32 31C30 27 25 24 25 18Z" fill="#D32F2F"/>
+          <path d="M29 31L22 49H28L32 42L36 49H42L35 31" fill="#D32F2F"/>
+        </svg>
+      `,
+      heart: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="Heart icon">
+          <circle cx="32" cy="32" r="30" fill="#FFF5F5"/>
+          <path d="M32 48C32 48 18 39 18 27C18 21 22 17 28 17C31 17 34 19 36 22C38 19 41 17 44 17C50 17 54 21 54 27C54 39 32 48 32 48Z" fill="#D32F2F"/>
+          <path d="M22 31H28L31 27L35 35L38 30H44" stroke="white" stroke-width="2.5"/>
+        </svg>
+      `,
+      diabetes: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="Diabetes icon">
+          <circle cx="32" cy="32" r="30" fill="#FFF5F5"/>
+          <path d="M32 14C32 14 22 27 22 36C22 43 26.9 49 32 49C37.1 49 42 43 42 36C42 27 32 14 32 14Z" fill="#D32F2F"/>
+          <path d="M28 34C28 31 30 29 32 29C34 29 36 31 36 34C36 37 34 39 32 39C30 39 28 37 28 34Z" fill="white"/>
+        </svg>
+      `,
+      maternal: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="Maternal health icon">
+          <circle cx="32" cy="32" r="30" fill="#FFF5FB"/>
+          <circle cx="30" cy="18" r="5" fill="#1E88E5"/>
+          <path d="M30 24V36C30 40 33 43 37 43C40 43 42 41 42 38C42 34 39 31 35 31" stroke="#1E88E5" stroke-width="2.5"/>
+          <circle cx="39" cy="38" r="3" fill="#90CAF9"/>
+        </svg>
+      `,
+      immunization: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="Immunization icon">
+          <circle cx="32" cy="32" r="30" fill="#F3F8FF"/>
+          <path d="M32 14L46 20V31C46 41 39 48 32 50C25 48 18 41 18 31V20L32 14Z" fill="#90CAF9"/>
+          <path d="M26 38L38 26" stroke="#1E88E5" stroke-width="2.5"/>
+          <path d="M36 24L40 20" stroke="#1E88E5" stroke-width="2.5"/>
+          <path d="M24 40L20 44" stroke="#1E88E5" stroke-width="2.5"/>
+        </svg>
+      `,
+      nutrition: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="Nutrition icon">
+          <circle cx="32" cy="32" r="30" fill="#FFFDF5"/>
+          <path d="M18 34C18 43 24 48 32 48C40 48 46 43 46 34H18Z" fill="#FFD54F"/>
+          <path d="M24 26C24 23 26 21 29 21" stroke="#2F3A4A" stroke-width="2.5"/>
+          <path d="M32 24V17" stroke="#2F3A4A" stroke-width="2.5"/>
+          <path d="M39 26C39 23 37 21 34 21" stroke="#2F3A4A" stroke-width="2.5"/>
+        </svg>
+      `,
+      eye: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="Eye icon">
+          <circle cx="32" cy="32" r="30" fill="#F3F8FF"/>
+          <path d="M12 32C16 24 23 20 32 20C41 20 48 24 52 32C48 40 41 44 32 44C23 44 16 40 12 32Z" stroke="#1E88E5" stroke-width="2.5"/>
+          <circle cx="32" cy="32" r="6" fill="#90CAF9"/>
+          <circle cx="32" cy="32" r="2.5" fill="#2F3A4A"/>
+        </svg>
+      `,
+      dental: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="Dental icon">
+          <circle cx="32" cy="32" r="30" fill="#F3F8FF"/>
+          <path d="M24 18C21 18 18 21 18 25C18 31 22 34 24 38C26 42 26 48 30 48C33 48 31 40 32 40C33 40 31 48 34 48C38 48 38 42 40 38C42 34 46 31 46 25C46 21 43 18 40 18C37 18 35 20 32 20C29 20 27 18 24 18Z" fill="white" stroke="#1E88E5" stroke-width="2.5"/>
+        </svg>
+      `,
+      event: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="Hospital event icon">
+          <circle cx="32" cy="32" r="30" fill="#F3F8FF"/>
+          <rect x="16" y="20" width="32" height="26" rx="6" fill="#90CAF9"/>
+          <rect x="16" y="20" width="32" height="8" rx="6" fill="#1E88E5"/>
+          <path d="M23 15V23" stroke="#2F3A4A" stroke-width="2.5"/>
+          <path d="M41 15V23" stroke="#2F3A4A" stroke-width="2.5"/>
+          <path d="M25 34H39" stroke="#2F3A4A" stroke-width="2.5"/>
+          <path d="M32 27V41" stroke="#2F3A4A" stroke-width="2.5"/>
+        </svg>
+      `,
+      general: `
+        <svg width="62" height="62" viewBox="0 0 64 64" fill="none" aria-label="General health icon">
+          <circle cx="32" cy="32" r="30" fill="#F3F8FF"/>
+          <rect x="27" y="14" width="10" height="36" rx="3" fill="#1E88E5"/>
+          <rect x="14" y="27" width="36" height="10" rx="3" fill="#1E88E5"/>
+        </svg>
+      `
+    };
+
+    /* =========================================================
+       NEWS DATA
+       You can add up to 100+ items here
+       ========================================================= */
+    const newsData = [
+      {
+        id: 1,
+        title: "Malaria Prevention in Rainy Season",
+        category: "Disease Awareness",
+        categorySlug: "disease-awareness",
+        date: "March 28, 2026",
+        icon: "malaria",
+        summary: "Malaria remains one of the most common illnesses in many communities. Our hospital advises residents to sleep under treated mosquito nets, clear stagnant water around homes, and seek early treatment when fever, headache, weakness, or body pain begins."
+      },
+      {
+        id: 2,
+        title: "Free Community Health Outreach This Saturday",
+        category: "Hospital Event",
+        categorySlug: "hospital-event",
+        date: "March 26, 2026",
+        icon: "event",
+        summary: "Our hospital will hold a free medical outreach this Saturday for blood pressure checks, blood sugar testing, malaria screening, and health education. Pregnant women, children, and elderly residents are especially encouraged to attend."
+      },
+      {
+        id: 3,
+        title: "Typhoid Fever: Early Signs You Should Not Ignore",
+        category: "Disease Awareness",
+        categorySlug: "disease-awareness",
+        date: "March 24, 2026",
+        icon: "typhoid",
+        summary: "Persistent fever, stomach discomfort, weakness, poor appetite, and digestive issues may be signs of typhoid fever. Good handwashing, clean water, and proper food hygiene are key steps in reducing infection."
+      },
+      {
+        id: 4,
+        title: "Cholera Prevention Through Safe Water and Hygiene",
+        category: "Disease Awareness",
+        categorySlug: "disease-awareness",
+        date: "March 22, 2026",
+        icon: "cholera",
+        summary: "Cholera spreads quickly where drinking water is unsafe or sanitation is poor. Residents are encouraged to boil water when necessary, wash hands properly, and seek urgent care if severe diarrhoea or dehydration occurs."
+      },
+      {
+        id: 5,
+        title: "Tuberculosis Awareness and Early Testing",
+        category: "Respiratory Health",
+        categorySlug: "respiratory-health",
+        date: "March 21, 2026",
+        icon: "lungs",
+        summary: "A cough lasting more than two weeks should not be ignored. Tuberculosis can often be treated successfully when diagnosed early. Anyone with prolonged cough, chest pain, weight loss, or night sweats should visit the hospital."
+      },
+      {
+        id: 6,
+        title: "High Blood Pressure Often Shows No Warning Signs",
+        category: "Chronic Conditions",
+        categorySlug: "chronic-conditions",
+        date: "March 20, 2026",
+        icon: "heart",
+        summary: "Hypertension can quietly damage the heart, kidneys, and brain over time. Adults are encouraged to check their blood pressure regularly, reduce excess salt intake, stay active, and keep follow-up appointments."
+      },
+      {
+        id: 7,
+        title: "Understanding Diabetes and Blood Sugar Control",
+        category: "Chronic Conditions",
+        categorySlug: "chronic-conditions",
+        date: "March 18, 2026",
+        icon: "diabetes",
+        summary: "Diabetes can affect energy, vision, wound healing, and general wellbeing. Early testing, healthy food choices, regular exercise, and medication compliance are essential in preventing serious complications."
+      },
+      {
+        id: 8,
+        title: "Maternal Health: Importance of Antenatal Care",
+        category: "Maternal & Child Health",
+        categorySlug: "maternal-child-health",
+        date: "March 16, 2026",
+        icon: "maternal",
+        summary: "Pregnant women are strongly encouraged to begin antenatal care early. Routine checks help monitor the health of both mother and baby, detect complications early, and improve the chances of safe delivery."
+      },
+      {
+        id: 9,
+        title: "Child Immunization Saves Lives",
+        category: "Maternal & Child Health",
+        categorySlug: "maternal-child-health",
+        date: "March 14, 2026",
+        icon: "immunization",
+        summary: "Routine childhood immunization protects children against dangerous infections. Parents and guardians are advised to keep immunization cards safe and ensure children receive vaccines according to schedule."
+      },
+      {
+        id: 10,
+        title: "HIV Awareness: Testing, Prevention, and Support",
+        category: "Public Health",
+        categorySlug: "public-health",
+        date: "March 13, 2026",
+        icon: "hiv",
+        summary: "Knowing your HIV status is an important part of personal and public health. Early testing and access to care improve long-term health outcomes. Our hospital continues to support awareness, counselling, and referral services."
+      },
+      {
+        id: 11,
+        title: "Nutrition and Child Growth in Rural Communities",
+        category: "Nutrition",
+        categorySlug: "nutrition",
+        date: "March 11, 2026",
+        icon: "nutrition",
+        summary: "Balanced feeding is essential for child growth, immunity, and learning. Parents are encouraged to provide locally available nutritious foods and seek advice if a child shows poor weight gain or signs of malnutrition."
+      },
+      {
+        id: 12,
+        title: "Protecting Your Eyes Through Regular Checkups",
+        category: "General Health",
+        categorySlug: "general-health",
+        date: "March 10, 2026",
+        icon: "eye",
+        summary: "Blurred vision, eye pain, or persistent redness should not be ignored. Eye problems can affect school performance, work, and safety. Early examination helps prevent avoidable vision loss."
+      },
+      {
+        id: 13,
+        title: "Oral Hygiene and Dental Health Awareness",
+        category: "General Health",
+        categorySlug: "general-health",
+        date: "March 9, 2026",
+        icon: "dental",
+        summary: "Daily brushing, reduced sugar intake, and regular oral care help prevent tooth decay and gum disease. Dental pain should be treated early to avoid more serious complications."
+      },
+      {
+        id: 14,
+        title: "Hospital Advisory on Seasonal Flu and Cough",
+        category: "Respiratory Health",
+        categorySlug: "respiratory-health",
+        date: "March 7, 2026",
+        icon: "lungs",
+        summary: "Residents experiencing cough, fever, weakness, or breathing discomfort are encouraged to rest, maintain hydration, and visit the hospital when symptoms worsen or persist."
+      },
+      {
+        id: 15,
+        title: "Safe Water and Food Handling in the Home",
+        category: "Public Health",
+        categorySlug: "public-health",
+        date: "March 5, 2026",
+        icon: "general",
+        summary: "Simple hygiene habits such as washing hands, storing food properly, and drinking safe water can significantly reduce preventable illness in homes and communities."
+      }
+    ];
+
+    /* =========================================================
+       APP STATE
+       ========================================================= */
+    let activeCategory = "all";
+    let searchTerm = "";
+    let visibleCount = 6;
+
+    const newsGrid = document.getElementById("newsGrid");
+    const filterButtons = document.getElementById("filterButtons");
+    const searchInput = document.getElementById("searchInput");
+    const resultCount = document.getElementById("resultCount");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+    const emptyState = document.getElementById("emptyState");
+    const heroNewsCount = document.getElementById("heroNewsCount");
+
+    heroNewsCount.textContent = newsData.length;
+
+    /* =========================================================
+       GET CATEGORIES
+       ========================================================= */
+    const categories = [
+      { label: "All", slug: "all" },
+      ...Array.from(
+        new Map(newsData.map(item => [item.categorySlug, { label: item.category, slug: item.categorySlug }])).values()
+      )
+    ];
+
+    /* =========================================================
+       RENDER FILTERS
+       ========================================================= */
+    function renderFilters() {
+      filterButtons.innerHTML = categories.map(category => `
+        <button class="filter-btn ${activeCategory === category.slug ? "active" : ""}" data-category="${category.slug}">
+          ${category.label}
+        </button>
+      `).join("");
+
+      document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          activeCategory = btn.dataset.category;
+          visibleCount = 6;
+          renderFilters();
+          renderNews();
+        });
+      });
+    }
+
+    /* =========================================================
+       FILTER LOGIC
+       ========================================================= */
+    function getFilteredNews() {
+      return newsData.filter(item => {
+        const matchCategory = activeCategory === "all" || item.categorySlug === activeCategory;
+        const matchSearch =
+          item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.category.toLowerCase().includes(searchTerm.toLowerCase());
+
+        return matchCategory && matchSearch;
+      });
+    }
+
+    /* =========================================================
+       CARD TEMPLATE
+       ========================================================= */
+    function createCard(news) {
+      const shortText = news.summary.length > 150
+        ? news.summary.slice(0, 150).trim() + "..."
+        : news.summary;
+
+      return `
+        <article class="news-card">
+          <div class="news-card-top">
+            <div class="news-meta">
+              <span class="news-tag">${news.category}</span>
+              <span class="news-date">${news.date}</span>
+            </div>
+
+            <div class="news-icon-wrap">
+              ${icons[news.icon] || icons.general}
+            </div>
+
+            <h3>${news.title}</h3>
+          </div>
+
+          <div class="news-card-body">
+            <p class="news-summary" id="summary-${news.id}" data-full="${escapeHtml(news.summary)}" data-short="${escapeHtml(shortText)}">
+              ${shortText}
+            </p>
+
+            <div class="news-footer">
+              <button class="btn btn-secondary read-more-btn" data-id="${news.id}">
+                Read More
+              </button>
+
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    /* =========================================================
+       RENDER NEWS
+       ========================================================= */
+    function renderNews() {
+      const filtered = getFilteredNews();
+      const visibleNews = filtered.slice(0, visibleCount);
+
+      resultCount.textContent = `${filtered.length} news found`;
+
+      if (filtered.length === 0) {
+        newsGrid.innerHTML = "";
+        emptyState.style.display = "block";
+        loadMoreBtn.style.display = "none";
+        return;
+      }
+
+      emptyState.style.display = "none";
+
+      newsGrid.innerHTML = visibleNews.map(createCard).join("");
+
+      loadMoreBtn.style.display = filtered.length > visibleCount ? "inline-block" : "none";
+
+      attachReadMoreEvents();
+    }
+
+    /* =========================================================
+       READ MORE / LESS
+       ========================================================= */
+    function attachReadMoreEvents() {
+      document.querySelectorAll(".read-more-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.id;
+          const summary = document.getElementById(`summary-${id}`);
+          const isExpanded = summary.classList.contains("expanded");
+
+          const fullText = summary.dataset.full;
+          const shortText = summary.dataset.short;
+
+          if (isExpanded) {
+            summary.innerHTML = shortText;
+            summary.classList.remove("expanded");
+            btn.textContent = "Read More";
+          } else {
+            summary.innerHTML = fullText;
+            summary.classList.add("expanded");
+            btn.textContent = "Read Less";
+          }
+        });
+      });
+    }
+
+    /* =========================================================
+       ESCAPE HTML
+       ========================================================= */
+    function escapeHtml(str) {
+      return str
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    /* =========================================================
+       EVENTS
+       ========================================================= */
+    searchInput.addEventListener("input", (e) => {
+      searchTerm = e.target.value.trim();
+      visibleCount = 6;
+      renderNews();
+    });
+
+    loadMoreBtn.addEventListener("click", () => {
+      visibleCount += 6;
+      renderNews();
+    });
+
+    /* =========================================================
+       INIT
+       ========================================================= */
+    renderFilters();
+    renderNews();
+  </script>
+</body>
+</html>

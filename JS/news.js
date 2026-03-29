@@ -13,7 +13,7 @@ const newsData = [
           category: "health-event",
           title:
             "MALARIA: STILL ONE OF THE MOST DANGEROUS PREVENTABLE DISEASES",
-          image: "../Images/OLCH_outreach.jpg",
+          image: "../Images/News-svg/doc_1.svg",
           content:
             "Malaria remains one of the most common and dangerous preventable diseases, especially in rural and underserved communities. It is caused by parasites transmitted through the bite of infected female mosquitoes. Common symptoms include fever, chills, headache, body weakness, vomiting, and loss of appetite. Children under five and pregnant women are particularly vulnerable. Prevention includes sleeping under insecticide-treated mosquito nets, draining stagnant water, clearing bushes, and seeking prompt medical testing and treatment when symptoms appear. Our hospital continues to provide malaria education, testing, treatment, and prevention support to families in the community.",
         },
