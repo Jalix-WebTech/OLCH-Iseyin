@@ -1,561 +1,775 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OLCH Iseyin | Home</title>
-  <meta name="description" content="Our Lady Catholic Hospital Iseyin provides trusted healthcare, modern facilities, and 24/7 emergency services.">
-  
-  <link rel="stylesheet" href="./Style/style.css">
-  <link rel="stylesheet" href="./Style/home-intro.css">
-  <link rel="stylesheet" href="./Style/auto-animate.css">
-  <link rel="stylesheet" href="./Style/facilities.css">
-  <link rel="stylesheet" href="./Style/FAQs.css">
-  <link rel="stylesheet" href="./Style/home-page-news-section.css">
-  <link rel="stylesheet" href="./Style/home_page_hero_slider.css">
-  <link rel="stylesheet" href="./Style/contact.css">
-  <!-- <link rel="stylesheet" href="./Style/news.css"> -->
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OLCH Iseyin | Home</title>
+    <meta
+      name="description"
+      content="Our Lady Catholic Hospital Iseyin provides trusted healthcare, modern facilities, and 24/7 emergency services."
+    />
 
+    <link rel="stylesheet" href="./Style/style.css" />
+    <link rel="stylesheet" href="./Style/home-intro.css" />
+    <link rel="stylesheet" href="./Style/auto-animate.css" />
+    <link rel="stylesheet" href="./Style/facilities.css" />
+    <link rel="stylesheet" href="./Style/FAQs.css" />
+    <link rel="stylesheet" href="./Style/home-page-news-section.css" />
+    <link rel="stylesheet" href="./Style/home_page_hero_slider.css" />
+    <link rel="stylesheet" href="./Style/contact.css" />
+    <link rel="stylesheet" href="./Style/clinical-days.css" />
+    <!-- <link rel="stylesheet" href="./Style/news.css"> -->
+  </head>
 
-<body>
+  <body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <!-- ================= HEADER ================= -->
+    <header class="header" id="navbar">
+      <div class="container header__inner">
+        <a href="#">
+          <img
+            style="width: auto; height: 50px"
+            src="./Images/logo-olch.png"
+            alt=""
+        /></a>
 
+        <!-- Hamburger button -->
+        <button
+          class="nav-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
 
+        <!-- Overlay -->
+        <div class="nav-overlay"></div>
 
-  <!-- Skip Link for Accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+        <!-- Slide-in Navigation -->
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav__list">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./pages/about.html">About</a></li>
+            <li><a href="./pages/Service.html">Services</a></li>
+            <li><a href="./pages/department.html">Departments</a></li>
+            <li><a href="./pages/news-page.html">News</a></li>
+            <!-- <li><a href="appointment.html">Appointment</a></li> -->
+            <li><a href="./pages/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content">
+      <!-- ================= HERO ================= -->
+      <section class="hero">
+        <div class="container2">
+          <h2>Welcome to Our Lady Catholic Hospital Iseyin</h2>
+          <p>
+            Trusted Care, Health with Heart <br />
+            Serving your wellness with compassion always.
+          </p>
+          <!-- <a href="appointment.html" class="btn btn--primary">Book Appointment</a> -->
+        </div>
 
-  <!-- ================= HEADER ================= -->
-  <header class="header" id="navbar">
-    <div class="container header__inner">
-    <a href="#"> <img style="width: auto; height: 50px;" src="./Images/logo-olch.png" alt=""></a>
+        <div class="container3">
+          <!-- Single h1 for typing -->
+          <!-- <h1 class="type"></h1> -->
+        </div>
+      </section>
+      <!-- ================================= -->
+      <!--     CINEMATIC HOSPITAL HERO       -->
+      <!-- ================================= -->
 
-      <!-- Hamburger button -->
-      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
-        ☰
-      </button>
+      <section class="cinematic-hero" id="heroSlider">
+        <!-- Slide 1 -->
+        <div class="hero-slide active">
+          <picture class="hero-media">
+            <source
+              media="(max-width: 768px)"
+              srcset="./Images/main-entrance.jpg"
+            />
+            <source
+              media="(max-width: 1200px)"
+              srcset="./Images/Olch's Anniversry.jpg"
+            />
+            <img
+              src="./Images/outpatient.jpg"
+              alt="Hospital building and environment"
+            />
+          </picture>
+        </div>
 
-      <!-- Overlay -->
-      <div class="nav-overlay"></div>
+        <!-- Slide 2 -->
+        <div class="hero-slide">
+          <picture class="hero-media">
+            <source
+              media="(max-width: 768px)"
+              srcset="./Images/enviroment.jpg"
+            />
+            <source
+              media="(max-width: 1200px)"
+              srcset="./Images/children.jpg"
+            />
+            <img
+              src="./Images/ambulance.jpg"
+              alt="Doctor attending to patient"
+            />
+          </picture>
+        </div>
 
-      <!-- Slide-in Navigation -->
-      <nav class="nav" aria-label="Main navigation">
-        <ul class="nav__list">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./pages/about.html">About</a></li>
-          <li><a href="./pages/Service.html">Services</a></li>
-          <li><a href="./pages/department.html">Departments</a></li>
-          <li><a href="./pages/news-page.html">News</a></li>
-          <!-- <li><a href="appointment.html">Appointment</a></li> -->
-          <li><a href="./pages/contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-<main id="main-content">
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-    <div class="container2">
-      <h2>Welcome to Our Lady Catholic Hospital Iseyin</h2>
-      <p>Compassionate Care, Trusted Excellence <br>
-         Your health is our mission — always.</p>
-      <!-- <a href="appointment.html" class="btn btn--primary">Book Appointment</a> -->
-    </div>
+        <!-- Slide 3 -->
+        <div class="hero-slide">
+          <picture class="hero-media">
+            <source media="(max-width: 768px)" srcset="./Images/delivery.jpg" />
+            <source media="(max-width: 1200px)" srcset="./Images/ARVs.jpg" />
+            <img src="./Images/lab.jpg" alt="Medical team in hospital" />
+          </picture>
+        </div>
 
-    <div class="container3">
-    <!-- Single h1 for typing -->
-    <!-- <h1 class="type"></h1> -->
-  </div>
-  </section>
-<!-- ================================= -->
-<!--     CINEMATIC HOSPITAL HERO       -->
-<!-- ================================= -->
+        <!-- Slide 4 -->
+        <div class="hero-slide">
+          <picture class="hero-media">
+            <source
+              media="(max-width: 768px)"
+              srcset="./Images/main-entrance.jpg"
+            />
+            <source media="(max-width: 1200px)" srcset="./Images/opd.jpg" />
+            <img
+              src="./Images/children's party.jpg"
+              alt="Hospital care and treatment scene"
+            />
+          </picture>
+        </div>
 
-<section class="cinematic-hero" id="heroSlider">
+        <!-- Overlay -->
+        <div class="hero-overlay"></div>
 
-    <!-- Slide 1 -->
-    <div class="hero-slide active">
-        <picture class="hero-media">
-            <source media="(max-width: 768px)" srcset="./Images/main-entrance.jpg">
-            <source media="(max-width: 1200px)" srcset="./Images/Olch's Anniversry.jpg">
-            <img src="./Images/outpatient.jpg" alt="Hospital building and environment">
-        </picture>
-    </div>
+        <!-- Content -->
+        <div class="hero-content">
+          <span class="hero-badge">Trusted Healthcare Services</span>
 
-    <!-- Slide 2 -->
-    <div class="hero-slide">
-        <picture class="hero-media">
-            <source media="(max-width: 768px)" srcset="./Images/enviroment.jpg">
-            <source media="(max-width: 1200px)" srcset="./Images/children.jpg">
-            <img src="./Images/ambulance.jpg" alt="Doctor attending to patient">
-        </picture>
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="hero-slide">
-        <picture class="hero-media">
-            <source media="(max-width: 768px)" srcset="./Images/delivery.jpg">
-            <source media="(max-width: 1200px)" srcset="./Images/ARVs.jpg">
-            <img src="./Images/lab.jpg" alt="Medical team in hospital">
-        </picture>
-    </div>
-
-    <!-- Slide 4 -->
-    <div class="hero-slide">
-        <picture class="hero-media">
-            <source media="(max-width: 768px)" srcset="./Images/main-entrance.jpg">
-            <source media="(max-width: 1200px)" srcset="./Images/opd.jpg">
-            <img src="./Images/children's party.jpg" alt="Hospital care and treatment scene">
-        </picture>
-    </div>
-
-    <!-- Overlay -->
-    <div class="hero-overlay"></div>
-
-    <!-- Content -->
-    <div class="hero-content">
-        <span class="hero-badge">Trusted Healthcare Services</span>
-
-        <h1>
+          <h1>
             Compassionate Care for
             <span>Your Family</span>
-        </h1>
+          </h1>
 
-        <p class="hero-quote">
+          <p class="hero-quote">
             <span id="typedText"></span><span class="cursor">|</span>
-        </p>
+          </p>
 
-        <div class="hero-buttons">
+          <div class="hero-buttons">
             <a href="#emer-target" class="hero-btn primary-btn">Our Contact</a>
-            <a href="#our_service" class="hero-btn secondary-btn">Explore Services</a>
+            <a href="#our_service" class="hero-btn secondary-btn"
+              >Explore Services</a
+            >
+          </div>
         </div>
-    </div>
 
-    <!-- Navigation Dots -->
-    <div class="hero-dots" id="heroDots"></div>
-</section>
+        <!-- Navigation Dots -->
+        <div class="hero-dots" id="heroDots"></div>
+      </section>
 
-<!-- ===============INTRODUCTION OF THE HOSPITAL=================== -->
-<div class="box-container">
-    <div class="box">
-        <img src="./Images/main-entrance.jpg" alt="OLCH Img">
-        <h3>Who are we?</h3>
-        <p>Our Lady Catholic Hospital is a Private hospital owned by Catholic Diocese of Oyo, located at Isalu 7, lseyin Local Government area, Oyo State, Nigeria.</p>
-        <!-- <a href="" id="dynamicButton2" class="rolling-text">learn more</a> -->
-    </div>
-    <div class="box">
-        <img src="./Images/enviroment.jpg" alt="OLCH Img">
-        <h3>Our Mission</h3>
-        <p>We aim at improving the quality of life of people especially the underprivileged through providing holistic and quality health care that affirms the dignity and respect of human life.</p>
-        <!-- <a href="#">Contact Us</a> -->
-    </div>
-    <div class="box">
-        <img src="./Images/ent.jpg" alt="OLCH Img">
-        <h3 >Our Vision</h3>
-        <p>We challenge ourselves to working together and to ensure that through our health care intervention the world is healed, unified and transformed by the saving wisdom of Christianity.</p>
-        <!-- <a href="#"  id="dynamicButton" class="rolling-text">Book Appointment</a> -->
-    </div>
+      <!-- ===============INTRODUCTION OF THE HOSPITAL=================== -->
+      <div class="box-container">
+        <div class="box">
+          <img src="./Images/main-entrance.jpg" alt="OLCH Img" />
+          <h3>Who are we?</h3>
+          <p>
+            Our Lady Catholic Hospital is a Private hospital owned by Catholic
+            Diocese of Oyo, located at Isalu 7, lseyin Local Government area,
+            Oyo State, Nigeria.
+          </p>
+          <!-- <a href="" id="dynamicButton2" class="rolling-text">learn more</a> -->
+        </div>
+        <div class="box">
+          <img src="./Images/enviroment.jpg" alt="OLCH Img" />
+          <h3>Our Mission</h3>
+          <p>
+            We aim at improving the quality of life of people especially the
+            underprivileged through providing holistic and quality health care
+            that affirms the dignity and respect of human life.
+          </p>
+          <!-- <a href="#">Contact Us</a> -->
+        </div>
+        <div class="box">
+          <img src="./Images/ent.jpg" alt="OLCH Img" />
+          <h3>Our Vision</h3>
+          <p>
+            We challenge ourselves to working together and to ensure that
+            through our health care intervention the world is healed, unified
+            and transformed by the saving wisdom of Christianity.
+          </p>
+          <!-- <a href="#"  id="dynamicButton" class="rolling-text">Book Appointment</a> -->
+        </div>
 
-    <div class="btn-wrapper"><a class="more-equip-btn" href="./pages/about.html">Read more about us</a></div>
-</div>
-
-
-
-<section class="services-section" id="our_service">
-  <h2 class="section-title">Our Services</h2>
-
-  <div class="slider-container">
-
-    <!-- Left Arrow (Desktop Only) -->
-    <button class="nav-arrow left" id="prevBtn">&#10094;</button>
-
-    <!-- Slider -->
-    <div class="slider" id="slider">
-      <div class="slides" id="slides">
-
-        <!-- 10 Example Services -->
-        <div class="story-card"><img src="./Images/outpatient.jpg"><span>Consultation</span></div>
-        <div class="story-card"><img src="./Images/lab.jpg"><span>Laboratory</span></div>
-        <div class="story-card"><img src="./Images/opd.jpg"><span>Emergency</span></div>
-        <div class="story-card"><img src="./Images/pharmacy.jpg"><span>Pharmacy</span></div>
-        <div class="story-card"><img src="./Images/pregnancy.jpg"><span>Maternity</span></div>
-        <div class="story-card"><img src="./Images/children.jpg"><span>Pediatrics</span></div>
-        <div class="story-card"><img src="./Images/ARVs.jpg"><span>Haart to Heart</span></div>
-        <div class="story-card"><img src="./Images/scan.jpg"><span>UltraSound Scan</span></div>
-        <div class="story-card"><img src="./Images/physio.jpg"><span>Physiotherapy</span></div>
-        <div class="story-card"><img src="./Images/surgery.jpg"><span>Surgeries</span></div>
-        <div class="story-card"><img src="./Images/ambulance.jpg"><span>Ambulance</span></div>
-        <div class="story-card"><img src="./Images/mortuary.png"><span>Mortuary</span></div>
-        <div class="story-card"><img src="./Images/cervical.jpg"><span>Cervical Cancer Screening</span></div>
-        
-
-      </div>
-    </div>
-
-    <!-- Right Arrow -->
-    <button class="nav-arrow right" id="nextBtn">&#10095;</button>
-
-  </div>
-
-  <!-- Dots Indicator -->
-  <div class="indicators" id="indicators"></div>
-
-</section>
-
-
-<div class="service-container">
-    <!-- <h2>Our Services</h2> -->
-    <div class="servies-div-b">General consultation</div>
-    <div class="servies-div-b">Ultrasound scan</div>
-    <div class="servies-div-b">Cervical Cancer Screening</div>
-    <div class="servies-div-b">Physiotherapy</div>
-    <div class="servies-div">Pediatrics</div>
-    <div class="servies-div">Ante-natal</div>
-    <div class="servies-div">Haart to Heart</div>
-    <div class="servies-div">Surgeries</div>
-    <div class="servies-div">Ambulance</div>
-    <div class="servies-div">Laboratory</div>
-    <div class="servies-div">X-ray</div>
-    <div class="servies-div">Mortuary</div>
-    <div class="servies-div">Emergency</div>
-    <div class="servies-div">Pharmacy</div>
-
-    <div class="btn-wrapper"><a class="more-equip-btn" href="./pages/department.html">Learn more</a></div>
-</div>
-<div id="emer-target"></div>
-
-<!-- ================= EMERGENCY ================= -->
-    <section class="emergency" role="alert">
-      <h2>24/7 Emergency Support</h2>
-      <p>Immediate medical response when it matters most</p>
-      <a href="tel:+2349065476623" class="btn btn--emergency">Call Now</a>
-    </section>
-
-<!-- ================================= -->
-<!--     HOSPITAL EQUIPMENT SECTION    -->
-<!-- ================================= -->
-
- <!-- CONTACT SECTION -->
-  <section class="contact-container">
-
-    <!-- CONTACT INFO -->
-    <div class="contact-info">
-      <h2>Get in Touch</h2>
-
-      <p><strong>Address:</strong> Our Lady Catholic Hospital, Iseyin, Oyo State, Nigeria.</p>
-      <p><strong>Phone:</strong> +234 906 547 6623</p>
-      <p><strong>Email:</strong> olchiseyin@gmail.com</p>
-
-      <!-- Emergency -->
-      <div class="emergency-2">
-        <h3>Emergency</h3>
-        <p>Available 24/7</p>
-        <p class="emergency-number">+234 906 547 6623</p>
+        <div class="btn-wrapper">
+          <a class="more-equip-btn" href="./pages/about.html"
+            >Read more about us</a
+          >
+        </div>
       </div>
 
-      <!-- Hours -->
-      <!-- <div class="hours">
+      <section class="services-section" id="our_service">
+        <h2 class="section-title">Our Services</h2>
+
+        <div class="slider-container">
+          <!-- Left Arrow (Desktop Only) -->
+          <button class="nav-arrow left" id="prevBtn">&#10094;</button>
+
+          <!-- Slider -->
+          <div class="slider" id="slider">
+            <div class="slides" id="slides">
+              <!-- 10 Example Services -->
+              <div class="story-card">
+                <img src="./Images/outpatient.jpg" /><span>Consultation</span>
+              </div>
+              <div class="story-card">
+                <img src="./Images/lab.jpg" /><span>Laboratory</span>
+              </div>
+              <div class="story-card">
+                <img src="./Images/opd.jpg" /><span>Emergency</span>
+              </div>
+              <div class="story-card">
+                <img src="./Images/pharmacy.jpg" /><span>Pharmacy</span>
+              </div>
+              <div class="story-card">
+                <img src="./Images/pregnancy.jpg" /><span>Maternity</span>
+              </div>
+              <div class="story-card">
+                <img src="./Images/children.jpg" /><span>Pediatrics</span>
+              </div>
+              <div class="story-card">
+                <img src="./Images/ARVs.jpg" /><span>Haart to Heart</span>
+              </div>
+              <div class="story-card">
+                <img src="./Images/scan.jpg" /><span>UltraSound Scan</span>
+              </div>
+              <div class="story-card">
+                <img src="./Images/physio.jpg" /><span>Physiotherapy</span>
+              </div>
+              <div class="story-card">
+                <img src="./Images/surgery.jpg" /><span>Surgeries</span>
+              </div>
+              <div class="story-card">
+                <img src="./Images/ambulance.jpg" /><span>Ambulance</span>
+              </div>
+              <div class="story-card">
+                <img src="./Images/mortuary.png" /><span>Mortuary</span>
+              </div>
+              <div class="story-card">
+                <img src="./Images/cervical.jpg" /><span
+                  >Cervical Cancer Screening</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Arrow -->
+          <button class="nav-arrow right" id="nextBtn">&#10095;</button>
+        </div>
+
+        <!-- Dots Indicator -->
+        <div class="indicators" id="indicators"></div>
+      </section>
+
+      <div class="service-container">
+        <!-- <h2>Our Services</h2> -->
+        <div class="servies-div-b">General consultation</div>
+        <div class="servies-div-b">Ultrasound scan</div>
+        <div class="servies-div-b">Cervical Cancer Screening</div>
+        <div class="servies-div-b">Physiotherapy</div>
+        <div class="servies-div">Pediatrics</div>
+        <div class="servies-div">Ante-natal</div>
+        <div class="servies-div">Haart to Heart</div>
+        <div class="servies-div">Surgeries</div>
+        <div class="servies-div">Ambulance</div>
+        <div class="servies-div">Laboratory</div>
+        <div class="servies-div">X-ray</div>
+        <div class="servies-div">Mortuary</div>
+        <div class="servies-div">Emergency</div>
+        <div class="servies-div">Pharmacy</div>
+
+        <div class="btn-wrapper">
+          <a class="more-equip-btn" href="./pages/department.html"
+            >Learn more</a
+          >
+        </div>
+      </div>
+      <div id="emer-target"></div>
+
+      <!-- ================= EMERGENCY ================= -->
+      <section class="emergency" role="alert">
+        <h2>24/7 Emergency Support</h2>
+        <p>Immediate medical response when it matters most</p>
+        <a href="tel:+2349065476623" class="btn btn--emergency">Call Now</a>
+      </section>
+
+      <!-- ================================= -->
+      <!--     HOSPITAL EQUIPMENT SECTION    -->
+      <!-- ================================= -->
+
+      <!-- CONTACT SECTION -->
+      <section class="contact-container">
+        <!-- CONTACT INFO -->
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+
+          <p>
+            <strong>Address:</strong> Our Lady Catholic Hospital, Iseyin, Oyo
+            State, Nigeria.
+          </p>
+          <p><strong>Phone:</strong> +234 906 547 6623</p>
+          <p><strong>Email:</strong> olchiseyin@gmail.com</p>
+
+          <!-- Emergency -->
+          <div class="emergency-2">
+            <h3>Emergency</h3>
+            <p>Available 24/7</p>
+            <p class="emergency-number">+234 906 547 6623</p>
+          </div>
+
+          <!-- Hours -->
+          <!-- <div class="hours">
         <h3>Working Hours</h3>
         <p>Mon - Fri: 8AM - 6PM</p>
         <p>Sat: 9AM - 3PM</p>
         <p>Sun: Emergency Only</p>
       </div> -->
-    
-      </div>
+        </div>
 
-    <!-- CONTACT FORM -->
-    <div class="contact-form">
-      <h2>Send Message</h2>
+        <!-- CONTACT FORM -->
+        <div class="contact-form">
+          <h2>Send Message</h2>
 
-      <form id="form">
-        <input type="text" id="name" placeholder="Full Name" required>
-        <input type="email" id="email" placeholder="Email Address" required>
-        <input type="tel" id="phone" placeholder="Phone Number" required>
-        <textarea id="message" placeholder="Your Message" required></textarea>
+          <form id="form">
+            <input type="text" id="name" placeholder="Full Name" required />
+            <input
+              type="email"
+              id="email"
+              placeholder="Email Address"
+              required
+            />
+            <input type="tel" id="phone" placeholder="Phone Number" required />
+            <textarea
+              id="message"
+              placeholder="Your Message"
+              required
+            ></textarea>
 
-        <button type="submit">Send via WhatsApp</button>
-      </form>
-    </div>
+            <button type="submit">Send via WhatsApp</button>
+          </form>
+        </div>
+      </section>
 
-  </section>
+      <section class="map-section">
+        <h2 class="map-heading">Our Location</h2>
 
-  
-<section class="map-section">
-  <h2 class="map-heading">Our Location</h2>
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.163284730105!2d3.5865596758826093!3d7.982067004495724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1030b1bcf8f7c695%3A0xdbee9af7a8bfe6c3!2sOur%20Lady%20Catholic%20Hospital!5e0!3m2!1sen!2sng!4v1772328567328!5m2!1sen!2sng"
-    width="100%" 
-    height="400" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy">
-  </iframe>
-</section>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9654423.447996218!2d10.78972551706532!3d6.515623555464573!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1774914696958!5m2!1sen!2sng" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
 
+      <!-- ================================= -->
+      <!--        CLINICAL DAYS SECTION      -->
+      <!-- ================================= -->
 
-<!-- Certificates Starts here -->
-
-<section class="certificates" id="certificates">
-  <h2>Our Medical Equipment</h2>
-
-  <div class="certificate-grid">
-
-    <!-- Certificate Card -->
-    <article class="certificate-card">
-      <img 
-        src="./Images/raw/Generic_patient's_trolley.jpg"
-        alt="Generic_patient's_trolley"
-        loading="lazy"
-      />
-
-      <div class="certificate-content">
-        <h3>Generic Patient's Trolley</h3>
-        <p>
-          For safely transporting patients within hospital, especially in emergencies.
-        </p>
-        <button class="view-btn" data-image="./Images/raw/Generic_patient's_trolley.jpg">
-        view equipment
-        </button>
-      </div>
-
-      
-    </article>  <!-- Certificate Card -->
-    <article class="certificate-card">
-      <img 
-        src="./Images/raw/OLCH_suction_machine.jpg"
-        alt="OLCH_suction_machine"
-        loading="lazy"
-      />
-
-      <div class="certificate-content">
-        <h3>Electric Suction Machine</h3>
-        <p>
-          Removes fluids during medical procedures.
-        </p>
-        <button class="view-btn" data-image="./Images/raw/OLCH_suction_machine.jpg">
-        view equipment
-        </button>
-      </div>
-
-      
-    </article>
-
-    <!-- Certificate Card -->
-    <article class="certificate-card">
-      <img 
-        src="./Images/raw/OLCH_medical_table.jpg"
-        alt="OLCH_medical_table"
-        loading="lazy"
-      />
-
-      <div class="certificate-content">
-        <h3>Multifunctional Medical Examination Table</h3>
-        <p>
-          Adjustable table for patient examination.
-        </p>
-        <button class="view-btn" data-image="./Images/raw/OLCH_medical_table.jpg">
-        view equipment
-        </button>
-      </div>
-
-      
-    </article>  <!-- Certificate Card -->
-    <!-- Certificate Card -->
-    <article class="certificate-card">
-      <img 
-        src="./Images/raw/OLCH_theater_lamp.jpg"
-        alt="OLCH_theater_lamp"
-        loading="lazy"
-      />
-
-      <div class="certificate-content">
-        <h3>Mobile Surgical Lamp</h3>
-        <p>
-          Provides bright lighting during procedures.
-        </p>
-        <button class="view-btn" data-image="./Images/raw/OLCH_theater_lamp.jpg">
-        view equipment
-        </button>
-      </div>
-
-      
-    </article>  <!-- Certificate Card -->
-  </div>
-  <div class="more-equip-btn-wrapper"><a class="more-equip-btn" href="./pages/equipment.html">See more equipment</a></div>
-</section>
-
-<!-- Fullscreen Modal -->
-<div class="modal" id="imageModal">
-  <span class="close">&times;</span>
-  <img class="modal-image" id="modalImage" alt="Certificate Full View"  />
-</div>
-<!-- certificate ends here -->
-
-<!-- ================================= -->
-<!--         HOSPITAL NEWS SECTION     -->
-<!-- ================================= -->
-
-<section class="news-section">
-  <div class="news-section-container">
-
-    <!-- Section Header -->
-    <div class="news-header">
-      <h2>Latest News & Updates</h2>
-      <p>Stay informed with our hospital updates and trusted health news.</p>
-    </div>
-
-    <!-- Category Filter Buttons -->
-    <div class="news-filters">
-      <button class="filter-btn active" data-category="all">All</button>
-      <button class="filter-btn" data-category="hospital">Our Hospital</button>
-      <button class="filter-btn" data-category="health">Health</button>
-    </div>
-
-    <!-- News Grid -->
-    <div class="news-grid">
-
-      <!-- News Item 1 -->
-      <div class="news-card" data-category="hospital">
-        <img src="./Images/OLCH_outreach.jpg" alt="Hospital Outreach Program">
-
-        <div class="news-content">
-          <h3>Free Medical Outreach Program</h3>
-
-          <p class="news-excerpt">
-            Our hospital recently organized a free medical outreach providing 
-            checkups and medications to over 300 community members...
-          </p>
-
-          <!-- Full Article -->
-          <div class="news-full">
+      <section class="clinical-days-section" id="clinical-days">
+        <div class="clinical-days-container">
+          <!-- Section Header -->
+          <div class="clinical-days-header">
+            <span class="section-tag">Clinical Schedule</span>
+            <h2>Our Weekly Clinical Days</h2>
             <p>
-              Our hospital recently organized a free medical outreach providing 
-              checkups, laboratory screening, blood pressure monitoring, and 
-              medications to over 300 community members. The event was conducted 
-              by our qualified medical team and aimed at improving preventive 
-              healthcare awareness.
+              Stay informed about our weekly specialist and general clinic
+              schedule. We are committed to delivering timely, compassionate,
+              and professional healthcare services.
             </p>
-
-            <button class="close-btn">Close</button>
           </div>
 
-          <button class="read-btn">Read Full Article</button>
-        </div>
-      </div>
+            <article class="clinical-card">
+                    <div class="clinical-day-top">
+                      <span class="day-badge">Everyday</span>
+                      <span class="time-badge">8:00 AM - 4:00 PM</span>
+                    </div>
+                  <h3>General Outpatient Clinic</h3>
+                  <p>
+                    Professional consultation, diagnosis, and treatment for everyday health
+                    concerns, routine medical checkups, and general patient care.
+                  </p>
+            </article>
 
-      <!-- News Item 2 -->
-      <div class="news-card" data-category="health">
-        <img src="./Images/hypertension.jpg" alt="Hypertension Awareness">
+            <!-- Tuesday -->
+            <article class="clinical-card">
+              <div class="clinical-day-top">
+                <span class="day-badge">Tuesday & Thursday</span>
+                <span class="time-badge">8AM - 4PM</span>
+              </div>
+              <h3>Antenatal Clinic</h3>
+              <p>
+                Professional prenatal care and maternal health support for
+                expecting mothers.
+              </p>
+            </article>
 
-        <div class="news-content">
-          <h3>Understanding Hypertension Risks</h3>
+            <!-- Wednesday -->
+            <article class="clinical-card">
+              <div class="clinical-day-top">
+                <span class="day-badge">Wednesday</span>
+                <span class="time-badge">8:00 AM - 4:00 PM</span>
+              </div>
+              <h3>Child Welfare & Immunization</h3>
+              <p>
+                Routine child health monitoring, immunization, and pediatric
+                preventive care.
+              </p>
+            </article>
+            <article class="clinical-card">
+              <div class="clinical-day-top">
+                <span class="day-badge">Friday</span>
+                <span class="time-badge">8:00 AM - 4:00 PM</span>
+              </div>
+              <h3>Cervical Cancer Screening & HIV/AIDS Counseling</h3>
+              <p>
+                Confidential screening, counseling, education, and preventive
+                care services aimed at promoting early detection, awareness, and
+                better long-term health outcomes.
+              </p>
+            </article>
 
-          <p class="news-excerpt">
-            Hypertension remains one of the leading causes of heart disease worldwide...
-          </p>
+            <!-- Friday -->
+            <article class="clinical-card">
+              <div class="clinical-day-top">
+                <span class="day-badge">Friday</span>
+                <span class="time-badge">8:00 AM - 4:00 PM</span>
+              </div>
+              <h3>Laboratory & Review Clinic</h3>
+              <p>
+                Diagnostic support, test follow-up, and medical review
+                consultations for ongoing care.
+              </p>
+            </article>
 
-          <div class="news-full">
-            <p>
-              Hypertension remains one of the leading causes of heart disease 
-              worldwide. Regular monitoring, healthy eating habits, reduced salt 
-              intake, and routine medical checkups are essential preventive steps. 
-              Early detection significantly reduces complications.
-            </p>
-
-            <button class="close-btn">Close</button>
+            <!-- Saturday -->
+            <article class="clinical-card emergency-card">
+              <div class="clinical-day-top">
+                <span class="day-badge">Saturday</span>
+                <span class="time-badge">9:00 AM - 2:00 PM</span>
+              </div>
+              <h3>Special Consultation</h3>
+              <p>
+                Selected appointments, specialist review, and urgent
+                non-emergency consultations.
+              </p>
+            </article>
           </div>
 
-          <button class="read-btn">Read Full Article</button>
+          <!-- Bottom Notice -->
+          <div class="clinical-days-footer">
+            <p>
+              <strong>Note:</strong> Emergency services remain available at all
+              times. Please contact the hospital for schedule updates or
+              appointment confirmation. <a class="clinical-contact-btn" href="#emer-target">here</a>
+            </p>
+          </div>
         </div>
+      </section>
+
+      <!-- Certificates Starts here -->
+
+      <section class="certificates" id="certificates">
+        <h2>Our Medical Equipment</h2>
+
+        <div class="certificate-grid">
+          <!-- Certificate Card -->
+          <article class="certificate-card">
+            <img
+              src="./Images/raw/Generic_patient's_trolley.jpg"
+              alt="Generic_patient's_trolley"
+              loading="lazy"
+            />
+
+            <div class="certificate-content">
+              <h3>Generic Patient's Trolley</h3>
+              <p>
+                For safely transporting patients within hospital, especially in
+                emergencies.
+              </p>
+              <button
+                class="view-btn"
+                data-image="./Images/raw/Generic_patient's_trolley.jpg"
+              >
+                view equipment
+              </button>
+            </div>
+          </article>
+          <!-- Certificate Card -->
+          <article class="certificate-card">
+            <img
+              src="./Images/raw/OLCH_suction_machine.jpg"
+              alt="OLCH_suction_machine"
+              loading="lazy"
+            />
+
+            <div class="certificate-content">
+              <h3>Electric Suction Machine</h3>
+              <p>Removes fluids during medical procedures.</p>
+              <button
+                class="view-btn"
+                data-image="./Images/raw/OLCH_suction_machine.jpg"
+              >
+                view equipment
+              </button>
+            </div>
+          </article>
+
+          <!-- Certificate Card -->
+          <article class="certificate-card">
+            <img
+              src="./Images/raw/OLCH_medical_table.jpg"
+              alt="OLCH_medical_table"
+              loading="lazy"
+            />
+
+            <div class="certificate-content">
+              <h3>Multifunctional Medical Examination Table</h3>
+              <p>Adjustable table for patient examination.</p>
+              <button
+                class="view-btn"
+                data-image="./Images/raw/OLCH_medical_table.jpg"
+              >
+                view equipment
+              </button>
+            </div>
+          </article>
+          <!-- Certificate Card -->
+          <!-- Certificate Card -->
+          <article class="certificate-card">
+            <img
+              src="./Images/raw/OLCH_theater_lamp.jpg"
+              alt="OLCH_theater_lamp"
+              loading="lazy"
+            />
+
+            <div class="certificate-content">
+              <h3>Mobile Surgical Lamp</h3>
+              <p>Provides bright lighting during procedures.</p>
+              <button
+                class="view-btn"
+                data-image="./Images/raw/OLCH_theater_lamp.jpg"
+              >
+                view equipment
+              </button>
+            </div>
+          </article>
+          <!-- Certificate Card -->
+        </div>
+        <div class="more-equip-btn-wrapper">
+          <a class="more-equip-btn" href="./pages/equipment.html"
+            >See more equipment</a
+          >
+        </div>
+      </section>
+
+      <!-- Fullscreen Modal -->
+      <div class="modal" id="imageModal">
+        <span class="close">&times;</span>
+        <img class="modal-image" id="modalImage" alt="Certificate Full View" />
       </div>
+      <!-- certificate ends here -->
 
-    </div>
+      <!-- ================================= -->
+      <!--         HOSPITAL NEWS SECTION     -->
+      <!-- ================================= -->
 
-    <!-- View More Button -->
-    <div class="view-more">
-      <a href="./pages/news-page.html" class="more-news-btn">View More News</a>
-    </div>
+      <section class="news-section">
+        <div class="news-section-container">
+          <!-- Section Header -->
+          <div class="news-header">
+            <h2>Latest News & Updates</h2>
+            <p>
+              Stay informed with our hospital updates and trusted health news.
+            </p>
+          </div>
 
-  </div>
-</section>
+          <!-- Category Filter Buttons -->
+          <div class="news-filters">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="hospital">
+              Our Hospital
+            </button>
+            <button class="filter-btn" data-category="health">Health</button>
+          </div>
 
-<!-- ================================= -->
-<!--           FAQ SECTION             -->
-<!-- ================================= -->
+          <!-- News Grid -->
+          <div class="news-grid">
+            <!-- News Item 1 -->
+            <div class="news-card" data-category="hospital">
+              <img
+                src="./Images/OLCH_outreach.jpg"
+                alt="Hospital Outreach Program"
+              />
 
-<section class="faq">
-    <div class="container">
+              <div class="news-content">
+                <h3>Free Medical Outreach Program</h3>
 
-        <!-- Section Header -->
-        <div class="faq-header">
+                <p class="news-excerpt">
+                  Our hospital recently organized a free medical outreach
+                  providing checkups and medications to over 300 community
+                  members...
+                </p>
+
+                <!-- Full Article -->
+                <div class="news-full">
+                  <p>
+                    Our hospital recently organized a free medical outreach
+                    providing checkups, laboratory screening, blood pressure
+                    monitoring, and medications to over 300 community members.
+                    The event was conducted by our qualified medical team and
+                    aimed at improving preventive healthcare awareness.
+                  </p>
+
+                  <button class="close-btn">Close</button>
+                </div>
+
+                <button class="read-btn">Read Full Article</button>
+              </div>
+            </div>
+
+            <!-- News Item 2 -->
+            <div class="news-card" data-category="health">
+              <img
+                src="./Images/hypertension.jpg"
+                alt="Hypertension Awareness"
+              />
+
+              <div class="news-content">
+                <h3>Understanding Hypertension Risks</h3>
+
+                <p class="news-excerpt">
+                  Hypertension remains one of the leading causes of heart
+                  disease worldwide...
+                </p>
+
+                <div class="news-full">
+                  <p>
+                    Hypertension remains one of the leading causes of heart
+                    disease worldwide. Regular monitoring, healthy eating
+                    habits, reduced salt intake, and routine medical checkups
+                    are essential preventive steps. Early detection
+                    significantly reduces complications.
+                  </p>
+
+                  <button class="close-btn">Close</button>
+                </div>
+
+                <button class="read-btn">Read Full Article</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- View More Button -->
+          <div class="view-more">
+            <a href="./pages/news-page.html" class="more-news-btn"
+              >View More News</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================= -->
+      <!--           FAQ SECTION             -->
+      <!-- ================================= -->
+
+      <section class="faq">
+        <div class="container">
+          <!-- Section Header -->
+          <div class="faq-header">
             <h2>Frequently Asked Questions</h2>
-            <p>Find answers to common questions about our services, admissions, and patient care.</p>
-        </div>
+            <p>
+              Find answers to common questions about our services, admissions,
+              and patient care.
+            </p>
+          </div>
 
-        <!-- FAQ Accordion -->
-        <div class="faq-container">
-
-
-
+          <!-- FAQ Accordion -->
+          <div class="faq-container">
             <!-- 2 -->
             <div class="faq-item">
-                <input type="checkbox" id="faq2">
-                <label for="faq2" class="faq-question">
-                    Do you accept health insurance?
-                    <span class="icon">+</span>
-                </label>
-                <div class="faq-answer">
-                    <p>Yes, we accept selected HMOs and private insurance plans. Please contact us <a class="FAQs-contact-us-btn" href="./pages/contact.html">here</a> for confirmation.</p>
-                </div>
+              <input type="checkbox" id="faq2" />
+              <label for="faq2" class="faq-question">
+                Do you accept health insurance?
+                <span class="icon">+</span>
+              </label>
+              <div class="faq-answer">
+                <p>
+                  Yes, we accept selected HMOs and private insurance plans.
+                  Please contact us
+                  <a class="FAQs-contact-us-btn" href="./pages/contact.html"
+                    >here</a
+                  >
+                  for confirmation.
+                </p>
+              </div>
             </div>
 
             <!-- 3 -->
             <div class="faq-item">
-                <input type="checkbox" id="faq3">
-                <label for="faq3" class="faq-question">
-                    Are your laboratory results reliable?
-                    <span class="icon">+</span>
-                </label>
-                <div class="faq-answer">
-                    <p>Our laboratory uses certified equipment and follows strict quality control standards.</p>
-                </div>
+              <input type="checkbox" id="faq3" />
+              <label for="faq3" class="faq-question">
+                Are your laboratory results reliable?
+                <span class="icon">+</span>
+              </label>
+              <div class="faq-answer">
+                <p>
+                  Our laboratory uses certified equipment and follows strict
+                  quality control standards.
+                </p>
+              </div>
             </div>
 
             <!-- 4 -->
             <div class="faq-item">
-                <input type="checkbox" id="faq4">
-                <label for="faq4" class="faq-question">
-                    Do you operate 24/7?
-                    <span class="icon">+</span>
-                </label>
-                <div class="faq-answer">
-                    <p>Yes, our emergency and inpatient services operate 24 hours daily.</p>
-                </div>
+              <input type="checkbox" id="faq4" />
+              <label for="faq4" class="faq-question">
+                Do you operate 24/7?
+                <span class="icon">+</span>
+              </label>
+              <div class="faq-answer">
+                <p>
+                  Yes, our emergency and inpatient services operate 24 hours
+                  daily.
+                </p>
+              </div>
             </div>
 
             <!-- 5 -->
             <div class="faq-item">
-                <input type="checkbox" id="faq5">
-                <label for="faq5" class="faq-question">
-                    How do I prepare for admission?
-                    <span class="icon">+</span>
-                </label>
-                <div class="faq-answer">
-                    <p>Please bring your medical records, valid ID, personal essentials, and any required admission documents.</p>
-                </div>
+              <input type="checkbox" id="faq5" />
+              <label for="faq5" class="faq-question">
+                How do I prepare for admission?
+                <span class="icon">+</span>
+              </label>
+              <div class="faq-answer">
+                <p>
+                  Please bring your medical records, valid ID, personal
+                  essentials, and any required admission documents.
+                </p>
+              </div>
             </div>
 
             <!-- 6 -->
             <div class="faq-item">
-                <input type="checkbox" id="faq6">
-                <label for="faq6" class="faq-question">
-                    How do I prepare for surgery?
-                    <span class="icon">+</span>
-                </label>
-                <div class="faq-answer">
-                    <p>Follow your doctor's instructions, including fasting guidelines and pre-surgery tests.</p>
-                </div>
+              <input type="checkbox" id="faq6" />
+              <label for="faq6" class="faq-question">
+                How do I prepare for surgery?
+                <span class="icon">+</span>
+              </label>
+              <div class="faq-answer">
+                <p>
+                  Follow your doctor's instructions, including fasting
+                  guidelines and pre-surgery tests.
+                </p>
+              </div>
             </div>
 
             <!-- 7 -->
@@ -572,44 +786,64 @@
 
             <!-- 8 -->
             <div class="faq-item">
-                <input type="checkbox" id="faq8">
-                <label for="faq8" class="faq-question">
-                    Do you have private wards?
-                    <span class="icon">+</span>
-                </label>
-                <div class="faq-answer">
-                    <p>Yes, we offer private wards designed for comfort, privacy, and personalized care.</p>
-                </div>
+              <input type="checkbox" id="faq8" />
+              <label for="faq8" class="faq-question">
+                Do you have private wards?
+                <span class="icon">+</span>
+              </label>
+              <div class="faq-answer">
+                <p>
+                  Yes, we offer private wards designed for comfort, privacy, and
+                  personalized care.
+                </p>
+              </div>
             </div>
-
+          </div>
         </div>
-    </div>
-</section>
+      </section>
+    </main>
 
-</main>
+    <!-- Footer -->
+    <footer class="footer fade-section">
+      <div class="container">
+        <p>
+          <strong>Developed with 💚 by </strong>
+          <a
+            target="_blank"
+            class="developer"
+            href="https://jalix-webtech.github.io/Portfolio/"
+            >Jalixon</a
+          >
+        </p>
+        <p>
+          click
+          <a
+            class="developer"
+            target="_blank"
+            href="https://jalix-webtech.github.io/Portfolio/"
+            >here</a
+          >
+          to contact developer
+        </p>
+      </div>
 
-<!-- Footer -->
-<footer class="footer fade-section">
+      <div class="container">
+        <p>
+          © <span id="current-year"></span> Our Lady Catholic Hospital. All
+          rights reserved.
+        </p>
+      </div>
+    </footer>
 
-
-  <div class="container">
-    <p> <strong>Developed with 💚 by </strong> <a target="_blank" class="developer" href="https://jalix-webtech.github.io/Portfolio/">Jalixon</a> </p>
-    <p>click <a class="developer" target="_blank" href="https://jalix-webtech.github.io/Portfolio/">here</a> to contact developer</p>
-  </div>
-
-    <div class="container">
-    <p>© <span id="current-year"></span> Our Lady Catholic Hospital. All rights reserved.</p>
-  </div>
-</footer>
-
-  <script src="./JS/nav.js"></script>
-  <script src="./JS/slider.js"></script>
-  <script src="./JS/auto-type.js"></script>
-  <script src="./JS/home-page-auto-scroll.js"></script>
-  <script src="./JS/auto-update-year.js"></script>
-  <script src="./JS/equipment.js"></script>
-  <script src="./JS/home-page-news-section.js"></script>
-  <script src="./JS/home_page_hero_slider.js"></script>
-  <script src="./JS/contact.js"></script>
-</body>
+    <script src="./JS/nav.js"></script>
+    <script src="./JS/slider.js"></script>
+    <script src="./JS/auto-type.js"></script>
+    <script src="./JS/home-page-auto-scroll.js"></script>
+    <script src="./JS/auto-update-year.js"></script>
+    <script src="./JS/equipment.js"></script>
+    <script src="./JS/home-page-news-section.js"></script>
+    <script src="./JS/home_page_hero_slider.js"></script>
+    <script src="./JS/contact.js"></script>
+    <script src="./JS/clinical-days.js"></script>
+  </body>
 </html>
