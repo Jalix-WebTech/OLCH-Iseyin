@@ -30,7 +30,7 @@ Message: ${message}`;
   const encodedText = encodeURIComponent(text);
 
   //  HOSPITAL WHATSAPP NUMBER
-  const whatsappNumber = "+2348155141240";
+  const whatsappNumber = "+2349065476623";
 
   // OPEN WHATSAPP
   const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
