@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OLCH Iseyin | News</title>
+  <meta name="description"
+    content="Our Lady Catholic Hospital Iseyin provides trusted healthcare, modern facilities, and 24/7 emergency services.">
+
+  <link rel="stylesheet" href="../Style/about.css">
+  <link rel="stylesheet" href="../Style/style.css">
+  <link rel="stylesheet" href="../Style/home-intro.css">
+  <link rel="stylesheet" href="../Style/auto-animate.css">
+  <link rel="stylesheet" href="../Style/facilities.css">
+  <link rel="stylesheet" href="../Style/FAQs.css">
+  <link rel="stylesheet" href="../Style/news-page.css">
+  <link rel="stylesheet" href="../Style/collaborators.css">
+</head>
+
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="../index.html"> <img style="width: auto; height: 50px;" src="../Images/logo-olch.png"
+          alt=""></a>
+
+      <!-- Hamburger button -->
+      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <!-- Overlay -->
+      <div class="nav-overlay"></div>
+
+      <!-- Slide-in Navigation -->
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./Service.html">Services</a></li>
+          <li><a href="./department.html">Departments</a></li>
+          <li><a href="./news-page.html">News</a></li>
+          <!-- <li><a href="appointment.html">Appointment</a></li> -->
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="container2">
+        <h2>Health News & Event</h2>
+        <p>Stay informed with latest health updates<br>
+           healthcare driven by excellence <br>
+          and integrity.</p>
+        <!-- <a href="appointment.html" class="btn btn--primary">Book Appointment</a> -->
+      </div>
+
+      <div class="container3">
+        <!-- Single h1 for typing -->
+        <h1 class="type"></h1>
+      </div>
+    </section>
+    <div class="news-container" id="newsContainer"></div>
+
+    <!-- Fixed search bar -->
+    <div class="search-bar">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search news here..."
+        onkeyup="searchNews()"
+      />
+    </div>
+
+    <!-- Bottom navigation -->
+    <div class="bottom-nav">
+      <button class="active" onclick="filterNews('all', event)">All</button>
+      <button onclick="filterNews('health-event', event)">Health News</button>
+      <button onclick="filterNews('hospital-event', event)">
+        Hospital Event
+      </button>
+    </div>
+
+    <script>
+      
+    </script>
+      <script src="../JS/about.js"></script>
+  <script src="../JS/nav.js"></script>
+  <script src="../JS/slider.js"></script>
+  <script src="../JS/auto-type.js"></script>
+  <script src="../JS/home-page-auto-scroll.js"></script>
+  <script src="../JS/auto-update-year.js"></script>
+  <script src="../JS/equipment.js"></script>
+  <script src="../JS/news.js"></script>
+  </body>
+</html>
