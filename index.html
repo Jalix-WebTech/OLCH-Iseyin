@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="./Style/facilities.css">
   <link rel="stylesheet" href="./Style/FAQs.css">
   <link rel="stylesheet" href="./Style/home-page-news-section.css">
+  <link rel="stylesheet" href="./Style/home_page_hero_slider.css">
+  <link rel="stylesheet" href="./Style/contact.css">
   <!-- <link rel="stylesheet" href="./Style/news.css"> -->
 </head>
 
@@ -63,9 +65,76 @@
 
     <div class="container3">
     <!-- Single h1 for typing -->
-    <h1 class="type"></h1>
+    <!-- <h1 class="type"></h1> -->
   </div>
   </section>
+<!-- ================================= -->
+<!--     CINEMATIC HOSPITAL HERO       -->
+<!-- ================================= -->
+
+<section class="cinematic-hero" id="heroSlider">
+
+    <!-- Slide 1 -->
+    <div class="hero-slide active">
+        <picture class="hero-media">
+            <source media="(max-width: 768px)" srcset="./images/main-entrance.jpg">
+            <source media="(max-width: 1200px)" srcset="./images/Olch's Anniversry.jpg">
+            <img src="./images/outpatient.jpg" alt="Hospital building and environment">
+        </picture>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+        <picture class="hero-media">
+            <source media="(max-width: 768px)" srcset="./images/enviroment.jpg">
+            <source media="(max-width: 1200px)" srcset="./images/children.jpg">
+            <img src="./images/ambulance.jpg" alt="Doctor attending to patient">
+        </picture>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+        <picture class="hero-media">
+            <source media="(max-width: 768px)" srcset="./images/delivery.jpg">
+            <source media="(max-width: 1200px)" srcset="./images/ARVs.jpg">
+            <img src="./images/lab.jpg" alt="Medical team in hospital">
+        </picture>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="hero-slide">
+        <picture class="hero-media">
+            <source media="(max-width: 768px)" srcset="./Images/main-entrance.jpg">
+            <source media="(max-width: 1200px)" srcset="./Images/opd.jpg">
+            <img src="./images/children's party.jpg" alt="Hospital care and treatment scene">
+        </picture>
+    </div>
+
+    <!-- Overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Content -->
+    <div class="hero-content">
+        <span class="hero-badge">Trusted Healthcare Services</span>
+
+        <h1>
+            Compassionate Care for
+            <span>Your Family</span>
+        </h1>
+
+        <p class="hero-quote">
+            <span id="typedText"></span><span class="cursor">|</span>
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#emer-target" class="hero-btn primary-btn">Our Contact</a>
+            <a href="#our_service" class="hero-btn secondary-btn">Explore Services</a>
+        </div>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="hero-dots" id="heroDots"></div>
+</section>
 
 <!-- ===============INTRODUCTION OF THE HOSPITAL=================== -->
 <div class="box-container">
@@ -93,7 +162,7 @@
 
 
 
-<section class="services-section">
+<section class="services-section" id="our_service">
   <h2 class="section-title">Our Services</h2>
 
   <div class="slider-container">
@@ -153,7 +222,7 @@
 
     <div class="btn-wrapper"><a class="more-equip-btn" href="./pages/department.html">Learn more</a></div>
 </div>
-
+<div id="emer-target"></div>
 
 <!-- ================= EMERGENCY ================= -->
     <section class="emergency" role="alert">
@@ -166,7 +235,62 @@
 <!--     HOSPITAL EQUIPMENT SECTION    -->
 <!-- ================================= -->
 
+ <!-- CONTACT SECTION -->
+  <section class="contact-container">
 
+    <!-- CONTACT INFO -->
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+
+      <p><strong>Address:</strong> Our Lady Catholic Hospital, Iseyin, Oyo State, Nigeria.</p>
+      <p><strong>Phone:</strong> +234 906 547 6623</p>
+      <p><strong>Email:</strong> olchiseyin@gmail.com</p>
+
+      <!-- Emergency -->
+      <div class="emergency-2">
+        <h3>Emergency</h3>
+        <p>Available 24/7</p>
+        <p class="emergency-number">+234 906 547 6623</p>
+      </div>
+
+      <!-- Hours -->
+      <!-- <div class="hours">
+        <h3>Working Hours</h3>
+        <p>Mon - Fri: 8AM - 6PM</p>
+        <p>Sat: 9AM - 3PM</p>
+        <p>Sun: Emergency Only</p>
+      </div> -->
+    
+      </div>
+
+    <!-- CONTACT FORM -->
+    <div class="contact-form">
+      <h2>Send Message</h2>
+
+      <form id="form">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send via WhatsApp</button>
+      </form>
+    </div>
+
+  </section>
+
+  
+<section class="map-section">
+  <h2 class="map-heading">Our Location</h2>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.163284730105!2d3.5865596758826093!3d7.982067004495724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1030b1bcf8f7c695%3A0xdbee9af7a8bfe6c3!2sOur%20Lady%20Catholic%20Hospital!5e0!3m2!1sen!2sng!4v1772328567328!5m2!1sen!2sng"
+    width="100%" 
+    height="400" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy">
+  </iframe>
+</section>
 
 
 <!-- Certificates Starts here -->
@@ -256,110 +380,6 @@
 
       
     </article>  <!-- Certificate Card -->
-
-<!-- Certificate Card -->
-    <!-- 
-
-      
-    </article>  Certificate Card -->
-
-    
-    <!-- Others follows the same method -->
-    <!-- 5 -->
-
-
-            <!-- <div class="facility-card">
-                <img src="./Images/raw/OLCH_Aesculap_autoclave.jpg" alt="Table Top Autoclave Steriliser">
-                <h3>Table Top Autoclave Steriliser</h3>
-                <p>Sterilizes laboratory equipment or surgical instruments.</p>
-            </div> -->
-
-            <!-- 6 -->
-            <!-- <div class="facility-card">
-                <img src="images/samsung-freezer.jpg" alt="Samsung Top Mount Freezer Refrigerator">
-                <h3>Samsung Top Mount Freezer (Specimen)</h3>
-                <p>Stores laboratory specimens safely.</p>
-            </div> -->
-
-            <!-- 7 -->
-            <!-- <div class="facility-card">
-                <img src="images/panasonic-refrigerator.jpg" alt="Panasonic 2 Door Refrigerator">
-                <h3>Panasonic 2-Door Refrigerator (Reagents)</h3>
-                <p>Preserves laboratory reagents.</p>
-            </div> -->
-
-            <!-- 8 -->
-            <!-- <div class="facility-card">
-                <img src="./Images/raw/OLCH_Kingstech_SH120.jpg" alt="Kingstech SH120 Microhematocrit Centrifuge">
-                <h3>Kingstech SH120 Microhematocrit Centrifuge</h3>
-                <p>Separates blood components.</p>
-            </div> -->
-
-            <!-- 9 -->
-            <!-- <div class="facility-card">
-                <img src="images/microlife-centrifuge.jpg" alt="Microlife MC 1004 Laboratory Centrifuge">
-                <h3>Microlife MC 1004 Laboratory Centrifuge</h3>
-                <p>Spins samples for analysis.</p>
-            </div> -->
-
-            <!-- 10 -->
-            <!-- <div class="facility-card">
-                <img src="images/alpin-centrifuge.jpg" alt="Alpin Medical Centrifuge 80-2">
-                <h3>Alpin Medical Centrifuge 80-2</h3>
-                <p>Used for laboratory sample separation.</p>
-            </div> -->
-
-            <!-- 11 -->
-            <!-- <div class="facility-card">
-                <img src="images/leica-microscope.jpg" alt="Leica Compound Microscope">
-                <h3>Leica Compound Microscope</h3>
-                <p>Magnifies cells and microorganisms.</p>
-            </div> -->
-
-            <!-- 12 -->
-            <!-- <div class="facility-card">
-                <img src="images/urit-50.jpg" alt="URIT-50 Urine Analyzer">
-                <h3>URIT-50 Urine Analyzer</h3>
-                <p>Performs automated urine testing.</p>
-            </div> -->
-
-            <!-- 13 -->
-            <!-- <div class="facility-card">
-                <img src="images/medifield-dnp.jpg" alt="Medifield DNP-9022-1A">
-                <h3>Medifield DNP-9022-1A</h3>
-                <p>Incubator for laboratory testing.</p>
-            </div> -->
-
-            <!-- 14 -->
-            <!-- <div class="facility-card">
-                <img src="images/sysmex-cyflow.jpg" alt="Sysmex CyFlow Counter">
-                <h3>Sysmex CyFlow Counter</h3>
-                <p>Counts and analyzes blood cells.</p>
-            </div> -->
-
-            <!-- 15 -->
-            <!-- <div class="facility-card">
-                <img src="images/newlife-waterbath.jpg" alt="Newlife NL-420S Water Bath">
-                <h3>Newlife NL-420S Water Bath</h3>
-                <p>Maintains constant sample temperature.</p>
-            </div> -->
-
-            <!-- 16 -->
-            <!-- <div class="facility-card">
-                <img src="images/urit-880.jpg" alt="URIT-880 Chemistry Analyzer">
-                <h3>URIT-880 Semi-Auto Chemistry Analyzer</h3>
-                <p>Performs biochemical blood analysis.</p>
-            </div> -->
-
-            <!-- 17 -->
-            <!-- <div class="facility-card">
-                <img src="images/zybio-z3.jpg" alt="Zybio Z3 Hematology Analyzer">
-                <h3>Zybio Z3 3-Part Hematology Analyzer</h3>
-                <p>Automated complete blood count testing.</p>
-            </div> -->
-    <!-- Add more certificates here -->
-    <!-- Copy & change image + text -->
-
   </div>
   <div class="more-equip-btn-wrapper"><a class="more-equip-btn" href="./pages/equipment.html">See more equipment</a></div>
 </section>
@@ -371,17 +391,6 @@
 </div>
 <!-- certificate ends here -->
 
-<section class="map-section">
-  <h2 class="map-heading">Our Location</h2>
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.163284730105!2d3.5865596758826093!3d7.982067004495724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1030b1bcf8f7c695%3A0xdbee9af7a8bfe6c3!2sOur%20Lady%20Catholic%20Hospital!5e0!3m2!1sen!2sng!4v1772328567328!5m2!1sen!2sng"
-    width="100%" 
-    height="400" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy">
-  </iframe>
-</section>
 <!-- ================================= -->
 <!--         HOSPITAL NEWS SECTION     -->
 <!-- ================================= -->
@@ -599,5 +608,7 @@
   <script src="./JS/auto-update-year.js"></script>
   <script src="./JS/equipment.js"></script>
   <script src="./JS/home-page-news-section.js"></script>
+  <script src="./JS/home_page_hero_slider.js"></script>
+  <script src="./JS/contact.js"></script>
 </body>
 </html>

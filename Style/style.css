@@ -354,7 +354,7 @@ display: flex;                 /* Enable flexbox */
   background: var(--danger);
   color: #fff;
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 3rem 3rem;
 }
 
 /* ==================================================
@@ -560,4 +560,8 @@ display: flex;                 /* Enable flexbox */
     transform: translateY(10px);
     animation: fadeSlide 0.8s ease forwards;
     animation-delay: 0.3s;
+}
+
+#emer-target{
+  height: 20px;
 }
