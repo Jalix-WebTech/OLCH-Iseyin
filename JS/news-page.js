@@ -136,12 +136,12 @@
       },
       {
         id: 2,
-        title: "Free Community Health Outreach This Saturday",
+        title: "Free medical outreach",
         category: "Hospital Event",
         categorySlug: "hospital-event",
         date: "March 26, 2026",
         icon: "event",
-        summary: "Our hospital will hold a free medical outreach this Saturday for blood pressure checks, blood sugar testing, malaria screening, and health education. Pregnant women, children, and elderly residents are especially encouraged to attend."
+        summary: "Our hospital recently organized a free medical outreach providing checkups, laboratory screening, blood pressure monitoring, and        medications to over 300 community members. The event was conducted by our qualified medical team and aimed at improving preventive              healthcare awareness."
       },
       {
         id: 3,
