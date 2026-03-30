@@ -1,0 +1,289 @@
+/* ================================= */
+/*      HOSPITAL NEWS SECTION        */
+/* ================================= */
+
+.news-section {
+  padding: 80px 20px;
+  background: #f8fbff;
+}
+
+.news-section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ================================= */
+/*          SECTION HEADER           */
+/* ================================= */
+
+.news-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.news-header h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.news-header p {
+  font-size: 1rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ================================= */
+/*         FILTER BUTTONS            */
+/* ================================= */
+
+.news-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: #0f172a;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: #cbd5e1;
+}
+
+.filter-btn.active {
+  background: #0ea5e9;
+  color: #ffffff;
+}
+
+/* ================================= */
+/*            NEWS GRID              */
+/* ================================= */
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* ================================= */
+/*            NEWS CARD              */
+/* ================================= */
+
+.news-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.news-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.news-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ================================= */
+/*          NEWS CONTENT             */
+/* ================================= */
+
+.news-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.news-content h3 {
+  font-size: 1.3rem;
+  color: #0f172a;
+  margin-bottom: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.news-excerpt,
+.news-full p {
+  font-size: 0.98rem;
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+/* ================================= */
+/*          FULL ARTICLE             */
+/* ================================= */
+
+.news-full {
+  display: none;
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 10px;
+}
+
+.news-full.show {
+  display: block;
+}
+
+/* ================================= */
+/*             BUTTONS               */
+/* ================================= */
+
+.read-btn,
+.close-btn,
+.more-news-btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 12px;
+  background:#009ceb;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.more-news-btn {
+  display: inline-block;
+  padding: 12px 52px;
+  border: none;
+  border-radius: 12px;
+  background: #00a732;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.read-btn {
+  margin-top: auto;
+}
+
+.read-btn:hover,
+.close-btn:hover,
+.more-news-btn:hover {
+  background: #0284c7;
+  transform: translateY(-2px);
+}
+
+.close-btn {
+  margin-top: 10px;
+  background: #ef4444;
+}
+
+.close-btn:hover {
+  background: #dc2626;
+}
+
+/* ================================= */
+/*          VIEW MORE BTN            */
+/* ================================= */
+
+.view-more {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* ================================= */
+/*        FILTER ANIMATION           */
+/* ================================= */
+
+.news-card.hide {
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+}
+
+/* ================================= */
+/*         RESPONSIVE DESIGN         */
+/* ================================= */
+
+@media (max-width: 992px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card img {
+    height: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-section {
+    padding: 60px 16px;
+  }
+
+  .news-header h2 {
+    font-size: 1.7rem;
+  }
+
+  .news-header p {
+    font-size: 0.95rem;
+  }
+
+  .news-content {
+    padding: 20px;
+  }
+
+  .news-content h3 {
+    font-size: 1.15rem;
+  }
+
+  .news-excerpt,
+  .news-full p {
+    font-size: 0.95rem;
+  }
+
+  .filter-btn {
+    padding: 9px 16px;
+    font-size: 0.9rem;
+  }
+
+  .read-btn,
+  .close-btn,
+  .more-news-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .news-card img {
+    height: 210px;
+  }
+
+  .news-content {
+    padding: 18px;
+  }
+}
