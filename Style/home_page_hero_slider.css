@@ -113,7 +113,7 @@
    while keeping text readable.
 */
 .hero-overlay {
-    position: absolute;
+    /* position: absolute; */
     inset: 0;
     z-index: 3;
     background:
@@ -211,12 +211,12 @@
 }
 
 .primary-btn {
-    background: #009ceb;
+    background: var(--primary-dark);
     color: #fff;
 }
 
 .primary-btn:hover {
-    background: var(--primary-dark);
+    background:  #009ceb;
     transform: translateY(-3px);
 }
 
