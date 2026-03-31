@@ -153,8 +153,7 @@
 /* ================================= */
 
 .read-btn,
-.close-btn,
-.more-news-btn {
+.close-btn{
   display: inline-block;
   padding: 12px 22px;
   border: none;
@@ -170,7 +169,7 @@
 
 .more-news-btn {
   display: inline-block;
-  padding: 12px 52px;
+  padding: 12px 32px;
   border: none;
   border-radius: 12px;
   background: #00a732;
@@ -267,8 +266,7 @@
   }
 
   .read-btn,
-  .close-btn,
-  .more-news-btn {
+  .close-btn{
     width: 100%;
     text-align: center;
   }
