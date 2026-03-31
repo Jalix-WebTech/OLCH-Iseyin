@@ -23,11 +23,14 @@
     background: linear-gradient(to bottom, #f9fdfc 0%, #f2faf8 100%);
     position: relative;
     overflow: hidden;
+    
 }
 
 .clinical-days-container {
     width: min(92%, var(--container-width));
     margin: 0 auto;
+    
+    
 }
 
 /* ================================= */
@@ -37,6 +40,8 @@
     max-width: 760px;
     margin: 0 auto 55px;
     text-align: center;
+    
+    
 }
 
 .section-tag {

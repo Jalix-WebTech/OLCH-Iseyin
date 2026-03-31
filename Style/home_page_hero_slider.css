@@ -7,10 +7,10 @@
     --primary-dark: #08755c;
     --white: #ffffff;
     --text-soft: rgba(255, 255, 255, 0.90);
-    --overlay-left: rgba(5, 19, 15, 0.72);
-    --overlay-mid: rgba(5, 19, 15, 0.46);
-    --overlay-right: rgba(5, 19, 15, 0.18);
-    --shadow-soft: 0 10px 35px rgba(0, 0, 0, 0.18);
+    --overlay-left: rgba(5, 19, 15, 0.014);
+    --overlay-mid: rgba(5, 19, 15, 0.055);
+    --overlay-right: rgba(5, 19, 15, 0.018);
+    --shadow-soft: 0 10px 35px rgba(0, 0, 0, 0.014);
     --transition-smooth: all 0.45s ease;
     --container-width: 1240px;
 }
@@ -170,9 +170,13 @@
 .hero-quote {
     font-size: clamp(1rem, 2vw, 1.32rem);
     max-width: 760px;
-    color: var(--text-soft);
     line-height: 1.8;
     min-height: 2.8em;
+    background: rgba(255, 255, 255, 0.13);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
 }
 
 .cursor {
@@ -207,7 +211,7 @@
 }
 
 .primary-btn {
-    background: var(--primary-color);
+    background: #009ceb;
     color: #fff;
 }
 
@@ -217,10 +221,10 @@
 }
 
 .secondary-btn {
-    background: rgba(255, 255, 255, 0.13);
+    background: #30aa18;
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    backdrop-filter: blur(6px);
+    /* border: 1px solid rgba(255, 255, 255, 0.22); */
+    /* backdrop-filter: blur(6px); */
 }
 
 .secondary-btn:hover {
