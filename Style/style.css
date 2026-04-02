@@ -164,6 +164,15 @@ body {
   .nav-overlay {
     display: none;
   }
+  
+}
+
+@media (max-width: 700px){
+  .clinicDays{
+  left: 7%;
+  position: absolute;
+}
+
 }
 
 .hero {
@@ -198,7 +207,47 @@ body {
       left: -40px;
     }
 
+.homeServiceIntro{
+  bottom: 65px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  /* margin-top: 20px; */
+}
+.introFlex{
+  width: 100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  align-content:center ;
+  
+}
+.clinicalDaysIntro{
+  /* margin-top: 70px; */
+  bottom: 45px;
+  position: absolute;
+  /* display: flex; */
+  text-align: center;
+  width: 100%;
+}    
+.always{
+  color: yellow;
 
+}
+
+.clinicDays{
+  text-decoration: none;
+  background-color: greenyellow;
+  color: #050505;
+  padding: 5px 30px;
+  /* margin-top: 30px; */
+  border-radius: 10px;
+    /* color: yellow; */
+  bottom: 5px;
+  position:absolute;
+  left: 47%;
+
+}
 
 /* .hero {
   background: linear-gradient(rgba(15,76,117,0.9), rgba(27,154,170,0.9));
