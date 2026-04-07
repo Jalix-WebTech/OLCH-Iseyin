@@ -224,8 +224,8 @@ body {
   
 }
 .clinicalDaysIntro{
-  margin-top: 70px;
-  bottom: 10px;
+  margin-top: 10px;
+  /* bottom: 0px; */
   /* position: absolute; */
   /* display: flex; */
   text-align: center;
@@ -236,38 +236,15 @@ body {
 
 }
 
-/* .btn-container{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  align-items: center;
-} */
 
 .clinicDays{
   text-decoration: none;
-  background-color: rgb(255, 255, 255);
   font-size: 16px;
   font-weight: bold;
-  color: #0003a1;
-  padding: 15px 25px;
-  /* margin-top: 30px; */
-  border-radius: 10px;
-    /* color: yellow; */
-  /* bottom: 5px; */
-  /* position:absolute; */
-  /* left: 47%; */
-  /* width: 100%; */
-  left: 50%;
-  /* display: block; */
-
+  color: #fbff00;
+  padding: 5px;
 }
 
-/* .hero {
-  background: linear-gradient(rgba(15,76,117,0.9), rgba(27,154,170,0.9));
-  color: #fff;
-  padding: 4rem 1rem;
-  text-align: center;
-} */
 
 .hero h2 {
   font-size: clamp(1.8rem, 4vw, 2.6rem);
