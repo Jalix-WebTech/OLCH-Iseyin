@@ -88,7 +88,7 @@ prevBtn.addEventListener("click", () => {
 function startAutoSlide() {
   autoSlide = setInterval(() => {
     nextSlide();
-  }, 4000);
+  }, 2500);
 }
 
 function stopAutoSlide() {
