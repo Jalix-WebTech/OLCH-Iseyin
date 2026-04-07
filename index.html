@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./Style/home_page_hero_slider.css" />
     <link rel="stylesheet" href="./Style/contact.css" />
     <link rel="stylesheet" href="./Style/clinical-days.css" />
+    <link rel="stylesheet" href="./Style/home-equip-sec.css">
     <!-- <link rel="stylesheet" href="./Style/news.css"> -->
   </head>
 
@@ -479,7 +480,150 @@
         </div>
       </section>
 
+
+          <!-- =========================
+       EQUIPMENT SECTION
+  ========================== -->
+  <section class="equipment-section" id="equipment">
+    <div class="equipment-container">
+
+      <!-- Header -->
+      <div class="section-header reveal">
+        <span class="section-tag">Medical Technology</span>
+        <h2>Our Modern Medical Equipment</h2>
+        <p>
+          We are equipped with advanced medical technology to support accurate diagnosis,
+          effective treatment, and exceptional patient care.
+        </p>
+      </div>
+
+      <!-- Slider Wrapper -->
+      <div class="equipment-slider-wrapper reveal">
+        
+        <!-- Previous Button -->
+        <button class="slider-btn prev-btn" aria-label="Previous equipment">
+          &#10094;
+        </button>
+
+        <!-- Slider -->
+        <div class="equipment-slider" id="equipmentSlider">
+
+          <!-- Track -->
+          <div class="equipment-track" id="equipmentTrack">
+
+            <!-- Card 1 -->
+            <article class="equipment-card">
+              <div class="equipment-image">
+                <img 
+                  src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" 
+                  alt="MRI Scanner"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="equipment-content">
+                <h3>MRI Scanner</h3>
+                <p>Advanced imaging equipment for detailed internal body scans and accurate diagnosis.</p>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="equipment-card">
+              <div class="equipment-image">
+                <img 
+                  src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80" 
+                  alt="Ultrasound Machine"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="equipment-content">
+                <h3>Ultrasound Machine</h3>
+                <p>Used for safe, real-time imaging to assist in diagnosis and patient monitoring.</p>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="equipment-card">
+              <div class="equipment-image">
+                <img 
+                  src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=800&q=80" 
+                  alt="Patient Monitor"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="equipment-content">
+                <h3>Patient Monitor</h3>
+                <p>Tracks vital signs such as heart rate, blood pressure, oxygen level, and respiration.</p>
+              </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="equipment-card">
+              <div class="equipment-image">
+                <img 
+                  src="https://images.unsplash.com/photo-1580281657527-47f249e8f4df?auto=format&fit=crop&w=800&q=80" 
+                  alt="X-Ray Machine"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="equipment-content">
+                <h3>X-Ray Machine</h3>
+                <p>Provides quick internal imaging for bone assessment and general medical diagnosis.</p>
+              </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="equipment-card">
+              <div class="equipment-image">
+                <img 
+                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" 
+                  alt="Ventilator"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="equipment-content">
+                <h3>Ventilator</h3>
+                <p>Supports patients with breathing difficulties and critical respiratory care needs.</p>
+              </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="equipment-card">
+              <div class="equipment-image">
+                <img 
+                  src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80" 
+                  alt="ECG Machine"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="equipment-content">
+                <h3>ECG Machine</h3>
+                <p>Monitors and records the electrical activity of the heart for cardiac evaluation.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Next Button -->
+        <button class="slider-btn next-btn" aria-label="Next equipment">
+          &#10095;
+        </button>
+      </div>
+
+      <!-- Dots -->
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+  </section>
+
+
       <!-- Certificates Starts here -->
+
 
       <section class="certificates" id="certificates">
         <h2>Our Medical Equipment</h2>
@@ -850,5 +994,6 @@
     <script src="./JS/home_page_hero_slider.js"></script>
     <script src="./JS/contact.js"></script>
     <script src="./JS/clinical-days.js"></script>
+    <script src="./JS/home-equip-sec.js"></script>
   </body>
 </html>

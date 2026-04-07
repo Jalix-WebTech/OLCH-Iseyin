@@ -1,0 +1,269 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #0b6e99;
+  --primary-dark: #084f6d;
+  --secondary: #14b8a6;
+  --bg: #f6fbff;
+  --white: #ffffff;
+  --text: #102a43;
+  --text-light: #5c728a;
+  --shadow: 0 12px 40px rgba(16, 42, 67, 0.08);
+  --radius: 24px;
+  --transition: 0.4s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* =========================
+   EQUIPMENT SECTION
+========================= */
+.equipment-section {
+  padding: 90px 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.equipment-container {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 50px;
+}
+
+.section-tag {
+  display: inline-block;
+  background: rgba(20, 184, 166, 0.1);
+  color: var(--secondary);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: 0.4px;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.section-header p {
+  color: var(--text-light);
+  font-size: 1.05rem;
+}
+
+/* =========================
+   SLIDER
+========================= */
+.equipment-slider-wrapper {
+  position: relative;
+}
+
+.equipment-slider {
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.equipment-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.6s ease;
+  will-change: transform;
+  touch-action: pan-y;
+}
+
+.equipment-card {
+  flex: 0 0 calc(33.333% - 16px);
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 1px solid rgba(11, 110, 153, 0.06);
+}
+
+.equipment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(16, 42, 67, 0.12);
+}
+
+.equipment-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #eaf5fb;
+}
+
+.equipment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.equipment-card:hover .equipment-image img {
+  transform: scale(1.06);
+}
+
+.equipment-content {
+  padding: 24px;
+}
+
+.equipment-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.equipment-content p {
+  color: var(--text-light);
+  font-size: 0.98rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary);
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(16, 42, 67, 0.12);
+  z-index: 10;
+  transition: all var(--transition);
+}
+
+.slider-btn:hover {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.prev-btn {
+  left: -18px;
+}
+
+.next-btn {
+  right: -18px;
+}
+
+/* =========================
+   DOTS
+========================= */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.slider-dots button {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: #c7d7e5;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.slider-dots button.active {
+  width: 30px;
+  border-radius: 999px;
+  background: var(--primary);
+}
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVENESS
+========================= */
+
+/* Tablets */
+@media (max-width: 991px) {
+  .equipment-card {
+    flex: 0 0 calc(50% - 12px);
+  }
+
+  .prev-btn {
+    left: 8px;
+  }
+
+  .next-btn {
+    right: 8px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .equipment-section {
+    padding: 70px 16px;
+  }
+
+  .equipment-card {
+    flex: 0 0 100%;
+  }
+
+  .equipment-content {
+    padding: 20px;
+  }
+
+  .equipment-content h3 {
+    font-size: 1.15rem;
+  }
+
+  .equipment-content p {
+    font-size: 0.95rem;
+  }
+
+  .slider-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 1.3rem;
+  }
+}
