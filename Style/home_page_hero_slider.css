@@ -211,13 +211,8 @@
 }
 
 .primary-btn {
-    background: var(--primary-dark);
-    color: #fff;
-}
-
-.primary-btn:hover {
     background:  #009ceb;
-    transform: translateY(-3px);
+    color: #fff;
 }
 
 .secondary-btn {
