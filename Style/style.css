@@ -607,3 +607,8 @@ display: flex;                 /* Enable flexbox */
 #emer-target{
   height: 20px;
 }
+
+.appointment-btn{
+  text-decoration: none;
+  color: yellow;
+}
