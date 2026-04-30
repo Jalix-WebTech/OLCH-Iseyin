@@ -4,19 +4,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OLCH Iseyin | About Us</title>
+  <title>OLCH Iseyin | News & EVents</title>
   <meta name="description"
     content="Our Lady Catholic Hospital Iseyin provides trusted healthcare, modern facilities, and 24/7 emergency services.">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="../Style/about.css">
   <link rel="stylesheet" href="../Style/style.css">
   <link rel="stylesheet" href="../Style/home-intro.css">
   <link rel="stylesheet" href="../Style/auto-animate.css">
-  <link rel="stylesheet" href="../Style/facilities.css">
-  <link rel="stylesheet" href="../Style/FAQs.css">
-  <link rel="stylesheet" href="../Style/news.css">
+  <link rel="stylesheet" href="../Style/newsPage.css">
+  <!-- <link rel="stylesheet" href="../Style/facilities.css"> -->
+  <!-- <link rel="stylesheet" href="../Style/FAQs.css"> -->
+  <!-- <link rel="stylesheet" href="../Style/news.css"> -->
   <link rel="stylesheet" href="../Style/collaborators.css">
 </head>
+
 <body>
   <!-- Skip Link for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -50,148 +52,813 @@
     </div>
   </header>
 
-  <!-- =========================
-       HERO
-  ========================= -->
-  <header class="hero">
-    <div class="news-container hero-content">
-      <div class="hero-text">
-        <h1>Our Hospital News & Community Health Updates</h1>
-        <p>
-          Stay informed with the latest disease awareness updates, medical outreach events,
-          public health announcements, prevention tips, and healthcare education from our hospital.
-        </p>
-
-        <div class="hero-badges">
-          <div class="hero-badge">Disease Awareness</div>
-          <div class="hero-badge">Health Outreach</div>
-          <div class="hero-badge">Community Education</div>
-          <div class="hero-badge">Hospital Updates</div>
-        </div>
+  <main id="main-content">
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="container2">
+          
+        <h2>Health News & Our Hospital Updates</h2>
+        <p>Stay informed with the latest disease awareness updates,<br>
+           medical outreach events, public health announcements, <br>
+          prevention tips, and healthcare education from our hospital.</p>
+        <!-- <a href="appointment.html" class="btn btn--primary">Book Appointment</a> -->
       </div>
 
-      <div class="hero-card">
-        <h3>Health News Highlights</h3>
-        <p>
-          Access important updates on malaria, cholera, maternal health, child immunization,
-          diabetes, hypertension, and more.
-        </p>
-
-        <div class="hero-stat-grid">
-          <div class="hero-stat">
-            <strong id="heroNewsCount">0</strong>
-            <span>Published News</span>
-          </div>
-          <div class="hero-stat">
-            <strong>20+</strong>
-            <span>Health Topics</span>
-          </div>
-          <div class="hero-stat">
-            <strong>100%</strong>
-            <span>Up-to-date</span>
-          </div>
-          <div class="hero-stat">
-            <strong>24/7</strong>
-            <span>Always Accessible</span>
-          </div>
-        </div>
+      <div class="container3">
+        <!-- Single h1 for typing -->
+        <h1 class="type"></h1>
       </div>
+    </section>
+
+
+<!-- =========================================
+     HOSPITAL EVENTS & HEALTH NEWS
+     FULL UPDATED VERSION
+     Responsive + Search + Filters
+     Lazy Loading + See More System
+========================================= -->
+
+<section class="updates-page">
+
+  <!-- HEADER -->
+
+  <div class="desktop-top">
+
+    <div class="heading-area">
+
+      <span class="section-badge">
+        Hospital Updates
+      </span>
+
+      <h1>
+        Events & Health News
+      </h1>
+
+      <p>
+        Explore hospital events, community outreach programs,
+        healthcare awareness campaigns, and medical news updates.
+      </p>
+
     </div>
-  </header>
 
-  <!-- =========================
-       TOOLBAR
-  ========================= -->
-  <section class="toolbar">
-    <div class="news-container">
-      <div class="toolbar-box">
-        <div class="search-row">
-          <div class="search-input-wrap">
-            <span class="search-icon">🔎</span>
-            <input
-              type="text"
-              id="searchInput"
-              class="search-input"
-              placeholder="Search health news, diseases, outreach, pregnancy, malaria..."
+    <!-- DESKTOP SEARCH + FILTERS -->
+
+    <div class="desktop-actions">
+
+      <div class="desktop-search">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search events, health news, outreach..."
+        />
+
+      </div>
+
+      <div class="desktop-filters">
+
+        <button class="filter-btn active" data-filter="all">
+          All
+        </button>
+
+        <button class="filter-btn" data-filter="news">
+          Health News
+        </button>
+
+        <button class="filter-btn" data-filter="event">
+          Events
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT GRID -->
+
+  <div class="content-grid" id="contentGrid">
+
+
+    <!-- CARD 1 -->
+
+    <div class="content-card visible-card" data-category="event">
+
+      <div class="card-image">
+
+        <img
+          loading="lazy"
+          src="../Images/News/Cardinal.jpg"
+          alt="OLCH's image"
+        />
+
+      </div>
+
+      <div class="card-content">
+
+        <span class="category event">
+          Event
+        </span>
+
+        <h3 class="card-title">
+          MR AHMED RAJI BUILT AND DONATED A THEATRE TO OUR HOSPITAL, AND COMMISSIONED BY CARDINAL ONAIYEKAN
+        </h3>
+
+        <p class="short-text">
+          Great things indeed happen when God mixes with men, 
+        </p>
+
+        <button class="view-btn" onclick="openModal(this)">
+          View Full Event
+        </button>
+
+
+
+        <div class="hidden-content">
+
+          <div class="gallery">
+
+            <img
+              loading="lazy"
+              src="../Images/News/Bishop.jpg"
+              alt=""
             />
+
+            <img
+              loading="lazy"
+              src="../Images/News/theatre-view.jpg"
+              alt=""
+            />
+
           </div>
-          <div class="result-count" id="resultCount">0 news found</div>
-        </div>
 
-        <div class="filters" id="filterButtons">
-          <!-- Generated by JS -->
-        </div>
-      </div>
-    </div>
-  </section>
+                  <p>so it was today as His Eminence John Cardinal Onaiyekan blessed and commissioned a newly built theatre facility donated by Mr Ahmed Raji SAN, a leading Senior Advocate of Nigeria and a pronounced muslim, who indeed found it an honour to contribute a quota in the service to God and the humanity on Tuesday, 18th October, 2022 at Our Lady Catholic Hospital, Iseyin.
 
-  <!-- =========================
-       NEWS
-  ========================= -->
-  <main class="section">
-    <div class="news-container">
-      <div class="section-header">
-        <div>
-          <h2>Latest Health News</h2>
-          <p>
-            Browse our hospital’s health education articles, disease awareness posts,
-            medical events, and community outreach updates.
+         
+            His Eminence, prior the blessing of the theatre, made it known that true religion is nothing but kindness, friendship, peace and solidarity and giving back to humanity which Barrister Raji has always been fulfilling. Giving he said, should not be done anyhow but by giving everything that one has to the Lord and through our services to humanity by portraying good and positive behaviour.
+
+          
+
+          
+The donor, Mr Ahmed Raji SAN who had been involved in more than 100 cases at trial and Appellate courts in his address mentioned that his contribution can be said to be a service to humanity and which he would always love to do more. Moreover, he could not but mention the fact that even as a Muslim that he is, he would always reckon with the Catholic church as the only authentic Christian faith who does not discriminate nor condemn others. Thus, "The only Christian faith I know is Catholic...you are the authentic, it is always a thing of pride to be in your midst." he said. He acknowledged the effort of the Catholic church in the interfaith dialogue especially in Oyo diocese through His Lordship, Most Rev. Emmanuel Badejo the Chief Shepherd whom he was always inspired by his way of life.
+
+
+To his Eminence, he said, even though he had always watched him from different angles, he did not for once pose to be a merchant in the field of religion therefore, if he really could alternate religion, he would surely choose Catholicism, he added assertively. For this purpose, he said he had really deemed it fit to give back to humanity with the erection of the theatre facility named after his mother, Ayisat Aweni Raji of blessed memory.
+Other Eminent guests of the day could not hide their delight in their various speeches as they commended the philanthropic act of the donor towards facilitating advanced health care services of the whole community of Iseyin and across board.
+Rev Sr. Theresa SSL, the Matron of the hospital was so glad that she witnessed the epoch event coming into reality and a milestone in the history of the hospital and within Oyo and its axis. Chief Sr. Emmanuel Oke a Knight of the Catholic Church and one of the Management board of the hospital described Barrister Raji  as a man of Philanthropic act and whom through the acts, he had reflect recognized the roles the Catholic church in the service to humanity.
+
+
+Just immediately after the various worthwhile addresses, His Eminence, John Cardinal Onaiyekan proceeded to bless the theatre and commissioned it to the glory of God and service of the humility. Present also at the occasion were the Royal Heads, Sabi of Iganna, Baajigan of Ilaji Ile, Eleyipo of Ipapo, Alhaji Muftau Kunmi Mustapha, the PDP Chairman of Oyo State, Dr Yemi Raji a consultant and medical specialist with the UCH and also a brother to the donor, Priests and Religious within Oyo diocese, Students of St. Cecilia Music School.
+In an interview with Mr Ahmed Raji at his residence, he made it known that the Hospital has really served the community of Iseyin for over 5 decades and which he could definitely referred to as the last hope of the people in the environment because no any other hospital in the area has lived up to its standards in terms of service and facilities. He likewise encouraged the youths to be patient in whatever they do, not minding the polluted society but have their heads held high with hardwork and patience for by that, lines would definitely fall into place for them.
+
           </p>
+
+          
+
+          <button class="hide-btn" onclick="hideContent(this)">
+            Hide Content
+          </button>
+
         </div>
+
       </div>
 
-      <div class="news-grid" id="newsGrid"></div>
-
-      <div class="empty-state" id="emptyState">
-        <h3>No news found</h3>
-        <p>Try searching with another keyword or choose a different category.</p>
-      </div>
-
-      <div class="load-more-wrap">
-        <button class="load-more-btn" id="loadMoreBtn">Load More News</button>
-      </div>
     </div>
-  </main>
 
-<!-- Footer -->
-    <footer class="footer fade-section">
-      <div class="container">
-        <p>
-          <strong>Developed by </strong>
-          <a
-            target="_blank"
-            class="developer"
-            href="https://jalix-webtech.github.io/Portfolio/"
-            >Jalixon</a
-          >
-        </p>
-        <p>
-          click
-          <a
-            class="developer"
-            target="_blank"
-            href="https://jalix-webtech.github.io/Portfolio/"
-            >here</a
-          >
-          to contact developer
-        </p>
+    <!-- CARD 1 -->
+
+    <div class="content-card visible-card" data-category="event">
+
+      <div class="card-image">
+
+        <img
+          loading="lazy"
+          src="../Images/OLCH_outreach.jpg"
+          alt="Outreach"
+        />
+
       </div>
 
-      <div class="container">
-        <p>
-          © <span id="current-year"></span> Our Lady Catholic Hospital. <br> All
-          rights reserved.
+      <div class="card-content">
+
+        <span class="category event">
+          Event
+        </span>
+
+        <h3 class="card-title">
+          Free medical outreach
+        </h3>
+
+        <p class="short-text">
+          Our hospital recently organized a free medical outreach providing checkups, laboratory screening, blood pressure monitoring, and        medications to over 300 community members.
         </p>
+
+        <button class="view-btn" onclick="toggleContent(this)">
+          View Full Event
+        </button>
+
+        <div class="hidden-content">
+
+          <p>
+            The event was conducted by our qualified medical team and aimed at improving preventive    healthcare awareness.
+          </p>
+
+          <div class="gallery">
+
+            <!-- <img
+              loading="lazy"
+              src="../Images/OLCH_outreach.jpg"
+              alt=""
+            />
+
+            <img
+              loading="lazy"
+              src="../Images/surgery.jpg"
+              alt=""
+            /> -->
+
+          </div>
+
+          <button class="hide-btn" onclick="hideContent(this)">
+            Hide Content
+          </button>
+
+        </div>
+
       </div>
-    </footer>
+
+    </div>
+
+    <!-- CARD 2 -->
+
+    <div class="content-card visible-card" data-category="news">
+
+      <div class="card-image">
+
+        <img
+          loading="lazy"
+          src="../Images/News/diabetes.jpeg"
+          alt="Health Awareness"
+        />
+
+      </div>
+
+      <div class="card-content">
+
+        <span class="category news">
+          Health News
+        </span>
+
+        <h3 class="card-title">
+          Diabetes Prevention Awareness
+        </h3>
+
+        <p class="short-text">
+          Doctors educated patients on diabetes prevention
+          and healthy lifestyle practices.
+        </p>
+
+        <button class="view-btn" onclick="toggleContent(this)">
+          Read Full News
+        </button>
+
+        <div class="hidden-content">
+
+          <p>
+            Experts discussed proper nutrition, healthy habits,
+            and preventive healthcare measures for diabetes management.
+          </p>
+
+          <div class="gallery">
+
+            <img
+              loading="lazy"
+              src="../Images/News/diabetes.jpg"
+              alt=""
+            />
+<!-- 
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=2200&q=100"
+              alt=""
+            /> -->
+
+          </div>
+
+          <button class="hide-btn" onclick="hideContent(this)">
+            Hide Content
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    
+
+    <!-- CARD 2 -->
+
+    <div class="content-card visible-card" data-category="news">
+
+      <div class="card-image">
+
+        <img
+          loading="lazy"
+          src="../Images/News/malaria2.jpeg"
+          alt="Health Awareness"
+        />
+
+      </div>
+
+      <div class="card-content">
+
+        <span class="category news">
+          Health News
+        </span>
+
+        <h3 class="card-title">
+          Malaria Prevention
+        </h3>
+
+        <p class="short-text">
+          Malaria remains one of the most common illnesses in many communities.
+        </p>
+
+        <button class="view-btn" onclick="toggleContent(this)">
+          Read Full News
+        </button>
+
+        <div class="hidden-content">
+
+          <p>
+            Our hospital advises residents to sleep under treated mosquito nets, clear stagnant water around homes, and seek early treatment when fever, headache, weakness, or body pain begins.
+          </p>
+
+          <div class="gallery">
+
+            <img
+              loading="lazy"
+              src="../Images/News/Malaria.png"
+              alt=""
+            />
+
+            <!-- <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=2200&q=100"
+              alt=""
+            /> -->
+
+          </div>
+
+          <button class="hide-btn" onclick="hideContent(this)">
+            Hide Content
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CARD 3 -->
+
+    <div class="content-card hidden-card" data-category="event">
+
+      <div class="card-image">
+
+        <img
+          loading="lazy"
+          src="https://images.unsplash.com/photo-1581595219315-a187dd40c322?auto=format&fit=crop&w=2200&q=100"
+          alt="Medical Outreach"
+        />
+
+      </div>
+
+      <div class="card-content">
+
+        <span class="category event">
+          Event
+        </span>
+
+        <h3 class="card-title">
+          Community Medical Outreach
+        </h3>
+
+        <p class="short-text">
+          Free healthcare consultation and screening
+          services were provided to the community.
+        </p>
+
+        <button class="view-btn" onclick="toggleContent(this)">
+          View Full Event
+        </button>
+
+        <div class="hidden-content">
+
+          <p>
+            Residents benefited from free consultations,
+            blood pressure testing, and healthcare counseling.
+          </p>
+
+          <div class="gallery">
+
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=2200&q=100"
+              alt=""
+            />
+
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=2200&q=100"
+              alt=""
+            />
+
+          </div>
+
+          <button class="hide-btn" onclick="hideContent(this)">
+            Hide Content
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CARD 4 -->
+
+    <div class="content-card hidden-card" data-category="news">
+
+      <div class="card-image">
+
+        <img
+          loading="lazy"
+          src="https://images.unsplash.com/photo-1580281657527-47e945f8f4df?auto=format&fit=crop&w=2200&q=100"
+          alt="Health Seminar"
+        />
+
+      </div>
+
+      <div class="card-content">
+
+        <span class="category news">
+          Health News
+        </span>
+
+        <h3 class="card-title">
+          Maternal Health Education Program
+        </h3>
+
+        <p class="short-text">
+          Pregnant women received guidance on safe pregnancy
+          and maternal healthcare practices.
+        </p>
+
+        <button class="view-btn" onclick="toggleContent(this)">
+          Read Full News
+        </button>
+
+        <div class="hidden-content">
+
+          <p>
+            Healthcare professionals educated mothers
+            on prenatal care, nutrition, and childbirth safety.
+          </p>
+
+          <div class="gallery">
+
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=2200&q=100"
+              alt=""
+            />
+
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=2200&q=100"
+              alt=""
+            />
+
+          </div>
+
+          <button class="hide-btn" onclick="hideContent(this)">
+            Hide Content
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- SEE MORE -->
+
+  <div class="see-more-wrapper">
+
+    <button id="seeMoreBtn">
+      See More Updates
+    </button>
+
+  </div>
+
+</section>
+
+<!-- MOBILE SEARCH -->
+
+<div class="mobile-search">
+
+  <i class="fa-solid fa-magnifying-glass"></i>
+
+  <input
+    type="text"
+    id="mobileSearchInput"
+    placeholder="Search updates and news here..."
+  />
+
+</div>
+
+<!-- MOBILE NAV -->
+
+<div class="mobile-bottom-nav">
+
+  <button class="mobile-nav-btn active" data-filter="all">
+    All
+  </button>
+
+  <button class="mobile-nav-btn" data-filter="news">
+    Health News
+  </button>
+
+  <button class="mobile-nav-btn" data-filter="event">
+    Events
+  </button>
+
+</div>
+
+<!-- FONT AWESOME -->
 
 
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+ // ===============================
+// OPEN MODAL
+// ===============================
+
+function openModal(button){
+
+  const card =
+    button.closest('.content-card');
+
+  const title =
+    card.querySelector('.card-title').innerText;
+
+  const text =
+    card.querySelector('.hidden-content p').innerText;
+
+  const images =
+    card.querySelectorAll('.gallery img');
+
+  let galleryHTML = '';
+
+  images.forEach(img => {
+    galleryHTML += `
+      <img src="${img.src}" />
+    `;
+  });
+
+  const modalContent =
+    document.getElementById('modalContent');
+
+  modalContent.innerHTML = `
+    <h2>${title}</h2>
+    <p>${text}</p>
+
+    <div class="modal-gallery">
+      ${galleryHTML}
+    </div>
+  `;
+
+  document
+    .getElementById('eventModal')
+    .classList.add('active');
+
+}
+
+// ===============================
+// CLOSE MODAL
+// ===============================
+
+function closeModal(){
+  document
+    .getElementById('eventModal')
+    .classList.remove('active');
+}
+
+  // FILTER SYSTEM
+
+  const filterButtons =
+    document.querySelectorAll(
+      '.filter-btn, .mobile-nav-btn'
+    );
+
+  const cards =
+    document.querySelectorAll('.content-card');
+
+  filterButtons.forEach(button => {
+
+    button.addEventListener('click', () => {
+
+      const filter =
+        button.getAttribute('data-filter');
+
+      filterButtons.forEach(btn =>
+        btn.classList.remove('active')
+      );
+
+      document
+        .querySelectorAll(
+          `[data-filter="${filter}"]`
+        )
+        .forEach(btn =>
+          btn.classList.add('active')
+        );
+
+      cards.forEach(card => {
+
+        const category =
+          card.getAttribute('data-category');
+
+        if(
+          filter === 'all' ||
+          category === filter
+        ){
+          card.style.display = 'block';
+        }else{
+          card.style.display = 'none';
+        }
+
+      });
+
+    });
+
+  });
+
+  // SEARCH FUNCTION
+
+  function searchContent(keyword){
+
+    const value =
+      keyword.toLowerCase();
+
+    cards.forEach(card => {
+
+      const title =
+        card.querySelector('.card-title')
+        .textContent
+        .toLowerCase();
+
+      const text =
+        card.textContent
+        .toLowerCase();
+
+      if(
+        title.includes(value) ||
+        text.includes(value)
+      ){
+        card.style.display = 'block';
+      }else{
+        card.style.display = 'none';
+      }
+
+    });
+
+  }
+
+  document
+    .getElementById('searchInput')
+    .addEventListener('keyup', function(){
+
+      searchContent(this.value);
+
+    });
+
+  document
+    .getElementById('mobileSearchInput')
+    .addEventListener('keyup', function(){
+
+      searchContent(this.value);
+
+    });
+
+  // SEE MORE SYSTEM
+
+  const seeMoreBtn =
+    document.getElementById('seeMoreBtn');
+
+  const hiddenCards =
+    document.querySelectorAll('.hidden-card');
+
+  let currentIndex = 0;
+
+  const itemsPerClick = 3;
+
+  seeMoreBtn.addEventListener('click', () => {
+
+    for(
+      let i = currentIndex;
+      i < currentIndex + itemsPerClick;
+      i++
+    ){
+
+      if(hiddenCards[i]){
+        hiddenCards[i].style.display = 'block';
+      }
+
+    }
+
+    currentIndex += itemsPerClick;
+
+    if(currentIndex >= hiddenCards.length){
+      seeMoreBtn.style.display = 'none';
+    }
+
+  });
+
+  // IMAGE LOAD EFFECT
+
+  const images =
+    document.querySelectorAll('img');
+
+  const imageObserver =
+    new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+          const img =
+            entry.target;
+
+          img.onload = () => {
+            img.classList.add('loaded');
+          };
+
+        }
+
+      });
+
+    });
+
+  images.forEach(img => {
+    imageObserver.observe(img);
+  });
+
+</script>
+  <script src="../JS/about.js"></script>
   <script src="../JS/nav.js"></script>
-  <script src="../JS/slider.js"></script>
+  <!-- <script src="../JS/slider.js"></script> -->
   <script src="../JS/auto-type.js"></script>
-  <script src="../JS/home-page-auto-scroll.js"></script>
+  <!-- <script src="../JS/home-page-auto-scroll.js"></script> -->
   <script src="../JS/auto-update-year.js"></script>
-  <script src="../JS/equipment.js"></script>
-  <script src="../JS/news-page.js"></script>
+  <!-- <script src="../JS/equipment.js"></script> -->
+  <!-- <script src="./JS/news.js"></script> -->
+
+
+
+  <!-- ===============================
+     FULL SCREEN MODAL
+================================ -->
+
+<div id="eventModal" class="modal-overlay">
+
+  <div class="modal-container">
+
+    <button class="modal-close" onclick="closeModal()">
+      ✕
+    </button>
+
+    <div class="modal-content" id="modalContent">
+
+      <!-- Dynamic content loads here -->
+
+    </div>
+
+  </div>
+
+</div>
 </body>
+
 </html>
