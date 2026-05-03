@@ -302,20 +302,20 @@
 
       <div class="service-container">
         <!-- <h2>Our Services</h2> -->
-        <div class="servies-div-b">General consultation</div>
-        <div class="servies-div-b">Ultrasound scan</div>
-        <div class="servies-div-b">Cervical Cancer Screening</div>
-        <div class="servies-div-b">Physiotherapy</div>
-        <div class="servies-div">Pediatrics</div>
-        <div class="servies-div">Ante-natal</div>
-        <div class="servies-div">Haart to Heart</div>
-        <div class="servies-div">Surgeries</div>
-        <div class="servies-div">Ambulance</div>
-        <div class="servies-div">Laboratory</div>
-        <div class="servies-div">X-ray</div>
-        <div class="servies-div">Mortuary</div>
-        <div class="servies-div">Emergency</div>
-        <div class="servies-div">Pharmacy</div>
+        <button class="service-btn servies-div-b" data-title="General consultation" data-desc="Comprehensive medical consultations for diagnosis, treatment planning, and health advice.">General consultation</button>
+        <button class="service-btn servies-div-b" data-title="Ultrasound scan" data-desc="Non-invasive imaging technique using sound waves to visualize internal body structures, particularly for pregnancy and organ assessment.">Ultrasound scan</button>
+        <button class="service-btn servies-div-b" data-title="Cervical Cancer Screening" data-desc="Preventive screening program to detect cervical cancer early through pap smears and HPV testing.">Cervical Cancer Screening</button>
+        <button class="service-btn servies-div-b" data-title="Physiotherapy" data-desc="Rehabilitation therapy to restore movement and function, reduce pain, and improve quality of life.">Physiotherapy</button>
+        <button class="service-btn servies-div" data-title="Pediatrics" data-desc="Specialized medical care for infants, children, and adolescents, including routine checkups and vaccinations.">Pediatrics</button>
+        <button class="service-btn servies-div" data-title="Ante-natal" data-desc="Prenatal care services for expectant mothers, including monitoring, education, and delivery preparation.">Ante-natal</button>
+        <button class="service-btn servies-div" data-title="Haart to Heart" data-desc="Comprehensive HIV/AIDS care program providing antiretroviral therapy, counseling, and support services.">Haart to Heart</button>
+        <button class="service-btn servies-div" data-title="Surgeries" data-desc="Surgical procedures performed by qualified surgeons for various medical conditions.">Surgeries</button>
+        <button class="service-btn servies-div" data-title="Ambulance" data-desc="Emergency transportation services to quickly and safely transport patients to the hospital.">Ambulance</button>
+        <button class="service-btn servies-div" data-title="Laboratory" data-desc="Diagnostic testing services including blood tests, urinalysis, and other laboratory examinations.">Laboratory</button>
+        <button class="service-btn servies-div" data-title="X-ray" data-desc="Radiographic imaging services for diagnosing fractures, diseases, and internal injuries.">X-ray</button>
+        <button class="service-btn servies-div" data-title="Mortuary" data-desc="Services for the respectful care and storage of deceased patients.">Mortuary</button>
+        <button class="service-btn servies-div" data-title="Emergency" data-desc="24/7 emergency medical services for critical and life-threatening situations.">Emergency</button>
+        <button class="service-btn servies-div" data-title="Pharmacy" data-desc="Dispensing of medications and pharmaceutical advice to support patient treatment.">Pharmacy</button>
 
         <div class="btn-wrapper">
           <a class="more-equip-btn" href="./pages/Service.html"
@@ -914,5 +914,16 @@
     <script src="./JS/contact.js"></script>
     <script src="./JS/clinical-days.js"></script>
     <script src="./JS/home-equip-sec.js"></script>
+    <script src="./JS/service-modal.js"></script>
+
+    <!-- Service Modal -->
+    <div id="service-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-desc"></p>
+        <button id="modal-close-btn" class="modal-close-btn">Close</button>
+      </div>
+    </div>
   </body>
 </html>
