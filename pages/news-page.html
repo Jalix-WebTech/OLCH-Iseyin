@@ -667,6 +667,22 @@ function closeModal(){
     .classList.remove('active');
 }
 
+function toggleContent(button){
+  const card = button.closest('.content-card');
+  const hiddenContent = card && card.querySelector('.hidden-content');
+  if(hiddenContent){
+    hiddenContent.classList.toggle('active');
+  }
+}
+
+function hideContent(button){
+  const card = button.closest('.content-card');
+  const hiddenContent = card && card.querySelector('.hidden-content');
+  if(hiddenContent){
+    hiddenContent.classList.remove('active');
+  }
+}
+
   // FILTER SYSTEM
 
   const filterButtons =
