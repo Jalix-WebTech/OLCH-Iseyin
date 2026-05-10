@@ -1,0 +1,397 @@
+/* ================================
+   GLOBAL STYLES
+================================= */
+
+/* Reset default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Hospital clean font style */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f9fc; /* Light hospital background */
+    color: #333;
+}
+
+/* ================================
+   ABOUT SECTION STYLING
+================================= */
+
+.about-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.about-section h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #0a4f70;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.about-section h2::after {
+    content: '';
+    width: 70px;
+    height: 4px;
+    background: #2bb673;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* About content card */
+.about-container {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    line-height: 1.8;
+    font-size: 16px;
+    color: #444;
+}
+
+/* ================================
+   PRIORITIES SECTION
+================================= */
+
+.priorities-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.priorities-section h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #0a4f70;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.priorities-section h2::after {
+    content: '';
+    width: 70px;
+    height: 4px;
+    background: #2bb673;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* Grid layout like directors */
+.priorities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+/* Priority cards */
+.priority-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.priority-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+
+.priority-card h3 {
+    color: #0a4f70;
+    margin-bottom: 10px;
+}
+
+.priority-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* ================================
+   RESPONSIVE ADJUSTMENTS
+================================= */
+
+@media (max-width: 600px) {
+
+    .about-container {
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    .priorities-section h2,
+    .about-section h2 {
+        font-size: 22px;
+    }
+
+}
+
+/* =====================================================
+   BOARD SECTION CONTAINER
+===================================================== */
+.board-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 20px;
+}
+
+/* Section Title */
+.board-section h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #0a4f70;
+    margin-bottom: 50px;
+}
+
+/* =====================================================
+   DIRECTOR GRID LAYOUT
+   Responsive using CSS Grid
+===================================================== */
+.directors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* =====================================================
+   DIRECTOR CARD DESIGN
+===================================================== */
+.director-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.director-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Director image (small circular in card) */
+.director-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #2bb673;
+    margin-bottom: 15px;
+}
+
+/* Director name */
+.director-card h3 {
+    color: #0a4f70;
+    margin-bottom: 5px;
+}
+
+/* Director position */
+.director-card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Preview button */
+.preview-btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 25px;
+    background-color: #0a4f70;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.preview-btn:hover {
+    background-color: #2bb673;
+}
+
+/* =====================================================
+   MODAL OVERLAY (FULL SCREEN)
+===================================================== */
+.modal {
+    display: none; /* Hidden initially */
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999; /* Ensure above navbar */
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* =====================================================
+   MODAL CARD
+===================================================== */
+.modal-card {
+    background: #ffffff;
+    width: 95%;
+    max-width: 1100px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 20px;
+    padding: 60px 40px 40px 40px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Large Full Photo */
+.modal-profile-image {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+/* Director details inside modal */
+.modal-card h3 {
+    color: #0a4f70;
+    margin-bottom: 5px;
+}
+
+.modal-position {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.modal-bio {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* =========================================
+   CLOSE BUTTON (Bottom Right Position)
+========================================= */
+
+.close-modal-btn {
+    position: fixed;
+    bottom: 15px;      /* Move to bottom */
+    right: 30px;       /* Keep on right side */
+    padding: 10px 22px;
+    border: none;
+    border-radius: 30px;
+    background-color: #d8a600;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-modal-btn:hover {
+    background-color: #2bb673;
+    transform: scale(1.05);
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+@media (max-width: 600px) {
+    .modal-card {
+        padding: 50px 20px 30px 20px;
+    }
+}
+
+/* Other board members */
+
+.other-members{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.others-boxes {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.others-boxes:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.others-boxes{
+    width: 400px;
+    /* border: #2bb673 solid 2px; */
+    border-radius: 5px;
+}
+
+.others-boxes h3, .others-boxes p{
+    text-align: center;
+}
+
+.others-boxes h3{
+    color: #0a4f70;
+}
+
+.others-boxes p{
+    color: #666;
+    font-size: 14px;
+}
+
+
+/* Button */
+.history-btn{
+    display:inline-block;
+    padding:12px 28px;
+    background:#009231;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:5px;
+    transition:0.3s ease;
+}
+
+/* Hover Effect */
+.history-btn:hover{
+    background:#004e2a;
+    transform:translateY(-2px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width:768px){
+
+    .history-container h2{
+        font-size:1.6rem;
+    }
+
+    .history-container p{
+        font-size:0.95rem;
+    }
+
+    .history-btn{
+        padding:10px 22px;
+        font-size:0.9rem;
+    }
+
+}

@@ -1,0 +1,61 @@
+.collaborators {
+  padding: 40px 20px;
+  background: #f7f9fc;
+}
+
+.collaborators h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.collaborators .intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.collab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.collab-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.collab-card:hover {
+  transform: translateY(-5px);
+}
+
+.collab-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #0a4d8c;
+}
+
+.collab-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.note {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Mobile adjustment */
+@media (max-width: 500px) {
+  .collaborators h2 {
+    font-size: 1.6rem;
+  }
+}
